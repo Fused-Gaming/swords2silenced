@@ -26,13 +26,13 @@ jobs:
         run: npm ci
 
       - name: Run TypeScript check
-        run: npm run type-check || true
+        run: npm run type-check
 
       - name: Run linting
-        run: npm run lint || true
+        run: npm run lint
 
       - name: Run tests
-        run: npm run test || true
+        run: npm run test
 
       - name: Build
         run: npm run build

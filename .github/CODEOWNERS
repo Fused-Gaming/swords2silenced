@@ -1,0 +1,25 @@
+# Global owners - required for all PRs
+* @4eckd
+
+# Workflows and CI/CD
+.github/workflows/ @4eckd
+.github/ @4eckd
+
+# Root configuration files
+*.json @4eckd
+*.yml @4eckd
+*.yaml @4eckd
+.gitignore @4eckd
+
+# Apps directory
+/apps/ @4eckd
+
+# Packages directory
+/packages/ @4eckd
+
+# Tools directory
+/tools/ @4eckd
+
+# Documentation
+*.md @4eckd
+/docs/ @4eckd

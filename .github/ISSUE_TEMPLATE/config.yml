@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/Fused-Gaming/swords2silenced/discussions
+    about: Ask questions and share ideas in our discussions forum
+  - name: Documentation
+    url: https://github.com/Fused-Gaming/swords2silenced/wiki
+    about: Read our documentation and guides
