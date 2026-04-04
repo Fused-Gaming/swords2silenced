@@ -67,7 +67,7 @@ export function getInstalledSkills(): string[] {
  * Validate MCP configuration
  */
 export function validateMCPConfig(config: MCPConfig): boolean {
-  return config.enabled && config.version && config.name;
+  return !!(config.enabled && config.version && config.name);
 }
 
 export default {
