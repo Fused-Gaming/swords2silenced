@@ -99,9 +99,18 @@ npm run coverage     # Generate coverage report
 
 ## 📚 Documentation
 
-- [Branching Strategy](./docs/BRANCHING_STRATEGY.md)
-- [Contributing Guidelines](./docs/CONTRIBUTING.md)
-- [Deployment Guide](./docs/DEPLOYMENT.md)
+### Getting Started
+- [Setup Guide](./docs/SETUP_GUIDE.md) - Local development setup
+- [Deployment Summary](./DEPLOYMENT_SUMMARY.md) - Complete project overview
+
+### Development & Workflow
+- [Branching Strategy](./docs/BRANCHING_STRATEGY.md) - Git Flow workflow
+- [Contributing Guidelines](./docs/CONTRIBUTING.md) - How to contribute
+
+### Deployment & Infrastructure
+- [Deployment Guide](./docs/DEPLOYMENT.md) - Vercel deployment
+- [DNS & Cloudflare Setup](./docs/DNS_CLOUDFLARE_GODADDY.md) - GoDaddy to Cloudflare migration
+- [Skills Integration](./docs/SKILLS_INTEGRATION.md) - Install and use skills
 
 ## 🤝 Contributing
 
