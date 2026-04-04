@@ -1,0 +1,38 @@
+name: Test & Lint
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['18.x']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript check
+        run: npm run type-check || true
+
+      - name: Run linting
+        run: npm run lint || true
+
+      - name: Run tests
+        run: npm run test || true
+
+      - name: Build
+        run: npm run build

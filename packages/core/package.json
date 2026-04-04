@@ -1,0 +1,17 @@
+{
+  "name": "@swords2silenced/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Core business logic for Swords to Silenced",
+  "main": "index.ts",
+  "scripts": {
+    "build": "echo 'Core package'",
+    "test": "echo 'No tests yet'",
+    "lint": "eslint . --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}

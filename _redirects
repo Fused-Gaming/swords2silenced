@@ -1,0 +1,9 @@
+# Vercel redirects configuration
+# Redirect trailing slashes
+/*/ /:splat 301
+
+# Redirect http to https (handled by Vercel/Cloudflare)
+# http://swordstosilenced.com/* https://swordstosilenced.com/:splat 301
+
+# Health check endpoint
+/health /api/health 200

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build --workspace=apps/web",
+  "devCommand": "npm run dev --workspace=apps/web",
+  "installCommand": "npm install",
+  "outputDirectory": "apps/web/.next",
+  "rootDirectory": ".",
+  "framework": "nextjs",
+  "env": [
+    {
+      "key": "NEXT_PUBLIC_SITE_URL",
+      "value": "https://swordstosilenced.com"
+    }
+  ],
+  "regions": ["iad1"],
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 60,
+      "memory": 3008
+    }
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "autoExpire": true,
+    "silent": false
+  }
+}

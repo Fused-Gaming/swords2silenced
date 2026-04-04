@@ -1,0 +1,21 @@
+name = "swords2silenced"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+routes = [
+  { pattern = "swordstosilenced.com", zone_id = "" }
+]
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+routes = [
+  { pattern = "staging.swordstosilenced.com", zone_id = "" }
+]
+vars = { ENVIRONMENT = "staging" }
