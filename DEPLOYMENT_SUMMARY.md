@@ -424,8 +424,7 @@ npm run test --workspace=tools/validators/pre-deploy-validator
 **Project Status**: Ready for Deployment 🚀
 
 **Last Updated**: April 4, 2026
-**Commit**: 86a8587
-**Branch**: claude/setup-monorepo-scaffold-MjeHp
+**Branch**: main
 
 ---
 

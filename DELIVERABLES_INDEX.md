@@ -1,7 +1,7 @@
 # Repository Indexing & Branching Strategy
-**Branch**: `claude/index-repos-branching-ja1J1`  
-**Purpose**: Index external Fused-Gaming and Trystpilot repositories, document skills/MCP inventory, establish parallel development strategy  
-**Target**: Enable smooth skill integration and collaborative parallel development  
+**Branch**: `main`  
+**Purpose**: Document skills/MCP inventory and parallel development strategy  
+**Target**: Enable smooth skill integration and collaborative development  
 **Last Updated**: April 4, 2026
 
 ---
