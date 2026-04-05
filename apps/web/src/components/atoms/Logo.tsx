@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Logo.module.css';
 
-interface LogoProps {
+export interface LogoProps {
   variant?: 'full' | 'icon';
   className?: string;
 }
