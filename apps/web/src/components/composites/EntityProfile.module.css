@@ -1,0 +1,142 @@
+/**
+ * EntityProfile Styles
+ * Person/organization profile card
+ */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-white-off);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.profile:hover {
+  border-color: var(--color-navy-deep);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ===============================================
+   AVATAR
+   Image or initials placeholder
+   =============================================== */
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-navy-xlight), var(--color-gray-light));
+  border: 2px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initials {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy-deep);
+}
+
+/* ===============================================
+   NAME
+   Primary identifier
+   =============================================== */
+
+.name {
+  margin: 0;
+  color: var(--color-navy-deep);
+  line-height: var(--line-height-tight);
+}
+
+/* ===============================================
+   ROLE
+   Position/title
+   =============================================== */
+
+.role {
+  color: var(--color-steel-gray);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ===============================================
+   ALLEGATIONS
+   What they're accused of
+   =============================================== */
+
+.allegations {
+  color: var(--color-navy-deep);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================================
+   METADATA
+   Related information
+   =============================================== */
+
+.metadata {
+  width: 100%;
+  padding-top: var(--space-md);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.caseCount {
+  font-size: var(--type-caption);
+  color: var(--color-steel-gray);
+  display: block;
+}
+
+.caseCount strong {
+  color: var(--color-red-alert);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
+
+@media (max-width: 767px) {
+  .profile {
+    padding: var(--space-md);
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .initials {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile {
+    transition: none;
+  }
+
+  .profile:hover {
+    transform: none;
+  }
+}
