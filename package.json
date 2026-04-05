@@ -21,7 +21,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "clean": "npm run clean --workspaces && rm -rf node_modules dist coverage",
     "bootstrap": "npm install",
-    "prepare": "husky install",
+    "prepare": "husky install || true",
     "type-check": "tsc --noEmit",
     "release": "semantic-release"
   },
