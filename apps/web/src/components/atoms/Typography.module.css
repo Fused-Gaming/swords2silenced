@@ -1,0 +1,149 @@
+/**
+ * Typography Styles
+ * Uses design tokens from tokens.css
+ */
+
+/* ===============================================
+   HEADINGS
+   Serif font, bold weight, tight line height
+   =============================================== */
+
+.h1 {
+  font-family: var(--font-serif);
+  font-size: var(--type-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-navy-deep);
+  margin-bottom: var(--space-md);
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-size: var(--type-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-navy-deep);
+  margin-bottom: var(--space-md);
+}
+
+.h3 {
+  font-family: var(--font-serif);
+  font-size: var(--type-h3);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-navy-deep);
+  margin-bottom: var(--space-md);
+}
+
+.h4 {
+  font-family: var(--font-serif);
+  font-size: var(--type-h4);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-navy-deep);
+  margin-bottom: var(--space-md);
+}
+
+/* ===============================================
+   BODY TEXT
+   Sans serif font, regular weight, relaxed line height
+   =============================================== */
+
+.body {
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-navy-deep);
+  margin-bottom: var(--space-md);
+  max-width: 80ch;
+}
+
+.body:last-child {
+  margin-bottom: 0;
+}
+
+.bodySmall {
+  font-family: var(--font-sans);
+  font-size: var(--type-body-small);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-navy-deep);
+  margin-bottom: var(--space-sm);
+}
+
+.bodySmall:last-child {
+  margin-bottom: 0;
+}
+
+/* ===============================================
+   CAPTION
+   Small text, secondary information
+   =============================================== */
+
+.caption {
+  font-family: var(--font-sans);
+  font-size: var(--type-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-steel-gray);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ===============================================
+   EMPHASIS
+   Bold, italic, and muted text
+   =============================================== */
+
+.strong {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-navy-deep);
+}
+
+.emphasis {
+  font-style: italic;
+  color: var(--color-navy-deep);
+}
+
+.muted {
+  color: var(--color-steel-gray);
+  font-weight: var(--font-weight-regular);
+}
+
+/* ===============================================
+   ACCESSIBILITY
+   =============================================== */
+
+@media (prefers-contrast: more) {
+  .body,
+  .bodySmall {
+    font-weight: 500;
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  .h4 {
+    font-weight: 900;
+  }
+}
+
+@media print {
+  .h1,
+  .h2,
+  .h3,
+  .h4 {
+    page-break-after: avoid;
+  }
+
+  .body,
+  .bodySmall {
+    orphans: 3;
+    widows: 3;
+  }
+}

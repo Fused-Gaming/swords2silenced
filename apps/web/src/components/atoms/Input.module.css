@@ -1,0 +1,124 @@
+/**
+ * Input Styles
+ * Uses design tokens from tokens.css
+ */
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--type-body-small);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy-deep);
+  display: block;
+}
+
+.required {
+  color: var(--color-critical);
+  margin-left: 2px;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-steel-gray);
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  color: var(--color-navy-deep);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-normal);
+  background-color: var(--color-white-off);
+
+  &::placeholder {
+    color: var(--color-steel-gray);
+    opacity: 0.6;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-blue-mute);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-red-alert);
+    box-shadow: 0 0 0 3px rgba(176, 42, 55, 0.1);
+  }
+
+  &:disabled {
+    background-color: var(--color-gray-light);
+    color: var(--color-steel-gray);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.withIcon {
+  padding-left: calc(var(--space-md) + 28px);
+}
+
+.error {
+  border-color: var(--color-critical);
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(214, 40, 40, 0.1);
+  }
+}
+
+.errorText {
+  font-size: var(--type-caption);
+  color: var(--color-critical);
+  font-weight: var(--font-weight-medium);
+  display: block;
+}
+
+.helpText {
+  font-size: var(--type-caption);
+  color: var(--color-steel-gray);
+  display: block;
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
+
+@media (max-width: 767px) {
+  .input {
+    font-size: 16px; /* Prevents zoom on mobile */
+  }
+}
+
+/* ===============================================
+   ACCESSIBILITY
+   =============================================== */
+
+@media (prefers-contrast: more) {
+  .input {
+    border-width: 2px;
+  }
+
+  .input:focus {
+    box-shadow: 0 0 0 4px rgba(176, 42, 55, 0.2);
+  }
+}
