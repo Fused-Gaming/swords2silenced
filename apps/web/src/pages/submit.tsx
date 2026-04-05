@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import Button from '../components/atoms/Button';
 import Input from '../components/atoms/Input';
 import styles from '../styles/Submit.module.css';
@@ -15,7 +16,7 @@ export default function Submit() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -24,9 +25,10 @@ export default function Submit() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission
+    // eslint-disable-next-line no-console
     console.log('Form submitted:', formData);
   };
 
@@ -34,7 +36,10 @@ export default function Submit() {
     <>
       <Head>
         <title>Submit Records | Swords to Silence</title>
-        <meta name="description" content="Submit public records or information about the housing-homelessness pipeline." />
+        <meta
+          name="description"
+          content="Submit public records or information about the housing-homelessness pipeline."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -48,10 +53,12 @@ export default function Submit() {
         <main className={styles.main}>
           <section className={styles.intro}>
             <p>
-              If you have access to public records, documents, or information relevant to the housing-homelessness pipeline, we want to review them.
+              If you have access to public records, documents, or information relevant to the
+              housing-homelessness pipeline, we want to review them.
             </p>
             <p>
-              <strong>Important:</strong> Please only submit publicly available records or information you are authorized to share.
+              <strong>Important:</strong> Please only submit publicly available records or
+              information you are authorized to share.
             </p>
           </section>
 
@@ -103,9 +110,7 @@ export default function Submit() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="documentReference">
-                  Document Reference or Citation
-                </label>
+                <label htmlFor="documentReference">Document Reference or Citation</label>
                 <Input
                   id="documentReference"
                   type="text"
@@ -117,9 +122,7 @@ export default function Submit() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="description">
-                  What record is this and why is it relevant?
-                </label>
+                <label htmlFor="description">What record is this and why is it relevant?</label>
                 <textarea
                   id="description"
                   name="description"
@@ -143,28 +146,32 @@ export default function Submit() {
               <div className={styles.guideline}>
                 <h3>Public Records Only</h3>
                 <p>
-                  Please only submit documents that are publicly available or that you have authorization to share.
+                  Please only submit documents that are publicly available or that you have
+                  authorization to share.
                 </p>
               </div>
 
               <div className={styles.guideline}>
                 <h3>Include References</h3>
                 <p>
-                  Provide case numbers, URLs, publication dates, or other reference information so we can locate and verify the record.
+                  Provide case numbers, URLs, publication dates, or other reference information so
+                  we can locate and verify the record.
                 </p>
               </div>
 
               <div className={styles.guideline}>
                 <h3>Explain Relevance</h3>
                 <p>
-                  Help us understand how this document relates to the housing enforcement, corruption, or homelessness accountability gaps we are investigating.
+                  Help us understand how this document relates to the housing enforcement,
+                  corruption, or homelessness accountability gaps we are investigating.
                 </p>
               </div>
 
               <div className={styles.guideline}>
                 <h3>No Confidential Information</h3>
                 <p>
-                  Do not submit private health information, social security numbers, confidential addresses, or other protected personal data.
+                  Do not submit private health information, social security numbers, confidential
+                  addresses, or other protected personal data.
                 </p>
               </div>
             </div>
@@ -173,7 +180,8 @@ export default function Submit() {
           <section className={styles.support}>
             <h2>Need Help?</h2>
             <p>
-              Have questions about what records might be helpful? Want to discuss a potential case? Contact us at{' '}
+              Have questions about what records might be helpful? Want to discuss a potential case?
+              Contact us at{' '}
               <a href="mailto:contact@swordstosilence.com">contact@swordstosilence.com</a>.
             </p>
           </section>

@@ -24,3 +24,6 @@ export {
 
 export { default as Input } from './Input';
 export type { default as InputProps } from './Input';
+
+export { default as Logo } from './Logo';
+export type { LogoProps } from './Logo';

@@ -25,6 +25,7 @@ interface TimelineEntry {
 
 interface EvidenceTimelineProps {
   entries: TimelineEntry[];
+  // eslint-disable-next-line no-unused-vars
   onEntryClick?: (id: string) => void;
 }
 
@@ -56,13 +57,19 @@ const EvidenceTimeline: React.FC<EvidenceTimelineProps> = ({ entries, onEntryCli
             {/* Timeline line and node */}
             <div className={styles.connector}>
               {index < entries.length - 1 && (
-                <div className={styles.line} style={{
-                  borderColor: `var(${getTypeColor(entry.type)})`
-                }}></div>
+                <div
+                  className={styles.line}
+                  style={{
+                    borderColor: `var(${getTypeColor(entry.type)})`,
+                  }}
+                ></div>
               )}
-              <div className={styles.node} style={{
-                backgroundColor: `var(${getTypeColor(entry.type)})`
-              }}></div>
+              <div
+                className={styles.node}
+                style={{
+                  backgroundColor: `var(${getTypeColor(entry.type)})`,
+                }}
+              ></div>
             </div>
 
             {/* Content */}
