@@ -1,0 +1,495 @@
+/**
+ * LAYOUT SYSTEM
+ * 12-column CSS Grid + responsive containers
+ * Mobile-first approach with progressive enhancement
+ */
+
+@import './tokens.css';
+
+/* ===============================================
+   CONTAINER
+   Max-width wrapper for content
+   =============================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.container-sm {
+  max-width: calc(var(--container-max) * 0.75);
+}
+
+.container-lg {
+  max-width: 100%;
+}
+
+/* ===============================================
+   GRID SYSTEM
+   12-column responsive grid
+   =============================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--gutter);
+  width: 100%;
+}
+
+/* Columns - Mobile first (12 columns = 1 column) */
+.col-1 {
+  grid-column: span 12;
+}
+
+.col-2 {
+  grid-column: span 12;
+}
+
+.col-3 {
+  grid-column: span 12;
+}
+
+.col-4 {
+  grid-column: span 12;
+}
+
+.col-6 {
+  grid-column: span 12;
+}
+
+/* Tablet breakpoint (768px) */
+@media (min-width: 768px) {
+  .col-1 {
+    grid-column: span 1;
+  }
+
+  .col-2 {
+    grid-column: span 2;
+  }
+
+  .col-3 {
+    grid-column: span 3;
+  }
+
+  .col-4 {
+    grid-column: span 4;
+  }
+
+  .col-6 {
+    grid-column: span 6;
+  }
+}
+
+/* Desktop breakpoint (1024px) */
+@media (min-width: 1024px) {
+  .col-1 {
+    grid-column: span 1;
+  }
+
+  .col-2 {
+    grid-column: span 2;
+  }
+
+  .col-3 {
+    grid-column: span 3;
+  }
+
+  .col-4 {
+    grid-column: span 4;
+  }
+
+  .col-6 {
+    grid-column: span 6;
+  }
+}
+
+/* ===============================================
+   FLEXBOX UTILITIES
+   Common layout patterns
+   =============================================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-gap-sm {
+  gap: var(--space-sm);
+}
+
+.flex-gap-md {
+  gap: var(--space-md);
+}
+
+.flex-gap-lg {
+  gap: var(--space-lg);
+}
+
+/* ===============================================
+   SPACING UTILITIES
+   Padding and margin classes
+   =============================================== */
+
+/* Padding */
+.p-0 {
+  padding: 0;
+}
+
+.p-sm {
+  padding: var(--space-sm);
+}
+
+.p-md {
+  padding: var(--space-md);
+}
+
+.p-lg {
+  padding: var(--space-lg);
+}
+
+.p-xl {
+  padding: var(--space-xl);
+}
+
+.px-sm {
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
+}
+
+.px-md {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.px-lg {
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.py-sm {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+.py-md {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.py-lg {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+.py-xl {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+/* Margin */
+.m-0 {
+  margin: 0;
+}
+
+.m-sm {
+  margin: var(--space-sm);
+}
+
+.m-md {
+  margin: var(--space-md);
+}
+
+.m-lg {
+  margin: var(--space-lg);
+}
+
+.m-xl {
+  margin: var(--space-xl);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-sm {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.my-md {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.my-lg {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+
+/* ===============================================
+   DISPLAY UTILITIES
+   Show/hide and visibility
+   =============================================== */
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+/* Responsive display */
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+/* ===============================================
+   TEXT UTILITIES
+   Text alignment and styling
+   =============================================== */
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* ===============================================
+   WIDTH & HEIGHT
+   Size utilities
+   =============================================== */
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+/* ===============================================
+   ASPECT RATIO
+   Responsive media containers
+   =============================================== */
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* ===============================================
+   OVERFLOW
+   Scrolling and clipping
+   =============================================== */
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ===============================================
+   POSITIONING
+   Position utilities
+   =============================================== */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+/* ===============================================
+   RESPONSIVE SECTIONS
+   Common section patterns
+   =============================================== */
+
+.section {
+  width: 100%;
+  padding: var(--space-xl) var(--gutter);
+}
+
+.section-hero {
+  padding: calc(var(--space-3xl) * 1.5) var(--gutter);
+}
+
+.section-full {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-lg) var(--gutter);
+  }
+
+  .section-hero {
+    padding: var(--space-2xl) var(--gutter);
+  }
+}
+
+/* ===============================================
+   BREAKPOINT DEBUGGING
+   (Remove in production)
+   =============================================== */
+
+/*
+.debug::before {
+  content: 'MOBILE (< 768px)';
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: var(--space-sm);
+  background: var(--color-red-alert);
+  color: var(--color-white-off);
+  font-size: var(--type-caption);
+  z-index: 999;
+}
+
+@media (min-width: 768px) {
+  .debug::before {
+    content: 'TABLET (768px - 1023px)';
+  }
+}
+
+@media (min-width: 1024px) {
+  .debug::before {
+    content: 'DESKTOP (> 1024px)';
+  }
+}
+*/
