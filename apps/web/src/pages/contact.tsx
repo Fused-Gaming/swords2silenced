@@ -47,7 +47,7 @@ export default function Contact() {
         <main className={styles.main}>
           <section className={styles.intro}>
             <p>
-              Have questions about our research? Found an error? Want to discuss a potential case? We'd like to hear from you.
+              Have questions about our research? Found an error? Want to discuss a potential case? We&apos;d like to hear from you.
             </p>
           </section>
 

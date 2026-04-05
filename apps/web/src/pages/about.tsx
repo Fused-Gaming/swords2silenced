@@ -34,7 +34,7 @@ export default function About() {
             <h2>Our Approach</h2>
             <div className={styles.approachCards}>
               <div className={styles.card}>
-                <h3>Document, Don't Judge</h3>
+                <h3>Document, Don&apos;t Judge</h3>
                 <p>
                   We present evidence from public records, court filings, ethics commissions, and audit reports. Facts speak for themselves.
                 </p>
