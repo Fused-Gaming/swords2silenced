@@ -13,9 +13,7 @@
     "lint": "eslint src --ext .ts,.tsx",
     "validate": "npm run lint && npm run build"
   },
-  "dependencies": {
-    "fused-gaming-skill-mcp": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
