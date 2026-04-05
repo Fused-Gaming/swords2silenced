@@ -1,0 +1,57 @@
+version: 2
+updates:
+  # Enable version updates for npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "4eckd"
+    labels:
+      - "dependencies"
+      - "npm"
+    allow:
+      - dependency-type: "all"
+    ignore:
+      # Add any packages you want to ignore here
+      # - dependency-name: "package-name"
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+    pull-request-branch-name:
+      separator: "/"
+    rebase-strategy: "auto"
+    target-branch: "main"
+
+  # Enable security updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "03:00"
+    security-updates-only: true
+    reviewers:
+      - "4eckd"
+    labels:
+      - "security"
+      - "dependencies"
+    open-pull-requests-limit: 10
+    target-branch: "main"
+
+  # Enable GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+    reviewers:
+      - "4eckd"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    target-branch: "main"

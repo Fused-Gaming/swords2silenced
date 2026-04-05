@@ -1,0 +1,124 @@
+{
+  "mcp": {
+    "enabled": true,
+    "version": "1.0.0",
+    "name": "Swords2Silenced MCP Skills",
+    "description": "Integrated Fused-Gaming MCP skills for the swords2silenced monorepo"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "debug": false,
+    "logLevel": "info"
+  },
+  "skills": {
+    "pre-deploy-validator": {
+      "enabled": true,
+      "category": "DevOps",
+      "description": "Validate code before deployment",
+      "config": {
+        "rules": ["lint", "types", "tests"],
+        "failOnWarning": true,
+        "allowUncommittedChanges": false,
+        "checkBranchProtection": true
+      }
+    },
+    "frontend-design": {
+      "enabled": true,
+      "category": "Development",
+      "description": "HTML/CSS component design and generation",
+      "config": {
+        "templateDir": "templates/components",
+        "outputDir": "apps/web/src/components",
+        "cssFramework": "tailwind",
+        "includeTests": true
+      }
+    },
+    "theme-factory": {
+      "enabled": true,
+      "category": "Design",
+      "description": "Design system and theme generation",
+      "config": {
+        "baseColor": "#4F46E5",
+        "outputDir": "apps/web/src/themes",
+        "generateTypography": true,
+        "generateSpacing": true,
+        "generateBreakpoints": true
+      }
+    },
+    "mcp-builder": {
+      "enabled": true,
+      "category": "Development Tools",
+      "description": "MCP server scaffolding and generation",
+      "config": {
+        "templateDir": "templates/mcp",
+        "outputDir": "tools/mcp/custom",
+        "includeTests": true,
+        "includeDocumentation": true
+      }
+    },
+    "skill-creator": {
+      "enabled": true,
+      "category": "Development Tools",
+      "description": "Custom skill builder for the project",
+      "config": {
+        "templateDir": "templates/skills",
+        "outputDir": "tools/mcp/custom-skills",
+        "language": "typescript",
+        "includeTests": true
+      }
+    },
+    "ascii-mockup": {
+      "enabled": true,
+      "category": "UI/UX",
+      "description": "Mobile-first wireframe designs",
+      "config": {
+        "outputDir": "apps/web/src/mockups",
+        "mobileFirst": true
+      }
+    },
+    "algorithmic-art": {
+      "enabled": true,
+      "category": "Design/Art",
+      "description": "Generative art using p5.js",
+      "config": {
+        "outputDir": "apps/web/src/art",
+        "canvasSize": "800x600",
+        "framerate": 60
+      }
+    },
+    "canvas-design": {
+      "enabled": true,
+      "category": "Design",
+      "description": "SVG-based visual design",
+      "config": {
+        "outputDir": "apps/web/src/svg",
+        "includeAnimations": true
+      }
+    }
+  },
+  "environment": {
+    "development": {
+      "debug": true,
+      "logLevel": "debug",
+      "hotReload": true
+    },
+    "staging": {
+      "debug": false,
+      "logLevel": "info",
+      "hotReload": false
+    },
+    "production": {
+      "debug": false,
+      "logLevel": "warn",
+      "hotReload": false
+    }
+  },
+  "paths": {
+    "skills": "./src/skills",
+    "templates": "./templates",
+    "dist": "../../dist/mcp",
+    "config": "./config.json",
+    "logs": "../../logs/mcp"
+  }
+}

@@ -1,7 +1,7 @@
 # Parallel Development Coordination Plan
-**Branch**: `claude/index-repos-branching-ja1J1`  
+**Branch**: `main`  
 **Collaboration Mode**: Multi-agent parallel execution  
-**Timeline**: ~60 minutes total (8-minute staggered start)  
+**Timeline**: ~60 minutes total  
 **Created**: April 4, 2026
 
 ---
