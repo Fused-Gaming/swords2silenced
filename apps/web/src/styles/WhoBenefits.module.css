@@ -1,0 +1,340 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.header {
+  padding: 2rem 4rem;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.backLink {
+  color: #667eea;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0 0.5rem 0;
+  color: #333;
+}
+
+.header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.main {
+  flex: 1;
+  padding: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.actors {
+  margin-bottom: 3rem;
+}
+
+.actors h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.actorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.actorCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.actorCard h3 {
+  color: #667eea;
+  margin: 0 0 0.5rem 0;
+}
+
+.role {
+  color: #999;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.actorCard h4 {
+  margin: 1.5rem 0 0.75rem 0;
+  color: #333;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.benefits li {
+  color: #666;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.benefits li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+}
+
+.example {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.example strong {
+  display: block;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.example p {
+  color: #666;
+  margin: 0;
+}
+
+.relationshipSection {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.relationshipSection h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.relationshipMap {
+  margin-bottom: 2rem;
+}
+
+.mapDiagram {
+  background: #f9f9f9;
+  padding: 3rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  position: relative;
+  min-height: 400px;
+}
+
+.node {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  background: white;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nodeA {
+  top: 20px;
+  left: 20px;
+}
+
+.nodeB {
+  top: 20px;
+  right: 20px;
+}
+
+.nodeC {
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nodeD {
+  bottom: 80px;
+  left: 20px;
+}
+
+.nodeE {
+  bottom: 80px;
+  right: 20px;
+}
+
+.nodeLabel {
+  font-weight: bold;
+  color: #667eea;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.connectionArrow {
+  position: absolute;
+  color: #667eea;
+  font-size: 0.8rem;
+}
+
+.relationships {
+  margin-bottom: 3rem;
+}
+
+.relationshipList {
+  display: grid;
+  gap: 1rem;
+}
+
+.relationshipItem {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-left: 4px solid #667eea;
+  border-radius: 4px;
+}
+
+.relHeader {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.connector {
+  color: #999;
+}
+
+.relConnection {
+  color: #667eea;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.relImpact {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.problem {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.problem h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.problemCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.problemCard {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #d32f2f;
+}
+
+.problemCard h3 {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+}
+
+.problemCard p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.solutions {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.solutions h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.solutionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.solutionCard {
+  background: #f0f8ff;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.solutionCard h3 {
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.solutionCard p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer {
+  padding: 2rem 4rem;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.footerNav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.footerNav a {
+  color: #667eea;
+  text-decoration: none;
+}
