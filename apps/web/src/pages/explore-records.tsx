@@ -12,6 +12,7 @@ export default function ExploreRecords() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement search functionality
+    // eslint-disable-next-line no-console
     console.log(`Searching by ${searchType}: ${searchQuery}`);
   };
 
@@ -19,7 +20,10 @@ export default function ExploreRecords() {
     <>
       <Head>
         <title>Explore Records | Swords to Silence</title>
-        <meta name="description" content="Search through city records, permits, violations, ethics cases, and audit findings." />
+        <meta
+          name="description"
+          content="Search through city records, permits, violations, ethics cases, and audit findings."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -67,8 +71,8 @@ export default function ExploreRecords() {
                   searchType === 'address'
                     ? 'Enter address (e.g., 123 Main St, Oakland, CA)'
                     : searchType === 'name'
-                    ? 'Enter person or company name'
-                    : 'Enter payment amount or reference'
+                      ? 'Enter person or company name'
+                      : 'Enter payment amount or reference'
                 }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -83,8 +87,8 @@ export default function ExploreRecords() {
               {searchType === 'address'
                 ? 'Find all code violations, permits, complaints, and displacement history for a property'
                 : searchType === 'name'
-                ? 'Find ethics cases, payments, contracts, and involvement in the housing-homelessness pipeline'
-                : 'Trace payment flows between landlords, inspectors, contractors, and city agencies'}
+                  ? 'Find ethics cases, payments, contracts, and involvement in the housing-homelessness pipeline'
+                  : 'Trace payment flows between landlords, inspectors, contractors, and city agencies'}
             </p>
           </section>
 
@@ -165,7 +169,9 @@ export default function ExploreRecords() {
                   <span className={styles.date}>2024</span>
                 </div>
                 <h4>California Cannot Evaluate Major Homeless Programs</h4>
-                <p>State unable to clearly measure outcomes across major homelessness initiatives</p>
+                <p>
+                  State unable to clearly measure outcomes across major homelessness initiatives
+                </p>
                 <a href="#" className={styles.recordLink}>
                   View Full Record →
                 </a>

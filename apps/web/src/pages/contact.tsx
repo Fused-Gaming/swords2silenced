@@ -13,9 +13,7 @@ export default function Contact() {
     message: '',
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -26,6 +24,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission
+    // eslint-disable-next-line no-console
     console.log('Contact form submitted:', formData);
   };
 
@@ -33,7 +32,10 @@ export default function Contact() {
     <>
       <Head>
         <title>Contact | Swords to Silence</title>
-        <meta name="description" content="Contact Swords to Silence with questions, feedback, or information." />
+        <meta
+          name="description"
+          content="Contact Swords to Silence with questions, feedback, or information."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -47,7 +49,8 @@ export default function Contact() {
         <main className={styles.main}>
           <section className={styles.intro}>
             <p>
-              Have questions about our research? Found an error? Want to discuss a potential case? We&apos;d like to hear from you.
+              Have questions about our research? Found an error? Want to discuss a potential case?
+              We&apos;d like to hear from you.
             </p>
           </section>
 
@@ -133,7 +136,8 @@ export default function Contact() {
               <div className={styles.infoBox}>
                 <h3>Report an Issue</h3>
                 <p>
-                  Found an error or inaccuracy in our research? Please let us know using the contact form above.
+                  Found an error or inaccuracy in our research? Please let us know using the contact
+                  form above.
                 </p>
               </div>
 
@@ -161,22 +165,25 @@ export default function Contact() {
               <div className={styles.faqItem}>
                 <h3>Can I submit confidential information?</h3>
                 <p>
-                  Only public records and publicly available information. We cannot accept private, confidential, or protected information.
+                  Only public records and publicly available information. We cannot accept private,
+                  confidential, or protected information.
                 </p>
               </div>
 
               <div className={styles.faqItem}>
                 <h3>How do you source your data?</h3>
                 <p>
-                  All evidence comes from public records: court filings, government documents, ethics cases, and audit reports. See{' '}
-                  <Link href="/sources">sources page</Link> for details.
+                  All evidence comes from public records: court filings, government documents,
+                  ethics cases, and audit reports. See <Link href="/sources">sources page</Link> for
+                  details.
                 </p>
               </div>
 
               <div className={styles.faqItem}>
                 <h3>Are there plans to cover other cities?</h3>
                 <p>
-                  Currently focused on Oakland. We plan to expand to other cities where similar patterns are documented in public records.
+                  Currently focused on Oakland. We plan to expand to other cities where similar
+                  patterns are documented in public records.
                 </p>
               </div>
             </div>
