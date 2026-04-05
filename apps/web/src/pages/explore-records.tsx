@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import type { FormEvent } from 'react';
 import Button from '../components/atoms/Button';
 import Input from '../components/atoms/Input';
 import styles from '../styles/ExploreRecords.module.css';
@@ -9,7 +10,7 @@ export default function ExploreRecords() {
   const [searchType, setSearchType] = useState<'address' | 'name' | 'payment'>('address');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     // TODO: Implement search functionality
     // eslint-disable-next-line no-console

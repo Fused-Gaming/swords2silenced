@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import Button from '../components/atoms/Button';
 import Input from '../components/atoms/Input';
 import styles from '../styles/Submit.module.css';
@@ -15,7 +16,7 @@ export default function Submit() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -24,7 +25,7 @@ export default function Submit() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission
     // eslint-disable-next-line no-console

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 import Button from '../components/atoms/Button';
 import Input from '../components/atoms/Input';
 import styles from '../styles/Contact.module.css';
@@ -13,7 +14,7 @@ export default function Contact() {
     message: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -21,7 +22,7 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission
     // eslint-disable-next-line no-console
