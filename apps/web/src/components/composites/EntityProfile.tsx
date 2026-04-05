@@ -10,6 +10,7 @@
  */
 
 import React from 'react';
+import Image from 'next/image';
 import { H4, BodySmall, Caption } from '../atoms/Typography';
 import styles from './EntityProfile.module.css';
 
@@ -43,7 +44,7 @@ const EntityProfile: React.FC<EntityProfileProps> = ({
       {/* Avatar placeholder */}
       <div className={styles.avatar}>
         {imageUrl ? (
-          <img src={imageUrl} alt={name} />
+          <Image src={imageUrl} alt={name} fill className={styles.image} />
         ) : (
           <div className={styles.initials}>{name.charAt(0)}</div>
         )}
