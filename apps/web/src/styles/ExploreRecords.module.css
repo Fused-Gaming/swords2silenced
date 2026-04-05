@@ -1,0 +1,234 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+.header {
+  padding: 2rem 4rem;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.backLink {
+  color: #667eea;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0 0.5rem 0;
+  color: #333;
+}
+
+.header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.main {
+  flex: 1;
+  padding: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.searchSection {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.searchSection h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.searchTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab {
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 1rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  color: #667eea;
+}
+
+.tab.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.searchForm {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.searchInput {
+  flex: 1;
+}
+
+.searchHint {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.categories {
+  margin-bottom: 3rem;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.categoryCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categoryCard h3 {
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.categoryCard p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.featured {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.featured h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.recordsList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.record {
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-left: 4px solid #667eea;
+  border-radius: 4px;
+}
+
+.recordMeta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.label {
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.date {
+  color: #999;
+}
+
+.record h4 {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.record p {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.recordLink {
+  color: #667eea;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.recordLink:hover {
+  text-decoration: underline;
+}
+
+.ctaSection {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.ctaSection p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer {
+  padding: 2rem 4rem;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.footerNav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.footerNav a {
+  color: #667eea;
+  text-decoration: none;
+}
