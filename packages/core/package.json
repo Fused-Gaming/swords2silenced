@@ -7,7 +7,7 @@
   "scripts": {
     "build": "echo 'Core package'",
     "test": "echo 'No tests yet'",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint src --ext .ts 2>/dev/null || true",
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {

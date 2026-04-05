@@ -13,7 +13,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/no-explicit-any": "warn",
     "no-console": ["warn", { "allow": ["warn", "error"] }]
   },
@@ -21,5 +21,14 @@
     "node": true,
     "browser": true,
     "es2020": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "jest.config.js", "*.config.js"],
+      "env": {
+        "node": true,
+        "commonjs": true
+      }
+    }
+  ]
 }

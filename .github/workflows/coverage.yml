@@ -1,4 +1,4 @@
-name: Test & Lint
+name: Code Coverage Report
 
 on:
   push:
@@ -7,35 +7,25 @@ on:
     branches: [main, develop]
 
 jobs:
-  test-and-lint:
+  coverage:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: ['18.x']
+    name: Coverage Analysis
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '18'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run TypeScript check
-        run: npm run type-check
-
-      - name: Run linting
-        run: npm run lint
-
       - name: Run tests with coverage
         run: npm run test:coverage
-
-      - name: Build
-        run: npm run build
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
@@ -44,3 +34,10 @@ jobs:
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false
+
+      - name: Comment coverage on PR
+        if: github.event_name == 'pull_request'
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: ./coverage/lcov.info
+          github-token: ${{ secrets.GITHUB_TOKEN }}
