@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Button from '../components/atoms/Button';
+import Logo from '../components/atoms/Logo';
 import CaseCard from '../components/composites/CaseCard';
 import styles from '../styles/Home.module.css';
 
@@ -93,12 +94,7 @@ export default function Home() {
         {/* Navigation Header */}
         <header className={styles.header}>
           <div className={styles.headerContent}>
-            <div className={styles.logo}>
-              <h1>Swords to Silence</h1>
-              <p className={styles.tagline}>
-                Peel back the system that turns unsafe housing, weak oversight, and public suffering into a managed story
-              </p>
-            </div>
+            <Logo variant="full" />
             <nav className={styles.navBar}>
               <button
                 className={styles.navBtn}
