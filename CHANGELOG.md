@@ -8,10 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial project setup and monorepo structure
 - TypeScript configuration
 - ESLint and Prettier setup
 - CI/CD pipeline foundation
+- Added deterministic auth configuration validator diagnostics for GitHub, Telegram, and admin integrations in `/api/status`.
+- Added admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls.
 
 ### Changed
 
@@ -21,6 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Added missing `--color-info` design token for semantic informational states used by timeline category styling.
+- Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.
+- Removed runtime dependency on Google font fetch in `narrative-launch` by switching to CSS fallback font-family variables for more reliable offline/CI builds.
+
 ### Security
 
 ---
@@ -28,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-04-04
 
 ### Added
+
 - Project initialization
 - Monorepo workspace structure (apps, packages, tools)
 - TypeScript and modern tooling setup
@@ -39,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Format
 
 This project follows [Semantic Versioning](https://semver.org/):
+
 - **MAJOR**: Breaking changes or major feature releases
 - **MINOR**: New features, backwards compatible
 - **PATCH**: Bug fixes and minor improvements
@@ -48,6 +57,7 @@ This project follows [Semantic Versioning](https://semver.org/):
 ## How to Document Changes
 
 When making changes to the codebase:
+
 1. Create a feature branch (see BRANCHING.md)
 2. Make your changes with clear commit messages
 3. Update this file in the `[Unreleased]` section before creating a PR
@@ -55,13 +65,17 @@ When making changes to the codebase:
 5. Update the version in package.json and VERSION.md
 
 Example format:
+
 ```markdown
 ### Added
+
 - New feature or component
 
 ### Fixed
+
 - Bug fix description
 
 ### Changed
+
 - Breaking or significant change
 ```
