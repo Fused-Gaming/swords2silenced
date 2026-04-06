@@ -1,27 +1,39 @@
 import Head from 'next/head';
+import Logo from '../components/atoms/Logo';
 import styles from '../styles/NarrativeLaunch.module.css';
+import { Inter, Playfair_Display, Source_Serif_4 } from 'next/font/google';
 
-const priorityItems = [
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
+const playfair = Playfair_Display({ subsets: ['latin'], weight: ['600', '700', '800', '900'] });
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+});
+
+const topPriorities = [
   {
-    title: 'Restore authentication chain',
+    priority: 'P0',
+    title: 'Repair auth chain',
     detail:
-      'GitHub integration auth, Telegram bot auth, and admin auth should be triaged first because they block deploy confidence, operational alerting, and protected admin workflows.',
+      'GitHub auth, Telegram auth, and admin-password auth are currently broken and should be restored first to unblock secure operations.',
     directive:
-      'Assign platform/auth agent to implement token validation checks, rotation workflow, and environment-variable boot diagnostics.',
+      'Assign a platform/auth agent to implement token validation, startup diagnostics, and secret rotation checks.',
   },
   {
-    title: 'Repair /status availability',
+    priority: 'P1',
+    title: 'Restore /status endpoint',
     detail:
-      'A broken status endpoint weakens observability and creates blind spots for incident response and deployment checks.',
+      'Status checks need to expose integration readiness so deploy health and incident triage are observable.',
     directive:
-      'Assign reliability agent to ship a typed status contract plus probes for health, auth integrations, and runtime metadata.',
+      'Assign a reliability agent to maintain endpoint contract and degraded-state behavior.',
   },
   {
-    title: 'Promote source-linked launch page',
+    priority: 'P2',
+    title: 'Finish source expansion',
     detail:
-      'This long-form narrative is now structured for citation-first publishing but still needs source expansion for S4-S6 and archival references.',
+      'S1-S3 are scaffolded and S4-S6 should be fully linked with archival mirrors for durable evidence trails.',
     directive:
-      'Assign content systems agent to convert placeholder sources into verified records and attach exhibit mirrors.',
+      'Assign a content-records agent to replace placeholders with primary records and citations.',
   },
 ];
 
@@ -34,16 +46,23 @@ export default function NarrativeLaunchPage() {
         </title>
         <meta
           name="description"
-          content="A dark-system launch page for Swords to Silenced: public-record-forward coverage of homelessness spending, accountability, and narrative framing."
+          content="Dark-system investigative landing page for Swords to Silenced focused on homelessness spending, narrative framing, and public records."
         />
       </Head>
 
-      <div className={styles.page}>
+      <div
+        className={`${styles.page} ${inter.className}`}
+        style={{
+          ['--display-font' as string]: playfair.style.fontFamily,
+          ['--serif-font' as string]: sourceSerif.style.fontFamily,
+          ['--sans-font' as string]: inter.style.fontFamily,
+        }}
+      >
         <header className={styles.topbar}>
           <div className={styles.topbarInner}>
-            <div className={styles.brand}>
-              <span className={styles.brandMark}>SS</span>
-              Swords to Silenced
+            <div className={styles.brandWrap}>
+              <Logo variant="icon" className={styles.topLogo} />
+              <div className={styles.brand}>Swords to Silenced</div>
             </div>
             <nav className={styles.topnav} aria-label="Primary">
               <a href="#story">Story</a>
@@ -109,7 +128,16 @@ export default function NarrativeLaunchPage() {
                   In April 2024, the California State Auditor reported that the state had allocated
                   roughly <strong>$24 billion</strong> across homelessness programs between fiscal
                   years 2018-19 and 2022-23 and that state agencies still lacked the consistent data
-                  needed to evaluate major parts of that spending.
+                  needed to evaluate major parts of that spending. That is not merely a bookkeeping
+                  flaw. It is a governance warning.
+                </p>
+                <p>
+                  When billions move through fragmented programs without a consistent statewide
+                  outcome framework, the public does not just lose visibility into efficiency. It
+                  loses the ability to ask the most basic question:{' '}
+                  <strong>
+                    what, exactly, changed for the people the money was supposed to house?
+                  </strong>
                 </p>
                 <div className={styles.statGrid}>
                   <div className={styles.stat}>
@@ -140,20 +168,112 @@ export default function NarrativeLaunchPage() {
                     </div>
                   </div>
                 </div>
+
+                <div className={styles.pullquote}>
+                  <p>
+                    When the story shifts from measurable exits to permanent complexity, public
+                    systems gain room to spend without proving resolution.
+                  </p>
+                  <small>Pull quote · supported by the audit pattern, not conjecture</small>
+                </div>
+              </section>
+
+              <section className={styles.section} id="narrative">
+                <h2>The narrative problem</h2>
+                <p>
+                  Public discussion of homelessness is often dominated by individual pathology:
+                  mental illness, addiction, instability, refusal, personal collapse. Those factors
+                  matter. But once they become the entire story, they also begin to perform
+                  institutional work.
+                </p>
+                <p>
+                  That shift changes the standard of judgment. The question stops being{' '}
+                  <strong>did the system reduce homelessness?</strong> and becomes{' '}
+                  <strong>did the system provide services to a difficult population?</strong>
+                </p>
+              </section>
+
+              <section className={styles.section} id="architecture">
+                <h2>The conflict architecture</h2>
+                <p>
+                  It is usually easier to prove incentives than intent. You may not always be able
+                  to show that institutions want homelessness to persist. You can, however, show how
+                  fragmented funding and weak data architecture make continuation easier than
+                  resolution.
+                </p>
+                <div className={styles.flow}>
+                  {[1, 2, 3, 4, 5].map((step, i) => (
+                    <div className={styles.flowStep} key={step}>
+                      <span className={styles.dot}>{step}</span>
+                      <div>
+                        {
+                          [
+                            'Government allocates large sums across multiple homelessness programs and operators.',
+                            'Outcome reporting is inconsistent, delayed, fragmented, or impossible to compare.',
+                            'Operational failure is reframed as complexity, privacy constraints, or client fragility.',
+                            'Political pressure shifts from measurable exits to visible activity and crisis management.',
+                            'The structure keeps funding moving without forcing clean public answers.',
+                          ][i]
+                        }
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </section>
 
               <section className={styles.section} id="records">
-                <h2>Additional context: blockers and current steps</h2>
-                <p>
-                  Roadmap review and current-state checks indicate immediate execution blockers in
-                  authentication and observability. The top three priorities below are sequenced to
-                  recover operational control before broader narrative-scale publication.
-                </p>
+                <h2>Findings of fact in the public record</h2>
                 <ul className={styles.factList}>
-                  {priorityItems.map((item) => (
-                    <li key={item.title}>
-                      <strong>{item.title}.</strong> {item.detail} <em>Directive:</em>{' '}
-                      {item.directive}
+                  <li>
+                    The State must do more to assess cost-effectiveness and improve data needed to
+                    understand results.
+                  </li>
+                  <li>More than 180,000 Californians experienced homelessness in 2023.</li>
+                  <li>
+                    Los Angeles audit findings identified interim bed data quality and reliability
+                    risks.
+                  </li>
+                  <li>
+                    Public count releases and dashboards provide direct data streams for
+                    verification.
+                  </li>
+                  <li>
+                    Federal charging announcements and housing audits expand fraud-risk records.
+                  </li>
+                </ul>
+              </section>
+
+              <section className={styles.section} id="solutions">
+                <h2>What accountability would actually require</h2>
+                <p>
+                  Outcome tracking that survives politics: placements, retention, production,
+                  time-to-placement, shelter utilization, and independent audit access.
+                </p>
+                <div className={styles.tags}>
+                  {[
+                    'Homelessness Policy',
+                    'Housing First',
+                    'Public Accountability',
+                    'Los Angeles',
+                    'California',
+                    'Public Records',
+                  ].map((tag) => (
+                    <span className={styles.tag} key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </section>
+
+              <section className={styles.section} id="operations">
+                <h2>Roadmap snapshot · blockers and active steps</h2>
+                <ul className={styles.factList}>
+                  {topPriorities.map((item) => (
+                    <li key={item.priority}>
+                      <strong>
+                        {item.priority}: {item.title}.
+                      </strong>{' '}
+                      {item.detail} <em>Directive:</em> {item.directive}
                     </li>
                   ))}
                 </ul>
@@ -163,18 +283,54 @@ export default function NarrativeLaunchPage() {
             <aside className={styles.aside}>
               <div className={styles.panel}>
                 <h3>On this page</h3>
-                <ul className={styles.bookmarkList}>
+                <nav aria-label="Section bookmarks">
+                  <ul className={styles.bookmarkList}>
+                    <li>
+                      <a href="#story">Opening thesis</a>
+                    </li>
+                    <li>
+                      <a href="#findings">Spending story</a>
+                    </li>
+                    <li>
+                      <a href="#narrative">Narrative problem</a>
+                    </li>
+                    <li>
+                      <a href="#architecture">Conflict architecture</a>
+                    </li>
+                    <li>
+                      <a href="#records">Findings of fact</a>
+                    </li>
+                    <li>
+                      <a href="#solutions">Accountability standard</a>
+                    </li>
+                    <li>
+                      <a href="#sources">Source registry</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <div className={styles.panel}>
+                <h3>Record index</h3>
+                <ul className={styles.recordList}>
                   <li>
-                    <a href="#story">Opening thesis</a>
+                    <span className={styles.sourcePill}>S1</span> California State Auditor report
                   </li>
                   <li>
-                    <a href="#findings">Spending story</a>
+                    <span className={styles.sourcePill}>S2</span> Auditor fact sheet / statewide
+                    summary
                   </li>
                   <li>
-                    <a href="#records">Blockers & directives</a>
+                    <span className={styles.sourcePill}>S3</span> L.A. Controller audit landing page
                   </li>
                   <li>
-                    <a href="#sources">Source registry</a>
+                    <span className={styles.sourcePill}>S4</span> LAHSA data release and dashboards
+                  </li>
+                  <li>
+                    <span className={styles.sourcePill}>S5</span> U.S. DOJ charging announcement
+                  </li>
+                  <li>
+                    <span className={styles.sourcePill}>S6</span> HUD OIG audit report
                   </li>
                 </ul>
               </div>
@@ -182,44 +338,94 @@ export default function NarrativeLaunchPage() {
           </section>
 
           <footer id="sources" className={styles.footer}>
-            <h3>Source registry</h3>
+            <div className={styles.footerTop}>
+              <div>
+                <div className={styles.footerBrand}>
+                  Source Registry · Public Records / Data Streams / Government Records
+                </div>
+                <p className={styles.footerText}>
+                  This page is structured to privilege primary-source material over commentary.
+                </p>
+              </div>
+              <nav aria-label="Footer navigation">
+                <ul className={styles.footerNav}>
+                  <li>
+                    <a href="#top">Back to top</a>
+                  </li>
+                  <li>
+                    <a href="#story">Story</a>
+                  </li>
+                  <li>
+                    <a href="#records">Findings</a>
+                  </li>
+                  <li>
+                    <a href="#sources">Sources</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
             <div className={styles.sourceList}>
-              <a
-                className={styles.sourceLink}
-                href="https://www.auditor.ca.gov/reports/2023-102.1/"
-              >
-                S1 · California State Auditor · Report 2023-102.1
-              </a>
-              <a
-                className={styles.sourceLink}
-                href="https://www.auditor.ca.gov/reports/2023-102.2/"
-              >
-                S2 · California State Auditor · Homelessness in California fact sheet
-              </a>
-              <a
-                className={styles.sourceLink}
-                href="https://controller.lacity.gov/landings/interim-housing-audit"
-              >
-                S3 · L.A. Controller · Interim Housing & Shelter Bed Data Audit
-              </a>
-              <a
-                className={styles.sourceLink}
-                href="https://www.lahsa.org/news?article=1000-lahsa-releases-2025-greater-los-angeles-homeless-count-results"
-              >
-                S4 · LAHSA · 2025 Greater Los Angeles homeless count release
-              </a>
-              <a
-                className={styles.sourceLink}
-                href="https://www.justice.gov/usao-cdca/pr/former-la-homeless-services-nonprofit-executive-and-attorney-agree-plead-guilty-federal"
-              >
-                S5 · U.S. DOJ charging announcement (example fraud exposure record)
-              </a>
-              <a
-                className={styles.sourceLink}
-                href="https://www.hudoig.gov/reports-publications/audit-reports"
-              >
-                S6 · HUD OIG audit archive (federal housing oversight records)
-              </a>
+              <section className={styles.sourceSection} id="src-s1">
+                <div className={styles.sourceHead}>
+                  <span className={styles.sourcePill}>S1</span>
+                  <div>
+                    <div className={styles.sourceTitle}>
+                      California State Auditor · Report 2023-102.1
+                    </div>
+                    <div className={styles.sourceMeta}>State audit record · April 2024</div>
+                  </div>
+                </div>
+                <p className={styles.sourceDesc}>
+                  Primary audit record on California homelessness spending, cost-effectiveness
+                  oversight, and statewide measurement gaps.
+                </p>
+                <a className={styles.sourceLink} href="#">
+                  Audit link placeholder
+                </a>
+              </section>
+
+              <section className={styles.sourceSection} id="src-s2">
+                <div className={styles.sourceHead}>
+                  <span className={styles.sourcePill}>S2</span>
+                  <div>
+                    <div className={styles.sourceTitle}>
+                      California State Auditor · Homelessness in California Fact Sheet
+                    </div>
+                    <div className={styles.sourceMeta}>
+                      State fact sheet / summary record · April 2024
+                    </div>
+                  </div>
+                </div>
+                <p className={styles.sourceDesc}>
+                  Condensed statewide findings with topline figures referenced in the auditor&apos;s
+                  homelessness review.
+                </p>
+                <a className={styles.sourceLink} href="#">
+                  Fact sheet link placeholder
+                </a>
+              </section>
+
+              <section className={styles.sourceSection} id="src-s3">
+                <div className={styles.sourceHead}>
+                  <span className={styles.sourcePill}>S3</span>
+                  <div>
+                    <div className={styles.sourceTitle}>
+                      City of Los Angeles Controller · Interim Housing &amp; Shelter Bed Data Audit
+                    </div>
+                    <div className={styles.sourceMeta}>
+                      Municipal audit / operations record · December 2023
+                    </div>
+                  </div>
+                </div>
+                <p className={styles.sourceDesc}>
+                  City audit documentation on data quality issues, shelter bed tracking weaknesses,
+                  and reliability concerns in the interim housing system.
+                </p>
+                <a className={styles.sourceLink} href="#">
+                  Controller audit link placeholder
+                </a>
+              </section>
             </div>
           </footer>
         </main>
