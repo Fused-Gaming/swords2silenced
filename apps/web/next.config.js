@@ -10,6 +10,9 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://swordstosilenced.com',
   },
+  async rewrites() {
+    return [{ source: '/status', destination: '/api/status' }];
+  },
 };
 
 module.exports = nextConfig;
