@@ -1,0 +1,232 @@
+/**
+ * SWORDS TO SILENCED
+ * Design System - Tokens & CSS Variables
+ *
+ * This file is the source of truth for all design decisions.
+ * NEVER hardcode colors, spacing, or typography values.
+ * ALWAYS use CSS variables from this file.
+ */
+
+:root {
+  /* ===============================================
+     PRIMARY COLORS
+     Core brand identity - authority, exposure, clarity
+     =============================================== */
+
+  --color-navy-deep: #0B1F3A;
+  --color-red-alert: #B02A37;
+  --color-white-off: #F8F9FA;
+
+  /* ===============================================
+     SECONDARY COLORS
+     Supporting colors for context and hierarchy
+     =============================================== */
+
+  --color-steel-gray: #495057;
+  --color-blue-mute: #3A5A7A;
+  --color-border: #CED4DA;
+
+  /* ===============================================
+     FUNCTIONAL COLORS
+     Semantic meaning for states and actions
+     =============================================== */
+
+  --color-success: #2A9D8F;
+  --color-warning: #F77F00;
+  --color-critical: #D62828;
+
+  /* ===============================================
+     EXTENDED PALETTE
+     For backgrounds, overlays, and accessibility
+     =============================================== */
+
+  --color-navy-light: #1A3A5C;
+  --color-navy-xlight: #E8EEF5;
+  --color-gray-light: #F1F3F5;
+  --color-gray-xlight: #FAFBFC;
+  --color-overlay-dark: rgba(11, 31, 58, 0.8);
+  --color-overlay-light: rgba(255, 255, 255, 0.95);
+
+  /* ===============================================
+     TYPOGRAPHY
+     Font families and scale
+     =============================================== */
+
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Type Scale - Base 16px */
+  --type-hero: 52px;
+  --type-h1: 40px;
+  --type-h2: 30px;
+  --type-h3: 24px;
+  --type-h4: 20px;
+  --type-body: 16px;
+  --type-body-small: 14px;
+  --type-caption: 12px;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.8;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.04em;
+
+  /* ===============================================
+     SPACING SYSTEM
+     8px base unit (mobile-first)
+     =============================================== */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* ===============================================
+     LAYOUT
+     12-column grid system + gutters
+     =============================================== */
+
+  --grid-columns: 12;
+  --gutter: 24px;
+  --container-max: 1280px;
+
+  /* Responsive breakpoints */
+  --breakpoint-mobile: 320px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
+
+  /* ===============================================
+     SHADOWS
+     Depth and elevation - functional only
+     NO decorative shadows
+     =============================================== */
+
+  --shadow-sm: 0 1px 2px rgba(11, 31, 58, 0.05);
+  --shadow-md: 0 2px 4px rgba(11, 31, 58, 0.1);
+  --shadow-lg: 0 4px 8px rgba(11, 31, 58, 0.15);
+
+  /* ===============================================
+     BORDERS
+     Subtle, structural
+     =============================================== */
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --border-width: 1px;
+  --border-color: var(--color-border);
+
+  /* ===============================================
+     TRANSITIONS
+     Fast, functional (<200ms)
+     =============================================== */
+
+  --transition-fast: 100ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  --timing-function-in: cubic-bezier(0.4, 0, 1, 1);
+  --timing-function-out: cubic-bezier(0, 0, 0.2, 1);
+  --timing-function-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ===============================================
+     ACCESSIBILITY
+     Focus states, high contrast modes
+     =============================================== */
+
+  --focus-outline: 2px solid var(--color-red-alert);
+  --focus-offset: 2px;
+
+  /* ===============================================
+     Z-INDEX SCALE
+     Consistent stacking context
+     =============================================== */
+
+  --z-dropdown: 1000;
+  --z-modal: 2000;
+  --z-tooltip: 3000;
+  --z-notification: 4000;
+}
+
+/* ===============================================
+   COLOR USAGE REFERENCE (FOR DEVELOPERS)
+   ===============================================
+
+   BACKGROUNDS:
+   - Page background: --color-white-off
+   - Secondary background: --color-gray-light
+   - Dark backgrounds: --color-navy-deep
+
+   TEXT:
+   - Primary text (dark): --color-navy-deep
+   - Secondary text: --color-steel-gray
+   - Light text (on dark): --color-white-off
+
+   ACCENTS:
+   - Primary CTA: --color-red-alert
+   - Links: --color-blue-mute
+   - Verified: --color-success
+   - Warning: --color-warning
+   - Critical: --color-critical
+
+   BORDERS:
+   - Default border: --color-border
+   - Focus border: --color-red-alert
+
+   NEVER USE:
+   - Hardcoded hex colors
+   - RGB values
+   - Gradients
+   - Shadows beyond --shadow-*
+   - Custom border radius
+
+   =============================================== */
+
+/* ===============================================
+   PRINT STYLES (Ensure tokens work in print)
+   =============================================== */
+
+@media print {
+  :root {
+    --color-white-off: #FFFFFF;
+    --color-navy-deep: #000000;
+    --color-red-alert: #000000;
+    --color-steel-gray: #333333;
+  }
+}
+
+/* ===============================================
+   HIGH CONTRAST MODE (Accessibility)
+   =============================================== */
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-navy-deep: #000000;
+    --color-steel-gray: #1a1a1a;
+    --color-border: #333333;
+  }
+}
+
+/* ===============================================
+   REDUCED MOTION (Accessibility)
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms ease;
+    --transition-normal: 0ms ease;
+    --transition-slow: 0ms ease;
+  }
+}

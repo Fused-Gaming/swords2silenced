@@ -1,0 +1,46 @@
+/**
+ * CASE DATA SCHEMA
+ * Template structure for case information
+ * Data to be populated when real cases are added
+ */
+
+{
+  "cases": [],
+
+  "caseSchema": {
+    "id": "string - unique identifier",
+    "title": "string - case title (40-60 chars)",
+    "summary": "string - executive summary (2-3 sentences)",
+    "tags": "array<string> - case categories",
+    "severity": "enum: critical | warning | minor",
+    "status": "enum: verified | alleged | under_investigation",
+    "evidenceCount": "number - count of evidence items",
+    "sourceCount": "number - count of sources",
+    "dateOccurred": "ISO date - when incident occurred",
+    "dateDiscovered": "ISO date - when discovered",
+    "entities": "array - people/organizations involved",
+    "timeline": "array - chronological events"
+  },
+
+  "entitySchema": {
+    "id": "string - unique identifier",
+    "name": "string - person/organization name",
+    "role": "string - role/position",
+    "allegations": "string - what they're alleged to have done"
+  },
+
+  "timelineEntrySchema": {
+    "date": "ISO date",
+    "event": "string - description of event",
+    "type": "enum: action | evidence | discovery | response"
+  },
+
+  "metadata": {
+    "totalCases": 0,
+    "verifiedCount": 0,
+    "allegedCount": 0,
+    "investigatingCount": 0,
+    "lastUpdated": "ISO date",
+    "coverageAreas": ["array of categories"]
+  }
+}

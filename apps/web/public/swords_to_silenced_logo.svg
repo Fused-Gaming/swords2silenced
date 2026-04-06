@@ -1,0 +1,65 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="36" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softTextGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blurA"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="blurB"/>
+      <feMerge>
+        <feMergeNode in="blurB"/>
+        <feMergeNode in="blurA"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .wordmark-small {
+        font-family: "Times New Roman", Georgia, serif;
+        font-size: 74px;
+        letter-spacing: 1px;
+        font-weight: 400;
+      }
+      .wordmark-large {
+        font-family: "Times New Roman", Georgia, serif;
+        font-size: 112px;
+        letter-spacing: 1px;
+        font-weight: 400;
+      }
+    </style>
+  </defs>
+
+  <!-- transparent background -->
+
+  <!-- sword glow -->
+  <g filter="url(#glow)" opacity="0.95">
+    <path d="M512 209 L525 223 L525 292 L499 292 L499 223 Z" fill="#FFFFFF"/>
+    <path d="M445 305 C487 302 536 300 579 305 L579 318 C536 316 487 316 445 318 Z" fill="#FFFFFF"/>
+    <path d="M496 316 L528 316 L523 586 L512 611 L501 586 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- sword outline/fill -->
+  <g>
+    <path d="M512 205 L527 221 L527 295 L497 295 L497 221 Z" fill="#FFFFFF" stroke="#111111" stroke-width="2.5"/>
+    <path d="M442 302 C486 299 538 299 582 302 L582 320 C539 318 486 318 442 320 Z" fill="#FFFFFF" stroke="#111111" stroke-width="2.5"/>
+    <path d="M496 320 L528 320 L523 584 L512 611 L501 584 Z" fill="#FFFFFF" stroke="#111111" stroke-width="2.5"/>
+    <path d="M497 221 L512 206 L527 221" fill="#FFFFFF" stroke="#111111" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- text glow -->
+  <g filter="url(#softTextGlow)" opacity="0.98" fill="#FFFFFF">
+    <text x="512" y="708" text-anchor="middle" class="wordmark-small">SWORDS TO</text>
+    <text x="512" y="818" text-anchor="middle" class="wordmark-large">SILENCED</text>
+  </g>
+
+  <!-- text -->
+  <g fill="#FFFFFF" stroke="#111111" stroke-width="1.6" paint-order="stroke fill markers">
+    <text x="512" y="708" text-anchor="middle" class="wordmark-small">SWORDS TO</text>
+    <text x="512" y="818" text-anchor="middle" class="wordmark-large">SILENCED</text>
+  </g>
+</svg>

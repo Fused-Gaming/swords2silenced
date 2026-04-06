@@ -1,0 +1,174 @@
+/**
+ * EvidenceTimeline Styles
+ * Chronological event display
+ */
+
+.timeline {
+  width: 100%;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  position: relative;
+}
+
+.entry:not(:last-child) {
+  border-bottom: none;
+}
+
+/* ===============================================
+   CONNECTOR (LINE + NODE)
+   Visual timeline marker
+   =============================================== */
+
+.connector {
+  position: relative;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.line {
+  position: absolute;
+  width: 2px;
+  top: 40px;
+  bottom: -100%;
+  border-left: 2px solid var(--color-border);
+}
+
+.node {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid var(--color-white-off);
+  box-shadow: 0 0 0 2px var(--color-border);
+  z-index: 2;
+  transition: all var(--transition-normal);
+}
+
+.entry:hover .node {
+  box-shadow: 0 0 0 4px rgba(176, 42, 55, 0.2);
+  transform: scale(1.15);
+}
+
+/* ===============================================
+   CONTENT
+   Event description
+   =============================================== */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border-radius: var(--border-radius-md);
+  position: relative;
+}
+
+.content:hover {
+  background-color: var(--color-gray-xlight);
+}
+
+.date {
+  color: var(--color-steel-gray);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.event {
+  color: var(--color-navy-deep);
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ===============================================
+   EXPANDED DETAILS
+   Additional information
+   =============================================== */
+
+.expanded {
+  background-color: var(--color-navy-xlight);
+}
+
+.details {
+  color: var(--color-steel-gray);
+  font-size: var(--type-body-small);
+  line-height: var(--line-height-relaxed);
+  margin: var(--space-sm) 0 0 0;
+  padding-top: var(--space-sm);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.expandButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border: var(--border-width) solid var(--color-border);
+  background-color: var(--color-white-off);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy-deep);
+}
+
+.expandButton:hover {
+  border-color: var(--color-red-alert);
+  color: var(--color-red-alert);
+}
+
+/* ===============================================
+   EMPTY STATE
+   =============================================== */
+
+.empty {
+  text-align: center;
+  color: var(--color-steel-gray);
+  padding: var(--space-lg);
+  font-style: italic;
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
+
+@media (max-width: 767px) {
+  .entry {
+    gap: var(--space-md);
+  }
+
+  .connector {
+    width: 20px;
+  }
+
+  .node {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+
+  .expandButton {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node,
+  .content {
+    transition: none;
+  }
+}

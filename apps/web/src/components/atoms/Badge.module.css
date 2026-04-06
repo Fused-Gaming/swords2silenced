@@ -1,0 +1,61 @@
+/**
+ * Badge Styles
+ * Uses design tokens from tokens.css
+ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--type-body-small);
+  font-weight: var(--font-weight-semibold);
+  padding: 4px 12px;
+  border-radius: var(--border-radius-md);
+  white-space: nowrap;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+}
+
+.label {
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ===============================================
+   VARIANTS
+   =============================================== */
+
+.variant-verified {
+  background-color: rgba(42, 157, 143, 0.1);
+  color: #1B6B5F;
+  border: var(--border-width) solid rgba(42, 157, 143, 0.3);
+}
+
+.variant-unverified {
+  background-color: rgba(247, 127, 0, 0.1);
+  color: #B35A00;
+  border: var(--border-width) solid rgba(247, 127, 0, 0.3);
+}
+
+.variant-critical {
+  background-color: rgba(214, 40, 40, 0.1);
+  color: #8B1A20;
+  border: var(--border-width) solid rgba(214, 40, 40, 0.3);
+}
+
+/* ===============================================
+   ACCESSIBILITY
+   =============================================== */
+
+@media (prefers-contrast: more) {
+  .badge {
+    border-width: 2px;
+  }
+}

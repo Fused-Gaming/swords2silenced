@@ -1,0 +1,136 @@
+/**
+ * CaseCard Styles
+ * Card display for case overview
+ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-white-off);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  border-color: var(--color-red-alert);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ===============================================
+   BADGE ROW
+   Status indicators
+   =============================================== */
+
+.badgeRow {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+/* ===============================================
+   TITLE
+   Case name/headline
+   =============================================== */
+
+.title {
+  color: var(--color-navy-deep);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+/* ===============================================
+   SUMMARY
+   Executive overview
+   =============================================== */
+
+.summary {
+  color: var(--color-steel-gray);
+  font-size: var(--type-body);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===============================================
+   TAGS
+   Case categories
+   =============================================== */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: var(--color-navy-xlight);
+  color: var(--color-navy-deep);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--type-caption);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ===============================================
+   METADATA
+   Evidence and source counts
+   =============================================== */
+
+.metadata {
+  display: flex;
+  gap: var(--space-lg);
+  padding: var(--space-sm) 0;
+  border-top: var(--border-width) solid var(--color-border);
+  border-bottom: var(--border-width) solid var(--color-border);
+  font-size: var(--type-caption);
+  color: var(--color-steel-gray);
+}
+
+.metadata strong {
+  color: var(--color-navy-deep);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ===============================================
+   CTA BUTTON
+   View Evidence action
+   =============================================== */
+
+.cta {
+  margin-top: var(--space-sm);
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
+
+@media (max-width: 767px) {
+  .card {
+    padding: var(--space-md);
+  }
+
+  .summary {
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
