@@ -30,4 +30,6 @@
 2. **P1 · Stabilize `/status` endpoint**
    - Directive: reliability agent owns status contract, degraded-state semantics, and deployment probe compatibility.
 3. **P2 · Complete source-backed launch publication**
-   - Directive: content systems agent owns replacement of placeholders with primary records and future exhibit index.
+   - Directive: content-records agent owns S4-S6 placeholder replacement with primary records + mirrored archive links.
+   - Add citation metadata fields for rendering provenance (`sourceTitle`, `publicationDate`, `archiveUrl`, `retrievalDate`).
+   - Any claim without at least one linked primary source must be explicitly tagged `investigating`.

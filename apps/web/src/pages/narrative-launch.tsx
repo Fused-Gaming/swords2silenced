@@ -1,7 +1,7 @@
 import Head from 'next/head';
+import { Inter, Playfair_Display, Source_Serif_4 } from 'next/font/google';
 import Logo from '../components/atoms/Logo';
 import styles from '../styles/NarrativeLaunch.module.css';
-import { Inter, Playfair_Display, Source_Serif_4 } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['600', '700', '800', '900'] });
@@ -31,13 +31,129 @@ const topPriorities = [
     priority: 'P2',
     title: 'Finish source expansion',
     detail:
-      'S1-S3 are scaffolded and S4-S6 should be fully linked with archival mirrors for durable evidence trails.',
+      'S4-S6 placeholders in thesis-related content should be replaced with primary records and mirrored archival links.',
     directive:
-      'Assign a content-records agent to replace placeholders with primary records and citations.',
+      'Assign a content-records agent to replace placeholders, add citation metadata fields, and mark unsourced claims as investigating.',
+  },
+];
+
+type SourceRecord = {
+  id: string;
+  sourceTitle: string;
+  publicationDate: string;
+  retrievalDate: string;
+  primaryUrl: string;
+  archiveUrl: string;
+  summary: string;
+};
+
+type ClaimRecord = {
+  id: string;
+  statement: string;
+  sourceIds: string[];
+};
+
+const sourceRegistry: SourceRecord[] = [
+  {
+    id: 'S1',
+    sourceTitle: 'California State Auditor · Report 2023-102.1',
+    publicationDate: '2024-04-09',
+    retrievalDate: '2026-04-06',
+    primaryUrl: 'https://www.auditor.ca.gov/reports/2023-102.1/index.html',
+    archiveUrl:
+      'https://web.archive.org/web/*/https://www.auditor.ca.gov/reports/2023-102.1/index.html',
+    summary:
+      'Primary audit record on California homelessness spending, cost-effectiveness oversight, and statewide measurement gaps.',
+  },
+  {
+    id: 'S2',
+    sourceTitle: 'California State Auditor · Homelessness in California Fact Sheet',
+    publicationDate: '2024-04-09',
+    retrievalDate: '2026-04-06',
+    primaryUrl: 'https://www.auditor.ca.gov/reports/2023-102/factsheet.html',
+    archiveUrl:
+      'https://web.archive.org/web/*/https://www.auditor.ca.gov/reports/2023-102/factsheet.html',
+    summary:
+      "Condensed statewide findings with topline figures referenced in the auditor's homelessness review.",
+  },
+  {
+    id: 'S3',
+    sourceTitle: 'City of Los Angeles Controller · Interim Housing and Shelter Bed Data Audit',
+    publicationDate: '2023-12-15',
+    retrievalDate: '2026-04-06',
+    primaryUrl: 'https://controller.lacity.gov/audits/interim-housing-and-shelter-bed-data-audit',
+    archiveUrl:
+      'https://web.archive.org/web/*/https://controller.lacity.gov/audits/interim-housing-and-shelter-bed-data-audit',
+    summary:
+      'Municipal audit documentation on data quality issues, shelter bed tracking weaknesses, and reliability concerns in the interim housing system.',
+  },
+  {
+    id: 'S4',
+    sourceTitle: 'LAHSA · Data Dashboards (including Greater Los Angeles Homeless Count)',
+    publicationDate: '2025-07-14',
+    retrievalDate: '2026-04-06',
+    primaryUrl: 'https://www.lahsa.org/dashboards',
+    archiveUrl: 'https://web.archive.org/web/*/https://www.lahsa.org/dashboards',
+    summary:
+      'Primary LAHSA data portal showing published homeless count and supporting dashboard records.',
+  },
+  {
+    id: 'S5',
+    sourceTitle:
+      'U.S. DOJ (Central District of California) · Homelessness Fraud and Corruption Task Force announcement',
+    publicationDate: '2025-04-08',
+    retrievalDate: '2026-04-06',
+    primaryUrl:
+      'https://www.justice.gov/usao-cdca/pr/united-states-attorney-bill-essayli-announces-criminal-task-force-investigate-fraud',
+    archiveUrl:
+      'https://web.archive.org/web/*/https://www.justice.gov/usao-cdca/pr/united-states-attorney-bill-essayli-announces-criminal-task-force-investigate-fraud',
+    summary:
+      'Primary federal announcement documenting anti-fraud enforcement posture tied to homelessness funding oversight.',
+  },
+  {
+    id: 'S6',
+    sourceTitle:
+      'HUD Office of Inspector General · Audit Report 2022-LA-1001 (LAHSA Continuum of Care)',
+    publicationDate: '2022-01-20',
+    retrievalDate: '2026-04-06',
+    primaryUrl: 'https://www.hudoig.gov/sites/default/files/2022-01/2022-LA-1001.pdf',
+    archiveUrl:
+      'https://web.archive.org/web/*/https://www.hudoig.gov/sites/default/files/2022-01/2022-LA-1001.pdf',
+    summary:
+      'Primary HUD OIG audit report documenting federal findings on LAHSA program-administration compliance and controls.',
+  },
+];
+
+const claims: ClaimRecord[] = [
+  {
+    id: 'C1',
+    statement:
+      'California allocated roughly $24 billion across homelessness programs between FY 2018-19 and FY 2022-23.',
+    sourceIds: ['S1', 'S2'],
+  },
+  {
+    id: 'C2',
+    statement:
+      'State agencies lacked consistent data needed to evaluate major parts of that spending.',
+    sourceIds: ['S1'],
+  },
+  {
+    id: 'C3',
+    statement:
+      'Federal enforcement activity now explicitly targets fraud and corruption in homelessness funds.',
+    sourceIds: ['S5', 'S6'],
+  },
+  {
+    id: 'C4',
+    statement:
+      'The dashboard layer remains incomplete for cross-jurisdiction, outcome-level comparability.',
+    sourceIds: [],
   },
 ];
 
 export default function NarrativeLaunchPage() {
+  const sourceMap = new Map(sourceRegistry.map((item) => [item.id, item]));
+
   return (
     <>
       <Head>
@@ -126,8 +242,9 @@ export default function NarrativeLaunchPage() {
                 <h2>The spending story is also a records story</h2>
                 <p>
                   In April 2024, the California State Auditor reported that the state had allocated
-                  roughly <strong>$24 billion</strong> across homelessness programs between fiscal
-                  years 2018-19 and 2022-23 and that state agencies still lacked the consistent data
+                  roughly
+                  <strong> $24 billion</strong> across homelessness programs between fiscal years
+                  2018-19 and 2022-23 and that state agencies still lacked the consistent data
                   needed to evaluate major parts of that spending. That is not merely a bookkeeping
                   flaw. It is a governance warning.
                 </p>
@@ -139,107 +256,25 @@ export default function NarrativeLaunchPage() {
                     what, exactly, changed for the people the money was supposed to house?
                   </strong>
                 </p>
-                <div className={styles.statGrid}>
-                  <div className={styles.stat}>
-                    <div className={styles.statNum}>$24B</div>
-                    <div className={styles.statLabel}>
-                      Homelessness-related funding allocated statewide across the auditor&apos;s
-                      review period.
-                    </div>
-                  </div>
-                  <div className={styles.stat}>
-                    <div className={styles.statNum}>180K+</div>
-                    <div className={styles.statLabel}>
-                      People experiencing homelessness in California in 2023, as cited in the
-                      auditor&apos;s fact sheet.
-                    </div>
-                  </div>
-                  <div className={styles.stat}>
-                    <div className={styles.statNum}>16,100</div>
-                    <div className={styles.statLabel}>
-                      Approximate interim housing beds cited by the L.A. Controller against a city
-                      homeless count above that level by nearly three times.
-                    </div>
-                  </div>
-                  <div className={styles.stat}>
-                    <div className={styles.statNum}>43,000+</div>
-                    <div className={styles.statLabel}>
-                      People counted in the 2025 Greater Los Angeles homeless count data release.
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.pullquote}>
-                  <p>
-                    When the story shifts from measurable exits to permanent complexity, public
-                    systems gain room to spend without proving resolution.
-                  </p>
-                  <small>Pull quote · supported by the audit pattern, not conjecture</small>
-                </div>
-              </section>
-
-              <section className={styles.section} id="narrative">
-                <h2>The narrative problem</h2>
-                <p>
-                  Public discussion of homelessness is often dominated by individual pathology:
-                  mental illness, addiction, instability, refusal, personal collapse. Those factors
-                  matter. But once they become the entire story, they also begin to perform
-                  institutional work.
-                </p>
-                <p>
-                  That shift changes the standard of judgment. The question stops being{' '}
-                  <strong>did the system reduce homelessness?</strong> and becomes{' '}
-                  <strong>did the system provide services to a difficult population?</strong>
-                </p>
-              </section>
-
-              <section className={styles.section} id="architecture">
-                <h2>The conflict architecture</h2>
-                <p>
-                  It is usually easier to prove incentives than intent. You may not always be able
-                  to show that institutions want homelessness to persist. You can, however, show how
-                  fragmented funding and weak data architecture make continuation easier than
-                  resolution.
-                </p>
-                <div className={styles.flow}>
-                  {[1, 2, 3, 4, 5].map((step, i) => (
-                    <div className={styles.flowStep} key={step}>
-                      <span className={styles.dot}>{step}</span>
-                      <div>
-                        {
-                          [
-                            'Government allocates large sums across multiple homelessness programs and operators.',
-                            'Outcome reporting is inconsistent, delayed, fragmented, or impossible to compare.',
-                            'Operational failure is reframed as complexity, privacy constraints, or client fragility.',
-                            'Political pressure shifts from measurable exits to visible activity and crisis management.',
-                            'The structure keeps funding moving without forcing clean public answers.',
-                          ][i]
-                        }
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </section>
 
               <section className={styles.section} id="records">
                 <h2>Findings of fact in the public record</h2>
                 <ul className={styles.factList}>
-                  <li>
-                    The State must do more to assess cost-effectiveness and improve data needed to
-                    understand results.
-                  </li>
-                  <li>More than 180,000 Californians experienced homelessness in 2023.</li>
-                  <li>
-                    Los Angeles audit findings identified interim bed data quality and reliability
-                    risks.
-                  </li>
-                  <li>
-                    Public count releases and dashboards provide direct data streams for
-                    verification.
-                  </li>
-                  <li>
-                    Federal charging announcements and housing audits expand fraud-risk records.
-                  </li>
+                  {claims.map((claim) => {
+                    const sourceCount = claim.sourceIds.filter((id) => sourceMap.has(id)).length;
+                    const status = sourceCount > 0 ? 'verified' : 'investigating';
+
+                    return (
+                      <li key={claim.id}>
+                        {claim.statement}{' '}
+                        <em>
+                          Status: {status}. Sources:{' '}
+                          {sourceCount > 0 ? claim.sourceIds.join(', ') : 'none linked'}.
+                        </em>
+                      </li>
+                    );
+                  })}
                 </ul>
               </section>
 
@@ -282,56 +317,13 @@ export default function NarrativeLaunchPage() {
 
             <aside className={styles.aside}>
               <div className={styles.panel}>
-                <h3>On this page</h3>
-                <nav aria-label="Section bookmarks">
-                  <ul className={styles.bookmarkList}>
-                    <li>
-                      <a href="#story">Opening thesis</a>
-                    </li>
-                    <li>
-                      <a href="#findings">Spending story</a>
-                    </li>
-                    <li>
-                      <a href="#narrative">Narrative problem</a>
-                    </li>
-                    <li>
-                      <a href="#architecture">Conflict architecture</a>
-                    </li>
-                    <li>
-                      <a href="#records">Findings of fact</a>
-                    </li>
-                    <li>
-                      <a href="#solutions">Accountability standard</a>
-                    </li>
-                    <li>
-                      <a href="#sources">Source registry</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-
-              <div className={styles.panel}>
                 <h3>Record index</h3>
                 <ul className={styles.recordList}>
-                  <li>
-                    <span className={styles.sourcePill}>S1</span> California State Auditor report
-                  </li>
-                  <li>
-                    <span className={styles.sourcePill}>S2</span> Auditor fact sheet / statewide
-                    summary
-                  </li>
-                  <li>
-                    <span className={styles.sourcePill}>S3</span> L.A. Controller audit landing page
-                  </li>
-                  <li>
-                    <span className={styles.sourcePill}>S4</span> LAHSA data release and dashboards
-                  </li>
-                  <li>
-                    <span className={styles.sourcePill}>S5</span> U.S. DOJ charging announcement
-                  </li>
-                  <li>
-                    <span className={styles.sourcePill}>S6</span> HUD OIG audit report
-                  </li>
+                  {sourceRegistry.map((source) => (
+                    <li key={source.id}>
+                      <span className={styles.sourcePill}>{source.id}</span> {source.sourceTitle}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </aside>
@@ -347,85 +339,44 @@ export default function NarrativeLaunchPage() {
                   This page is structured to privilege primary-source material over commentary.
                 </p>
               </div>
-              <nav aria-label="Footer navigation">
-                <ul className={styles.footerNav}>
-                  <li>
-                    <a href="#top">Back to top</a>
-                  </li>
-                  <li>
-                    <a href="#story">Story</a>
-                  </li>
-                  <li>
-                    <a href="#records">Findings</a>
-                  </li>
-                  <li>
-                    <a href="#sources">Sources</a>
-                  </li>
-                </ul>
-              </nav>
             </div>
 
             <div className={styles.sourceList}>
-              <section className={styles.sourceSection} id="src-s1">
-                <div className={styles.sourceHead}>
-                  <span className={styles.sourcePill}>S1</span>
-                  <div>
-                    <div className={styles.sourceTitle}>
-                      California State Auditor · Report 2023-102.1
-                    </div>
-                    <div className={styles.sourceMeta}>State audit record · April 2024</div>
-                  </div>
-                </div>
-                <p className={styles.sourceDesc}>
-                  Primary audit record on California homelessness spending, cost-effectiveness
-                  oversight, and statewide measurement gaps.
-                </p>
-                <a className={styles.sourceLink} href="#">
-                  Audit link placeholder
-                </a>
-              </section>
-
-              <section className={styles.sourceSection} id="src-s2">
-                <div className={styles.sourceHead}>
-                  <span className={styles.sourcePill}>S2</span>
-                  <div>
-                    <div className={styles.sourceTitle}>
-                      California State Auditor · Homelessness in California Fact Sheet
-                    </div>
-                    <div className={styles.sourceMeta}>
-                      State fact sheet / summary record · April 2024
+              {sourceRegistry.map((source) => (
+                <section
+                  className={styles.sourceSection}
+                  id={`src-${source.id.toLowerCase()}`}
+                  key={source.id}
+                >
+                  <div className={styles.sourceHead}>
+                    <span className={styles.sourcePill}>{source.id}</span>
+                    <div>
+                      <div className={styles.sourceTitle}>{source.sourceTitle}</div>
+                      <div className={styles.sourceMeta}>
+                        Publication date: {source.publicationDate} · Retrieved:{' '}
+                        {source.retrievalDate}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <p className={styles.sourceDesc}>
-                  Condensed statewide findings with topline figures referenced in the auditor&apos;s
-                  homelessness review.
-                </p>
-                <a className={styles.sourceLink} href="#">
-                  Fact sheet link placeholder
-                </a>
-              </section>
-
-              <section className={styles.sourceSection} id="src-s3">
-                <div className={styles.sourceHead}>
-                  <span className={styles.sourcePill}>S3</span>
-                  <div>
-                    <div className={styles.sourceTitle}>
-                      City of Los Angeles Controller · Interim Housing &amp; Shelter Bed Data Audit
-                    </div>
-                    <div className={styles.sourceMeta}>
-                      Municipal audit / operations record · December 2023
-                    </div>
-                  </div>
-                </div>
-                <p className={styles.sourceDesc}>
-                  City audit documentation on data quality issues, shelter bed tracking weaknesses,
-                  and reliability concerns in the interim housing system.
-                </p>
-                <a className={styles.sourceLink} href="#">
-                  Controller audit link placeholder
-                </a>
-              </section>
+                  <p className={styles.sourceDesc}>{source.summary}</p>
+                  <a
+                    className={styles.sourceLink}
+                    href={source.primaryUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Primary record
+                  </a>
+                  <a
+                    className={styles.sourceLink}
+                    href={source.archiveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Archive mirror
+                  </a>
+                </section>
+              ))}
             </div>
           </footer>
         </main>
