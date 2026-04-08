@@ -46,16 +46,19 @@ This document outlines guidelines for working with Claude Code (AI assistance) o
 ### 📋 Project-Specific Instructions
 
 **Always follow BRANCHING.md** when creating branches:
+
 - Feature work: `feature/<description>` from `develop`
 - Releases: `release/vX.Y.Z` following ROADMAP.md timeline
 - Hotfixes: `hotfix/<description>` from `main`
 
 **Update documentation when:**
+
 - Adding new features → Update CHANGELOG.md (Unreleased section)
 - Releasing a version → Update VERSION.md and CHANGELOG.md
 - Changing architecture → Update CONTRIBUTING.md or ROADMAP.md
 
 **Code style requirements:**
+
 - Use Prettier (2-space indentation)
 - Run ESLint before committing
 - TypeScript with strict mode
@@ -96,6 +99,7 @@ git branch -a            # List all branches
 ## Sprint Focus (MVP Phase)
 
 According to ROADMAP.md, current priorities are:
+
 1. Core React architecture ✅
 2. UI/Design implementation
 3. Static site generation
@@ -121,4 +125,12 @@ Claude should focus on accelerating these areas.
 
 ---
 
-**Last Updated**: 2026-04-06
+**Last Updated**: 2026-04-04
+
+## Agent Handoff Notes (2026-04-06)
+
+- Auth diagnostics are now centralized in `apps/web/src/lib/authConfigValidator.ts` and surfaced by `/api/status`; use `reasonCodes` for deterministic remediation runbooks.
+- Admin credential migration policy: prefer `ADMIN_PASSWORD_HASH`; allow `ADMIN_PASSWORD` only when `ADMIN_PASSWORD_MIGRATION_ENABLED=true`, and treat `legacy_secret_in_use` as action required.
+- Styling semantic token gap identified/fixed: `--color-info` is required by `apps/web/src/pages/case-timeline.tsx`. Add token definitions before introducing new semantic color vars in page logic.
+- Deployment/build guardrail: Next.js 16 with Turbopack in this monorepo requires `turbopack.root` in `apps/web/next.config.js` to avoid workspace root resolution failures.
+- Before handoff: run `npm run lint --workspace=apps/web`, `npm run test --workspace=apps/web -- authConfigValidator.test.ts`, and `npm run build --workspace=apps/web`.

@@ -39,6 +39,16 @@
 2. **P1 · Stabilize `/status` endpoint**
    - Directive: reliability agent owns status contract, degraded-state semantics, and deployment probe compatibility.
 3. **P2 · Complete source-backed launch publication**
-   - Directive: content-records agent owns S4-S6 placeholder replacement with primary records + mirrored archive links.
-   - Add citation metadata fields for rendering provenance (`sourceTitle`, `publicationDate`, `archiveUrl`, `retrievalDate`).
-   - Any claim without at least one linked primary source must be explicitly tagged `investigating`.
+   - Directive: content systems agent owns replacement of placeholders with primary records and future exhibit index.
+
+## Immediate next 3 steps
+
+1. Validate production-like environment variables for GitHub, Telegram, and admin auth in hosting platform settings; confirm `/api/status` returns `ok` or actionable degraded reason codes.
+2. Wire `/api/status` into deployment probes and incident alerts; treat `legacy_secret_in_use` and `invalid_format` as page-worthy conditions.
+3. Execute a release-readiness pass (`lint`, `test`, `build`) after each auth secret rotation and before promoting deploys.
+
+## Recent PR / branch check snapshot
+
+- Latest auth/status+token work was reviewed and synchronized with local checks.
+- Local deployment-blocking build error was reproduced (`next build` Turbopack root inference) and fixed by setting `turbopack.root` in `apps/web/next.config.js`.
+- Remaining follow-up: verify hosted deployment logs after next push to confirm no environment-specific regressions.

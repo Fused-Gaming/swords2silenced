@@ -2,17 +2,17 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f5f5f5;
+  background: var(--color-gray-light);
 }
 
 .header {
   padding: 2rem 4rem;
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
+  background: var(--color-white-off);
+  border-bottom: var(--border-width) solid var(--color-border);
 }
 
 .backLink {
-  color: #667eea;
+  color: var(--color-blue-mute);
   text-decoration: none;
   margin-bottom: 1rem;
   display: inline-block;
@@ -21,7 +21,7 @@
 .header h1 {
   font-size: 2.5rem;
   margin: 1rem 0;
-  color: #333;
+  color: var(--color-navy-deep);
 }
 
 .main {
@@ -33,15 +33,15 @@
 }
 
 .intro {
-  background: white;
+  background: var(--color-white-off);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   margin-bottom: 3rem;
 }
 
 .intro p {
-  color: #666;
-  line-height: 1.6;
+  color: var(--color-steel-gray);
+  line-height: var(--line-height-normal);
   margin: 0;
 }
 
@@ -50,14 +50,14 @@
 }
 
 .sourceGroup {
-  background: white;
+  background: var(--color-white-off);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   margin-bottom: 2rem;
 }
 
 .sourceGroup h2 {
-  color: #667eea;
+  color: var(--color-blue-mute);
   margin: 0 0 1rem 0;
   font-size: 1.3rem;
 }
@@ -69,31 +69,31 @@
 }
 
 .sourceGroup li {
-  color: #666;
+  color: var(--color-steel-gray);
   padding: 0.5rem 0;
   padding-left: 1.5rem;
   position: relative;
-  line-height: 1.6;
+  line-height: var(--line-height-normal);
 }
 
 .sourceGroup li:before {
   content: '→';
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: var(--color-blue-mute);
 }
 
 .howToAccess {
-  background: white;
+  background: var(--color-white-off);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   margin-bottom: 3rem;
 }
 
 .howToAccess h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--color-navy-deep);
 }
 
 .accessMethods {
@@ -104,44 +104,44 @@
 
 .method {
   padding: 1.5rem;
-  background: #f9f9f9;
-  border-radius: 8px;
+  background: var(--color-gray-xlight);
+  border-radius: var(--border-radius-lg);
 }
 
 .method h3 {
-  color: #667eea;
+  color: var(--color-blue-mute);
   margin: 0 0 0.75rem 0;
 }
 
 .method p {
-  color: #666;
+  color: var(--color-steel-gray);
   margin: 0;
-  line-height: 1.6;
+  line-height: var(--line-height-normal);
 }
 
 .contribute {
-  background: white;
+  background: var(--color-white-off);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   text-align: center;
 }
 
 .contribute h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #333;
+  color: var(--color-navy-deep);
 }
 
 .contribute p {
-  color: #666;
-  line-height: 1.6;
+  color: var(--color-steel-gray);
+  line-height: var(--line-height-normal);
   margin-bottom: 1.5rem;
 }
 
 .contribute a {
-  color: #667eea;
+  color: var(--color-blue-mute);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 1.1rem;
 }
 
@@ -151,8 +151,8 @@
 
 .footer {
   padding: 2rem 4rem;
-  background: white;
-  border-top: 1px solid #e0e0e0;
+  background: var(--color-white-off);
+  border-top: var(--border-width) solid var(--color-border);
   text-align: center;
 }
 
@@ -163,6 +163,6 @@
 }
 
 .footerNav a {
-  color: #667eea;
+  color: var(--color-blue-mute);
   text-decoration: none;
 }
