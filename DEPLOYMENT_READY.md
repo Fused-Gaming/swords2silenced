@@ -51,8 +51,9 @@
 
 ### Assets ✅
 
+- [x] Logo PNG — Primary (swords-to-silenced.png, 1024×1024)
 - [x] Logo SVG (swords_to_silenced_logo.svg)
-- [x] Logo PNG (36A2A73D-9C1C-4F02-8044-673B79944F54.png)
+- [x] Logo PNG — Legacy (36A2A73D-9C1C-4F02-8044-673B79944F54.png)
 - [x] Favicon ready
 - [x] All brand colors integrated
 

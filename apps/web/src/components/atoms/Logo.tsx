@@ -11,8 +11,8 @@ export default function Logo({ variant = 'full', className }: LogoProps) {
   return (
     <Link href="/" className={`${styles.logoContainer} ${className || ''}`}>
       <Image
-        src="/swords_to_silenced_logo.svg"
-        alt="Swords to Silence"
+        src="/swords-to-silenced.png"
+        alt="Swords to Silenced"
         width={variant === 'full' ? 200 : 64}
         height={variant === 'full' ? 200 : 64}
         priority
@@ -20,7 +20,7 @@ export default function Logo({ variant = 'full', className }: LogoProps) {
       />
       {variant === 'full' && (
         <div className={styles.logoText}>
-          <h1>Swords to Silence</h1>
+          <h1>Swords to Silenced</h1>
         </div>
       )}
     </Link>

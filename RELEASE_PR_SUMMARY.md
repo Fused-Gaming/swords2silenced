@@ -151,8 +151,9 @@ This PR completes the entire Swords to Silenced platform implementation includin
 
 ### Logos
 
-- ✅ **SVG:** `swords_to_silenced_logo.svg` (2.6 KB)
-- ✅ **PNG:** `36A2A73D-9C1C-4F02-8044-673B79944F54.png` (1024×1024)
+- ✅ **PNG:** `swords-to-silenced.png` (1024×1024, 1.6 MB) — **Primary Logo**
+- ✅ **SVG:** `swords_to_silenced_logo.svg` (2.6 KB) — Legacy
+- ✅ **PNG:** `36A2A73D-9C1C-4F02-8044-673B79944F54.png` (1024×1024) — Legacy
 
 ### Brand Implementation
 
@@ -161,6 +162,7 @@ This PR completes the entire Swords to Silenced platform implementation includin
 - ✅ Spacing system implemented
 - ✅ Grid system active
 - ✅ All pages using design tokens
+- ✅ New logo integrated in Navbar and Logo component
 
 ---
 
