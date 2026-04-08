@@ -2,12 +2,11 @@
  * Navbar Component
  * Main navigation with logo, links, mobile menu
  *
- * Ready for logo at: /public/logo-full.svg
+ * Logo: /public/swords-to-silenced.png (1024×1024 PNG)
  */
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { H4 } from '../atoms/Typography';
 import styles from './Navbar.module.css';
 
 interface NavbarProps {
@@ -16,7 +15,7 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({
-  logoSrc = '/logo-full.svg',
+  logoSrc = '/swords-to-silenced.png',
   companyName = 'Swords to Silenced',
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,22 +33,14 @@ const Navbar: React.FC<NavbarProps> = ({
         {/* Logo */}
         <div className={styles.logoWrapper}>
           <a href="/" className={styles.logoLink}>
-            {logoSrc.endsWith('.svg') ? (
-              <img
-                src={logoSrc}
-                alt={companyName}
-                className={styles.logoImage}
-              />
-            ) : (
-              <Image
-                src={logoSrc}
-                alt={companyName}
-                width={200}
-                height={60}
-                className={styles.logoImage}
-                priority
-              />
-            )}
+            <Image
+              src={logoSrc}
+              alt={companyName}
+              width={200}
+              height={60}
+              className={styles.logoImage}
+              priority
+            />
           </a>
         </div>
 
