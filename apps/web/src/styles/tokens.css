@@ -5,16 +5,40 @@
  * This file is the source of truth for all design decisions.
  * NEVER hardcode colors, spacing, or typography values.
  * ALWAYS use CSS variables from this file.
+ *
+ * Color Palette: Purple → Red Gradient
+ * Dark Mode (default) + Light Mode Support
  */
 
 :root {
   /* ===============================================
-     PRIMARY COLORS
+     NEW COLOR PALETTE
+     Purple → Red gradient for both dark & light modes
+     =============================================== */
+
+  --color-midnight-violet: #1f0021;
+  --color-midnight-violet-2: #2d031d;
+  --color-night-bordeaux: #3c0518;
+  --color-night-bordeaux-2: #4a0814;
+  --color-black-cherry: #580b0f;
+  --color-dark-garnet: #670d0b;
+  --color-molten-lava: #751006;
+
+  --color-violet-mist: #f2e8f5;
+  --color-violet-bloom: #ede0ea;
+  --color-rose-whisper: #f0d8dd;
+  --color-rose-glow: #f0d0d5;
+  --color-cherry-blossom: #f0cac8;
+  --color-garnet-bloom: #f3c4bf;
+  --color-coral-silk: #f5c0b2;
+
+  /* ===============================================
+     PRIMARY COLORS (Dark Mode - Default)
      Core brand identity - authority, exposure, clarity
      =============================================== */
 
-  --color-navy-deep: #0B1F3A;
-  --color-red-alert: #B02A37;
+  --color-navy-deep: var(--color-midnight-violet);
+  --color-red-alert: var(--color-molten-lava);
   --color-white-off: #F8F9FA;
 
   /* ===============================================
@@ -22,9 +46,9 @@
      Supporting colors for context and hierarchy
      =============================================== */
 
-  --color-steel-gray: #495057;
-  --color-blue-mute: #3A5A7A;
-  --color-border: #CED4DA;
+  --color-steel-gray: #A0A8B8;
+  --color-blue-mute: #8B7A96;
+  --color-border: #3c2634;
 
   /* ===============================================
      FUNCTIONAL COLORS
@@ -40,12 +64,12 @@
      For backgrounds, overlays, and accessibility
      =============================================== */
 
-  --color-navy-light: #1A3A5C;
-  --color-navy-xlight: #E8EEF5;
-  --color-gray-light: #F1F3F5;
-  --color-gray-xlight: #FAFBFC;
-  --color-overlay-dark: rgba(11, 31, 58, 0.8);
-  --color-overlay-light: rgba(255, 255, 255, 0.95);
+  --color-navy-light: var(--color-night-bordeaux);
+  --color-navy-xlight: var(--color-midnight-violet-2);
+  --color-gray-light: #1a0f15;
+  --color-gray-xlight: #0f0a0d;
+  --color-overlay-dark: rgba(31, 0, 33, 0.9);
+  --color-overlay-light: rgba(31, 0, 33, 0.7);
 
   /* ===============================================
      SEMANTIC COLOR VARIANTS
@@ -55,7 +79,7 @@
   --color-success-dark: #1B6B5F;
   --color-warning-dark: #B35A00;
   --color-critical-dark: #8B1A20;
-  --color-red-alert-dark: #991E25;
+  --color-red-alert-dark: #5D0804;
 
   /* ===============================================
      TYPOGRAPHY
@@ -119,12 +143,11 @@
   /* ===============================================
      SHADOWS
      Depth and elevation - functional only
-     NO decorative shadows
      =============================================== */
 
-  --shadow-sm: 0 1px 2px rgba(11, 31, 58, 0.05);
-  --shadow-md: 0 2px 4px rgba(11, 31, 58, 0.1);
-  --shadow-lg: 0 4px 8px rgba(11, 31, 58, 0.15);
+  --shadow-sm: 0 1px 2px rgba(31, 0, 33, 0.2);
+  --shadow-md: 0 2px 4px rgba(31, 0, 33, 0.3);
+  --shadow-lg: 0 4px 8px rgba(31, 0, 33, 0.4);
 
   /* ===============================================
      BORDERS
@@ -156,7 +179,7 @@
      Focus states, high contrast modes
      =============================================== */
 
-  --focus-outline: 2px solid var(--color-red-alert);
+  --focus-outline: 2px solid var(--color-coral-silk);
   --focus-offset: 2px;
 
   /* ===============================================
@@ -168,6 +191,43 @@
   --z-modal: 2000;
   --z-tooltip: 3000;
   --z-notification: 4000;
+}
+
+/* ===============================================
+   LIGHT MODE THEME
+   Activated via prefers-color-scheme: light
+   =============================================== */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light mode primary colors */
+    --color-navy-deep: var(--color-midnight-violet);
+    --color-red-alert: var(--color-coral-silk);
+    --color-white-off: #FFFFFF;
+
+    /* Light mode secondary colors */
+    --color-steel-gray: #5A6B7D;
+    --color-blue-mute: #3A5A7A;
+    --color-border: #E8D9E0;
+
+    /* Light mode backgrounds */
+    --color-navy-light: var(--color-violet-bloom);
+    --color-navy-xlight: var(--color-violet-mist);
+    --color-gray-light: #F5F0F3;
+    --color-gray-xlight: #FAFBFC;
+
+    /* Light mode overlays */
+    --color-overlay-dark: rgba(31, 0, 33, 0.8);
+    --color-overlay-light: rgba(255, 255, 255, 0.95);
+
+    /* Light mode shadows */
+    --shadow-sm: 0 1px 2px rgba(31, 0, 33, 0.05);
+    --shadow-md: 0 2px 4px rgba(31, 0, 33, 0.1);
+    --shadow-lg: 0 4px 8px rgba(31, 0, 33, 0.15);
+
+    /* Light mode focus outline */
+    --focus-outline: 2px solid var(--color-molten-lava);
+  }
 }
 
 /* ===============================================
@@ -223,9 +283,9 @@
 
 @media (prefers-contrast: more) {
   :root {
-    --color-navy-deep: #000000;
-    --color-steel-gray: #1a1a1a;
-    --color-border: #333333;
+    --color-navy-deep: #1f0021;
+    --color-steel-gray: #2d031d;
+    --color-border: #3c0518;
   }
 }
 
