@@ -48,6 +48,16 @@
   --color-overlay-light: rgba(255, 255, 255, 0.95);
 
   /* ===============================================
+     SEMANTIC COLOR VARIANTS
+     Darker/lighter variants for components
+     =============================================== */
+
+  --color-success-dark: #1B6B5F;
+  --color-warning-dark: #B35A00;
+  --color-critical-dark: #8B1A20;
+  --color-red-alert-dark: #991E25;
+
+  /* ===============================================
      TYPOGRAPHY
      Font families and scale
      =============================================== */
