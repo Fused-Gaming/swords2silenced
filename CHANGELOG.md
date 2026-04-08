@@ -14,12 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI/CD pipeline foundation
 
 ### Changed
+- Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+- Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
+- Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
 
 ### Security
 

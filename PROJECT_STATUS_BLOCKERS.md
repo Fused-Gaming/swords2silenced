@@ -4,24 +4,33 @@
 
 - `PARALLEL_DEVELOPMENT_PLAN.md` (roadmap and coordinated milestones)
 - `AGENT_HANDOFF_SUMMARY.md` (current-version handoff context)
-- `apps/web/src/pages/api/health.ts` (current health endpoint implementation)
+- `apps/web/src/pages/api/status.ts` (status endpoint contract)
 
 ## Current blockers
 
-1. **Authentication chain is degraded**
-   - GitHub auth not verifiable from runtime status checks.
-   - Telegram auth not verifiable from runtime status checks.
-   - Admin auth not verifiable from runtime status checks.
-2. **`/status` endpoint missing from web app API routes**
-   - `health` route exists but does not report per-integration readiness.
-3. **Launch narrative page lacked implementation context**
-   - Prior flow had visual/content direction, but missing explicit blockers, active steps, and directives.
+1. **Authentication chain requires stronger runtime contracts**
+   - GitHub auth needs expiry and startup diagnostics.
+   - Telegram auth needs format and expiry validation.
+   - Admin auth needs explicit hash-only enforcement and expiry checks.
+2. **MCP upstream fetch is currently blocked from this runtime**
+   - `git clone https://github.com/Fused-Gaming/Fused-Gaming-Skill-MCP.git` failed with `CONNECT tunnel failed, response 403`.
+3. **PR/deployment telemetry is not directly queryable from this local clone**
+   - No GitHub remote is configured in this repository checkout.
 
 ## Current steps in progress
 
-1. Add narrative launch page implementation with tokenized dark-layout skeleton.
-2. Add source-registry links and context block for missing operational pieces.
-3. Add `/api/status` endpoint with typed checks for API, GitHub, Telegram, and admin auth readiness.
+1. Harden `/api/status` with deterministic integration diagnostics.
+2. Implement auth contract helpers for GitHub, Telegram, and admin flows.
+3. Ensure MCP skill workspace remains installable inside monorepo scripts.
+
+## Immediate next 3 steps
+
+1. Add/verify environment variables in deployment targets:
+   - `GITHUB_TOKEN` or `GITHUB_APP_ID`, plus `GITHUB_TOKEN_EXPIRES_AT`
+   - `TELEGRAM_BOT_TOKEN`, plus `TELEGRAM_BOT_TOKEN_EXPIRES_AT`
+   - `ADMIN_PASSWORD_HASH`, plus `ADMIN_SECRET_EXPIRES_AT`
+2. Re-run deployment health probes against `/status` and verify all auth checks return `ok`.
+3. Restore GitHub connectivity for MCP source sync (network egress allowlist or mirrored artifact) and complete fused-gaming source pull.
 
 ## Top 3 prioritized items and directives
 

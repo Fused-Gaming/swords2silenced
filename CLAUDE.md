@@ -105,6 +105,13 @@ According to ROADMAP.md, current priorities are:
 
 Claude should focus on accelerating these areas.
 
+
+## Agent Continuity Notes
+
+- Keep `tools/*` in root npm workspaces so MCP skill packages are buildable from root scripts.
+- Use `apps/web/src/lib/authReadiness.ts` as the single contract source for GitHub/Telegram/admin readiness checks consumed by `/api/status`.
+- For auth rotations, update both secret and `*_EXPIRES_AT` variables to avoid false degraded status reports.
+
 ## Questions or Issues?
 
 - Review CONTRIBUTING.md for development guidelines
@@ -114,4 +121,4 @@ Claude should focus on accelerating these areas.
 
 ---
 
-**Last Updated**: 2026-04-04
+**Last Updated**: 2026-04-06

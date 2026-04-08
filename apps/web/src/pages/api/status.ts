@@ -1,6 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-type IntegrationStatus = 'ok' | 'degraded' | 'unknown';
+import {
+  evaluateAdminAuth,
+  evaluateGithubAuth,
+  evaluateTelegramAuth,
+  type IntegrationStatus,
+} from '../../lib/authReadiness';
 
 type StatusResponse = {
   status: 'ok' | 'degraded';
@@ -13,21 +18,26 @@ type StatusResponse = {
     telegramAuth: IntegrationStatus;
     adminAuth: IntegrationStatus;
   };
+  diagnostics: {
+    githubAuth: string[];
+    telegramAuth: string[];
+    adminAuth: string[];
+  };
   notes: string[];
 };
 
 const START_TIME = Date.now();
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<StatusResponse>) {
-  const githubConfigured = Boolean(process.env.GITHUB_TOKEN || process.env.GITHUB_APP_ID);
-  const telegramConfigured = Boolean(process.env.TELEGRAM_BOT_TOKEN);
-  const adminConfigured = Boolean(process.env.ADMIN_PASSWORD_HASH || process.env.ADMIN_PASSWORD);
+export default function handler(_req: NextApiRequest, res: NextApiResponse<StatusResponse>) {
+  const githubAuth = evaluateGithubAuth();
+  const telegramAuth = evaluateTelegramAuth();
+  const adminAuth = evaluateAdminAuth();
 
   const checks = {
     api: 'ok' as const,
-    githubAuth: (githubConfigured ? 'ok' : 'degraded') as IntegrationStatus,
-    telegramAuth: (telegramConfigured ? 'ok' : 'degraded') as IntegrationStatus,
-    adminAuth: (adminConfigured ? 'ok' : 'degraded') as IntegrationStatus,
+    githubAuth: githubAuth.status,
+    telegramAuth: telegramAuth.status,
+    adminAuth: adminAuth.status,
   };
 
   const degraded = Object.values(checks).some((status) => status !== 'ok');
@@ -36,11 +46,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Status
     status: degraded ? 'degraded' : 'ok',
     timestamp: new Date().toISOString(),
     uptimeSeconds: Math.floor((Date.now() - START_TIME) / 1000),
-    version: '0.1.0',
+    version: process.env.npm_package_version || '0.1.0',
     checks,
+    diagnostics: {
+      githubAuth: githubAuth.diagnostics,
+      telegramAuth: telegramAuth.diagnostics,
+      adminAuth: adminAuth.diagnostics,
+    },
     notes: [
       'Use this endpoint for deployment health probes and auth bootstrap checks.',
-      'If auth checks return degraded, verify environment variables and secrets rotation.',
+      'Rotate degraded credentials and redeploy after updating environment secrets.',
     ],
   });
 }
