@@ -34,7 +34,6 @@
   --color-success: #2A9D8F;
   --color-warning: #F77F00;
   --color-critical: #D62828;
-  --color-info: #2563EB;
 
   /* ===============================================
      EXTENDED PALETTE
@@ -181,7 +180,6 @@
    - Verified: --color-success
    - Warning: --color-warning
    - Critical: --color-critical
-   - Informational: --color-info
 
    BORDERS:
    - Default border: --color-border
