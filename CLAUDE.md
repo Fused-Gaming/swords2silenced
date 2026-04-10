@@ -135,13 +135,4 @@ Claude should focus on accelerating these areas.
 
 ---
 
-**Last Updated**: 2026-04-10 (agent maintenance pass)
-**Last Updated**: 2026-04-04
-
-## Agent Handoff Notes (2026-04-06)
-
-- Auth diagnostics are now centralized in `apps/web/src/lib/authConfigValidator.ts` and surfaced by `/api/status`; use `reasonCodes` for deterministic remediation runbooks.
-- Admin credential migration policy: prefer `ADMIN_PASSWORD_HASH`; allow `ADMIN_PASSWORD` only when `ADMIN_PASSWORD_MIGRATION_ENABLED=true`, and treat `legacy_secret_in_use` as action required.
-- Styling semantic token gap identified/fixed: `--color-info` is required by `apps/web/src/pages/case-timeline.tsx`. Add token definitions before introducing new semantic color vars in page logic.
-- Deployment/build guardrail: Next.js 16 with Turbopack in this monorepo requires `turbopack.root` in `apps/web/next.config.js` to avoid workspace root resolution failures.
-- Before handoff: run `npm run lint --workspace=apps/web`, `npm run test --workspace=apps/web -- authConfigValidator.test.ts`, and `npm run build --workspace=apps/web`.
+**Last Updated**: 2026-04-10
