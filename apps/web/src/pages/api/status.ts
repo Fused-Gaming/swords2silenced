@@ -1,23 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {
-  type DiagnosticReasonCode,
-  type IntegrationName,
-  validateAuthConfig,
-} from '../../lib/authConfigValidator';
-
-import {
   evaluateAdminAuth,
   evaluateGithubAuth,
   evaluateTelegramAuth,
   type IntegrationStatus,
 } from '../../lib/authReadiness';
-
-type IntegrationDiagnostic = {
-  integration: IntegrationName;
-  status: IntegrationStatus;
-  reasonCodes: DiagnosticReasonCode[];
-  message: string;
-};
 
 type StatusResponse = {
   status: 'ok' | 'degraded';
@@ -35,7 +22,6 @@ type StatusResponse = {
     telegramAuth: string[];
     adminAuth: string[];
   };
-  diagnostics: IntegrationDiagnostic[];
   notes: string[];
 };
 
@@ -51,36 +37,7 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse<Statu
     githubAuth: githubAuth.status,
     telegramAuth: telegramAuth.status,
     adminAuth: adminAuth.status,
-export default function handler(req: NextApiRequest, res: NextApiResponse<StatusResponse>) {
-  const auth = validateAuthConfig(process.env);
-
-  const checks = {
-    api: 'ok' as const,
-    githubAuth: auth.github.status,
-    telegramAuth: auth.telegram.status,
-    adminAuth: auth.admin.status,
   };
-
-  const diagnostics: IntegrationDiagnostic[] = [
-    {
-      integration: 'github',
-      status: auth.github.status,
-      reasonCodes: auth.github.reasonCodes,
-      message: auth.github.message,
-    },
-    {
-      integration: 'telegram',
-      status: auth.telegram.status,
-      reasonCodes: auth.telegram.reasonCodes,
-      message: auth.telegram.message,
-    },
-    {
-      integration: 'admin',
-      status: auth.admin.status,
-      reasonCodes: auth.admin.reasonCodes,
-      message: auth.admin.message,
-    },
-  ];
 
   const degraded = Object.values(checks).some((status) => status !== 'ok');
 
@@ -98,10 +55,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Status
     notes: [
       'Use this endpoint for deployment health probes and auth bootstrap checks.',
       'Rotate degraded credentials and redeploy after updating environment secrets.',
-    diagnostics,
-    notes: [
-      'Use this endpoint for deployment health probes and auth bootstrap checks.',
-      'If auth checks return degraded, inspect diagnostics reasonCodes for deterministic remediation.',
     ],
   });
 }

@@ -4,16 +4,13 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   turbopack: {
-    root: path.join(__dirname, '../..'),
+    root: path.resolve(__dirname, '../..'),
   },
   images: {
     unoptimized: process.env.SKIP_ENV_VALIDATION === 'true',
   },
   typescript: {
     ignoreBuildErrors: false,
-  },
-  turbopack: {
-    root: path.resolve(__dirname, '../..'),
   },
   env: {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://swordstosilenced.com',
