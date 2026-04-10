@@ -34,19 +34,19 @@
 
 .variant-verified {
   background-color: rgba(42, 157, 143, 0.1);
-  color: #1B6B5F;
+  color: var(--color-success-dark);
   border: var(--border-width) solid rgba(42, 157, 143, 0.3);
 }
 
 .variant-unverified {
   background-color: rgba(247, 127, 0, 0.1);
-  color: #B35A00;
+  color: var(--color-warning-dark);
   border: var(--border-width) solid rgba(247, 127, 0, 0.3);
 }
 
 .variant-critical {
   background-color: rgba(214, 40, 40, 0.1);
-  color: #8B1A20;
+  color: var(--color-critical-dark);
   border: var(--border-width) solid rgba(214, 40, 40, 0.3);
 }
 

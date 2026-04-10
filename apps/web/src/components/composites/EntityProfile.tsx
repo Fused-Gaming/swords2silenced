@@ -44,7 +44,7 @@ const EntityProfile: React.FC<EntityProfileProps> = ({
       {/* Avatar placeholder */}
       <div className={styles.avatar}>
         {imageUrl ? (
-          <Image src={imageUrl} alt={name} fill className={styles.image} />
+          <Image src={imageUrl} alt={name} width={64} height={64} />
         ) : (
           <div className={styles.initials}>{name.charAt(0)}</div>
         )}
