@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ESLint and Prettier setup
 - CI/CD pipeline foundation
 - Added `docs/AGENT_HANDOFF.md` to track blockers, priorities, and next-agent continuity for test/deployment stabilization work
+- Added deterministic auth configuration validator diagnostics for GitHub, Telegram, and admin integrations in `/api/status`.
+- Added admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls.
 
 ### Changed
 
@@ -32,6 +34,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed MCP workspace lint plugin-resolution conflicts by resolving ESLint plugins from monorepo root
 - Updated MCP workspace tests to pass when no test files are present (`jest --passWithNoTests`)
 - Reduced MCP workspace lint noise by explicitly allowing `console.log` for MCP server diagnostics
+- Added missing `--color-info` design token for semantic informational states used by timeline category styling.
+- Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.
+- Removed runtime dependency on Google font fetch in `narrative-launch` by switching to CSS fallback font-family variables for more reliable offline/CI builds.
 
 ### Security
 

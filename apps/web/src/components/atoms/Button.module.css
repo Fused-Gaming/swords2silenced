@@ -35,8 +35,8 @@
   border-color: var(--color-red-alert);
 
   &:hover:not(:disabled) {
-    background-color: #991E25;
-    border-color: #991E25;
+    background-color: var(--color-red-alert-dark);
+    border-color: var(--color-red-alert-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
@@ -75,7 +75,7 @@
   }
 
   &:active:not(:disabled) {
-    color: #8B1A20;
+    color: var(--color-critical-dark);
   }
 }
 
