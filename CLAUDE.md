@@ -121,6 +121,9 @@ Claude should focus on accelerating these areas.
 - MCP workspace lint should use `--resolve-plugins-relative-to ../../` to avoid duplicate plugin resolution between root and workspace installs.
 - MCP workspace tests should use `jest --passWithNoTests` unless/ until dedicated tests are added.
 
+- Use `rg -n "^(<<<<<<<|>>>>>>>)" .` before test/debug passes to catch unresolved merge markers early.
+- Workspace health baseline (2026-04-10): `npm test -- --runInBand`, `npm run lint`, `npm run build`, and `npm run type-check` all pass; primary risk is missing test coverage rather than failing tests.
+
 ## Questions or Issues?
 
 - Review CONTRIBUTING.md for development guidelines
@@ -130,4 +133,4 @@ Claude should focus on accelerating these areas.
 
 ---
 
-**Last Updated**: 2026-04-10
+**Last Updated**: 2026-04-10 (agent maintenance pass)
