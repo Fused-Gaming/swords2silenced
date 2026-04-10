@@ -1,23 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {
-  type DiagnosticReasonCode,
-  type IntegrationName,
-  validateAuthConfig,
-} from '../../lib/authConfigValidator';
-
-import {
   evaluateAdminAuth,
   evaluateGithubAuth,
   evaluateTelegramAuth,
   type IntegrationStatus,
 } from '../../lib/authReadiness';
-
-type IntegrationDiagnostic = {
-  integration: IntegrationName;
-  status: IntegrationStatus;
-  reasonCodes: DiagnosticReasonCode[];
-  message: string;
-};
 
 type StatusResponse = {
   status: 'ok' | 'degraded';
