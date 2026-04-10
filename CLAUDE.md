@@ -46,16 +46,19 @@ This document outlines guidelines for working with Claude Code (AI assistance) o
 ### 📋 Project-Specific Instructions
 
 **Always follow BRANCHING.md** when creating branches:
+
 - Feature work: `feature/<description>` from `develop`
 - Releases: `release/vX.Y.Z` following ROADMAP.md timeline
 - Hotfixes: `hotfix/<description>` from `main`
 
 **Update documentation when:**
+
 - Adding new features → Update CHANGELOG.md (Unreleased section)
 - Releasing a version → Update VERSION.md and CHANGELOG.md
 - Changing architecture → Update CONTRIBUTING.md or ROADMAP.md
 
 **Code style requirements:**
+
 - Use Prettier (2-space indentation)
 - Run ESLint before committing
 - TypeScript with strict mode
@@ -96,6 +99,7 @@ git branch -a            # List all branches
 ## Sprint Focus (MVP Phase)
 
 According to ROADMAP.md, current priorities are:
+
 1. Core React architecture ✅
 2. UI/Design implementation
 3. Static site generation
@@ -104,6 +108,18 @@ According to ROADMAP.md, current priorities are:
 6. Performance & SEO optimization
 
 Claude should focus on accelerating these areas.
+
+## Agent Continuity Notes
+
+- Keep `tools/*` in root npm workspaces so MCP skill packages are buildable from root scripts.
+- Use `apps/web/src/lib/authReadiness.ts` as the single contract source for GitHub/Telegram/admin readiness checks consumed by `/api/status`.
+- For auth rotations, update both secret and `*_EXPIRES_AT` variables to avoid false degraded status reports.
+
+- Keep `apps/web/next.config.js` turbopack root pinned to monorepo root (`../..`) to avoid workspace root inference failures.
+- Prefer local/system font stacks in critical pages when CI/build environments may block Google Fonts fetches.
+
+- MCP workspace lint should use `--resolve-plugins-relative-to ../../` to avoid duplicate plugin resolution between root and workspace installs.
+- MCP workspace tests should use `jest --passWithNoTests` unless/ until dedicated tests are added.
 
 ## Questions or Issues?
 
@@ -114,4 +130,4 @@ Claude should focus on accelerating these areas.
 
 ---
 
-**Last Updated**: 2026-04-04
+**Last Updated**: 2026-04-10

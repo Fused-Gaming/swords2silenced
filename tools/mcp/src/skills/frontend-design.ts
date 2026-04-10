@@ -72,7 +72,7 @@ export async function generateTheme(baseColor: string): Promise<Record<string, s
   };
 }
 
-function adjustColor(color: string, percent: number): string {
+function adjustColor(color: string, _percent: number): string {
   // Simplified color adjustment - in production would use proper color math
   return color;
 }
