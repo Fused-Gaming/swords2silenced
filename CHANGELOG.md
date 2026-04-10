@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TypeScript configuration
 - ESLint and Prettier setup
 - CI/CD pipeline foundation
+- Added `docs/AGENT_HANDOFF.md` to track blockers, priorities, and next-agent continuity for test/deployment stabilization work
 - Added deterministic auth configuration validator diagnostics for GitHub, Telegram, and admin integrations in `/api/status`.
 - Added admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls.
 

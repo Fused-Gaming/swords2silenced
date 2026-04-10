@@ -52,27 +52,6 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse<Statu
     adminAuth: adminAuth.status,
   };
 
-  const diagnostics: IntegrationDiagnostic[] = [
-    {
-      integration: 'github',
-      status: auth.github.status,
-      reasonCodes: auth.github.reasonCodes,
-      message: auth.github.message,
-    },
-    {
-      integration: 'telegram',
-      status: auth.telegram.status,
-      reasonCodes: auth.telegram.reasonCodes,
-      message: auth.telegram.message,
-    },
-    {
-      integration: 'admin',
-      status: auth.admin.status,
-      reasonCodes: auth.admin.reasonCodes,
-      message: auth.admin.message,
-    },
-  ];
-
   const degraded = Object.values(checks).some((status) => status !== 'ok');
 
   res.status(200).json({

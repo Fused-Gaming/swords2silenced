@@ -124,6 +124,7 @@ Claude should focus on accelerating these areas.
 
 ---
 
+**Last Updated**: 2026-04-10 (agent maintenance pass)
 **Last Updated**: 2026-04-04
 
 ## Agent Handoff Notes (2026-04-06)
