@@ -22,6 +22,7 @@ export default function Home() {
             <a href="#about">About</a>
             <a href="#features">Features</a>
             <a href="#contact">Contact</a>
+            <a href="/testimony">Testimony</a>
           </nav>
         </header>
 
@@ -29,7 +30,7 @@ export default function Home() {
           <section className={styles.hero}>
             <h2>Transform Your Message</h2>
             <p>Empower your voice. Make an impact. Join the movement.</p>
-            <button className={styles.cta}>Get Started</button>
+            <a className={styles.cta} href="/testimony">Read Personal Testimony</a>
           </section>
 
           <section id="features" className={styles.features}>
@@ -65,6 +66,7 @@ export default function Home() {
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
             <a href="#contact">Contact</a>
+            <a href="/testimony">Testimony</a>
           </div>
         </footer>
       </div>
