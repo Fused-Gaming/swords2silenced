@@ -2,51 +2,44 @@
 
 ## Session Scope
 
-- Verified repository health before feature work by checking for unresolved merge conflicts and running workspace tests/checks.
-- Reviewed roadmap/version/changelog and recent merged PR history for prioritization context.
+- Investigated quality-test regressions after merge activity and validated repository quality gates.
+- Reviewed roadmap/version/changelog context and recent branch PR references from local history.
 
 ## Blockers
 
-1. **No automated unit/integration coverage in most workspaces** (`api`, `core`, `ui`, and `web` currently report no tests).
-2. **Roadmap Phase 1 deliverables still mostly unchecked** despite a working production build pipeline.
-3. **PR-level deployment metadata is not available locally** (requires GitHub Actions/PR API access to inspect deploy failures directly).
+1. **Remote PR deployment status unavailable in this environment** (no GitHub remote/Actions API context in local clone).
+2. **Sparse test coverage remains** in `api`, `core`, `ui`, and `mcp-skills` workspaces (commands pass with placeholder/no-tests behavior).
 
 ## Current Steps Completed
 
-1. Checked for merge-conflict markers (`<<<<<<<`, `>>>>>>>`) across the repo.
-2. Ran workspace test suite (`npm test -- --runInBand`).
-3. Ran lint (`npm run lint`), build (`npm run build`), and type-check (`npm run type-check`).
-4. Reviewed `ROADMAP.md`, `VERSION.md`, and `CHANGELOG.md`.
-5. Reviewed recent merged PR references from git history.
+1. Confirmed active branch and recent merge lineage in git history.
+2. Ran lint and identified merge-regression failures in web workspace.
+3. Fixed duplicate `turbopack` key conflict in `apps/web/next.config.js`.
+4. Fixed unused imports/types in `apps/web/src/pages/api/status.ts`.
+5. Re-ran lint, tests, and production build to confirm green quality checks.
+6. Updated continuity docs (`CHANGELOG.md`, `CLAUDE.md`, and this handoff file).
 
 ## Immediate Next 3 Steps
 
-1. Add baseline smoke tests for `apps/web` (route render + critical API status response assertions).
-2. Add at least one package-level test in `api`, `core`, and `ui` to prevent silent regressions.
-3. Wire CI to fail when test count unexpectedly drops (or when test command only pass-through echoes).
+1. Add real tests for `api`, `core`, and `ui` packages to replace pass-through placeholders.
+2. Add CI assertions that fail when workspace test scripts only echo placeholders.
+3. Pull remote PR metadata (`gh pr list --state all` + checks) once GitHub remote/auth is available, then prioritize any failed deployment pipelines.
 
-## Recent PRs Related to Current Branch (from local git history)
+## Recent PRs Related to Current Branch (local history snapshot)
 
-- `#16` — `chore(ci): remove mcp lint noise and clean blocker tracking` (latest on current branch lineage).
-- `#15` — `feat: assign content-records directive with source provenance metadata`.
-- `#8` — `docs: add essential repository documentation`.
-- `#5` — `feat: implement Swords to Silenced brand system and production design`.
-- `#4` and `#3` merged pull requests into branch history.
+- `#32` — `feat(web): rewrite narrative launch page around veteran housing article`
+- `#30` — `Add auth readiness checks, stabilize /status endpoint, and integrate MCP workspace`
+- `#27` — `Release/v0.2.0 swords to silenced complete`
+- `#26` — `docs: add comprehensive deployment readiness documentation`
+- `#25` — `fix(web): stabilize build pipeline and sync agent handoff docs`
 
-### Test/Deployment Status Snapshot
+### Test/Deployment Status
 
-- Local tests: passing, but mostly "no tests found" placeholders.
-- Local lint/build/type-check: passing.
-- Deployment/preview status from PR platform: **not verifiable in offline local git context**; requires remote CI/PR checks.
+- Local lint/tests/build: passing after this regression fix pass.
+- Remote deployment/check statuses: **blocked** until repository remote and CI APIs are available.
 
 ## Priority Focus (Top 3)
 
-1. Build meaningful automated tests (highest risk reduction).
-2. Close MVP roadmap deliverables with tracked checkboxes and acceptance criteria.
-3. Add CI quality gates for test coverage presence and deployment verification visibility.
-
-## Next-Agent Continuity Notes
-
-- Start by adding executable tests before feature expansion.
-- Keep `CHANGELOG.md` `[Unreleased]` in sync with each maintenance pass.
-- Re-check merge-conflict markers before any large cherry-pick/rebase operations.
+1. Expand meaningful automated test coverage across non-web workspaces.
+2. Enforce stronger CI quality gates for placeholder test scripts.
+3. Retrieve and remediate remote PR deployment failures as soon as CI metadata is accessible.
