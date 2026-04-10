@@ -21,7 +21,8 @@ swords2silenced/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm 9+
 
 ### Installation
@@ -51,6 +52,18 @@ npm run test
 See [BRANCHING_STRATEGY.md](./docs/BRANCHING_STRATEGY.md) for details.
 
 ## 🔧 Development
+
+### Styling Stack (Web App)
+
+`apps/web` is configured for Tailwind CSS + PostCSS integration (Tailwind directives are enabled in `src/styles/globals.css`).
+
+```bash
+# install workspace deps (run in network-permitted environment)
+npm install
+
+# run web app
+npm run dev --workspace=apps/web
+```
 
 ### Workspace Management
 
@@ -86,6 +99,7 @@ vercel deploy
 ### DNS Configuration
 
 Domain: **swordstosilenced.com**
+
 - Nameservers: Cloudflare
 - A Records: Pointing to Vercel deployment
 
@@ -100,14 +114,17 @@ npm run coverage     # Generate coverage report
 ## 📚 Documentation
 
 ### Getting Started
+
 - [Setup Guide](./docs/SETUP_GUIDE.md) - Local development setup
 - [Deployment Summary](./DEPLOYMENT_SUMMARY.md) - Complete project overview
 
 ### Development & Workflow
+
 - [Branching Strategy](./docs/BRANCHING_STRATEGY.md) - Git Flow workflow
 - [Contributing Guidelines](./docs/CONTRIBUTING.md) - How to contribute
 
 ### Deployment & Infrastructure
+
 - [Deployment Guide](./docs/DEPLOYMENT.md) - Vercel deployment
 - [DNS & Cloudflare Setup](./docs/DNS_CLOUDFLARE_GODADDY.md) - GoDaddy to Cloudflare migration
 - [Skills Integration](./docs/SKILLS_INTEGRATION.md) - Install and use skills

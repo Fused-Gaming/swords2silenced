@@ -46,16 +46,19 @@ This document outlines guidelines for working with Claude Code (AI assistance) o
 ### 📋 Project-Specific Instructions
 
 **Always follow BRANCHING.md** when creating branches:
+
 - Feature work: `feature/<description>` from `develop`
 - Releases: `release/vX.Y.Z` following ROADMAP.md timeline
 - Hotfixes: `hotfix/<description>` from `main`
 
 **Update documentation when:**
+
 - Adding new features → Update CHANGELOG.md (Unreleased section)
 - Releasing a version → Update VERSION.md and CHANGELOG.md
 - Changing architecture → Update CONTRIBUTING.md or ROADMAP.md
 
 **Code style requirements:**
+
 - Use Prettier (2-space indentation)
 - Run ESLint before committing
 - TypeScript with strict mode
@@ -96,6 +99,7 @@ git branch -a            # List all branches
 ## Sprint Focus (MVP Phase)
 
 According to ROADMAP.md, current priorities are:
+
 1. Core React architecture ✅
 2. UI/Design implementation
 3. Static site generation
@@ -115,3 +119,9 @@ Claude should focus on accelerating these areas.
 ---
 
 **Last Updated**: 2026-04-04
+
+## Agent Continuity Notes (2026-04-10)
+
+- Local clone currently has no `origin` remote configured, so PR comments/deployment statuses cannot be queried from this environment.
+- Attempting `npm install -w apps/web -D tailwindcss postcss autoprefixer` returned HTTP 403 from npm registry; dependency declarations were added manually and should be installed in CI or a network-permitted dev environment.
+- Active priority order remains: (1) auth recovery contracts, (2) `/status` endpoint hardening, (3) thesis content wiring after contract stability.

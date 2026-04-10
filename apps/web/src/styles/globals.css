@@ -8,6 +8,10 @@
 
 @import './tokens.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ===============================================
    CSS RESET
    Normalize and establish baseline

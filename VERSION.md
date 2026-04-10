@@ -1,13 +1,18 @@
 # Version Management
 
 ## Current Version
+
 **0.1.0** (MVP Development)
+
+- Last Updated: 2026-04-10
+- Notes: Tailwind CSS scaffolding added for `apps/web`; runtime package install pending network-permitted environment.
 
 ## Versioning Strategy
 
 This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Version Format
+
 ```
 MAJOR.MINOR.PATCH
 ```
@@ -25,6 +30,7 @@ MAJOR.MINOR.PATCH
   - Backwards compatible
 
 ### Pre-release Versions (Optional)
+
 For unstable versions, use: `1.0.0-alpha`, `1.0.0-beta`, `1.0.0-rc.1`
 
 ## Where Versions Are Tracked
@@ -42,6 +48,7 @@ For unstable versions, use: `1.0.0-alpha`, `1.0.0-beta`, `1.0.0-rc.1`
 5. Push changes and tag: `git push && git push --tags`
 
 ## Next Steps
+
 - **0.1.0** → **0.2.0**: First feature release after MVP launch
 - **0.2.0+** → **1.0.0**: Production-ready release
 
