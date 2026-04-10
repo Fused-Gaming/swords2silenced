@@ -125,6 +125,7 @@ Claude should focus on accelerating these areas.
 - Merge-resolution guardrail (2026-04-10): verify `apps/web/src/pages/api/status.ts` contains a single `handler` export and single `diagnostics` shape; duplicate blocks can pass visual review but fail lint/type-check/build.
 - Keep `apps/web/next.config.js` with only one `turbopack` key (using `path.resolve`) to avoid `no-dupe-keys` lint failures and config drift.
 - Workspace health baseline (2026-04-10): `npm test -- --runInBand`, `npm run lint`, `npm run build`, and `npm run type-check` all pass; primary risk is missing test coverage rather than failing tests.
+- `/api/status` contract baseline (2026-04-10): always preserve top-level `status`, `checks`, `notes`, and `version`; GET returns 200 and non-GET returns 405 with `Allow: GET`.
 
 ## Questions or Issues?
 

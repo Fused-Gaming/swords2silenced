@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added contract tests for `/api/status` healthy/degraded permutations and unsupported method handling.
 - Initial project setup and monorepo structure
 - TypeScript configuration
 - ESLint and Prettier setup
@@ -19,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Documented stable `/api/status` schema keys (`status`, `checks`, `notes`, `version`) and hosting probe URL `/status` rewrite behavior.
 - Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
 
 ### Deprecated
@@ -27,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Enforced explicit `405` handling for non-GET `/api/status` requests with consistent contract keys and `Allow: GET` header.
 - Resolved a degraded merge-resolution regression in `apps/web/src/pages/api/status.ts` that duplicated handler/type blocks and broke lint/type-check/build.
 - Fixed `apps/web/next.config.js` duplicate `turbopack` key merge artifact and restored deterministic monorepo root resolution.
 - Fixed web lint gating failures by removing unused imports, migrating navbar home navigation to `next/link`, and replacing raw avatar `<img>` with `next/image`.

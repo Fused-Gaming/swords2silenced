@@ -2,51 +2,50 @@
 
 ## Session Scope
 
-- Verified repository health before feature work by checking for unresolved merge conflicts and running workspace tests/checks.
-- Reviewed roadmap/version/changelog and recent merged PR history for prioritization context.
+- Implemented `/api/status` reliability contract hardening and tests for healthy/degraded permutations.
+- Verified rewrite behavior from `/status` to `/api/status` and documented probe URL usage for hosting health checks.
+- Reviewed roadmap/version/changelog plus local PR lineage for prioritization.
 
 ## Blockers
 
-1. **No automated unit/integration coverage in most workspaces** (`api`, `core`, `ui`, and `web` currently report no tests).
-2. **Roadmap Phase 1 deliverables still mostly unchecked** despite a working production build pipeline.
-3. **PR-level deployment metadata is not available locally** (requires GitHub Actions/PR API access to inspect deploy failures directly).
+1. `gh` CLI is not installed in this container, so direct PR comment/deployment-status introspection is unavailable.
+2. Remote CI deployment details cannot be validated from local git history alone.
 
 ## Current Steps Completed
 
-1. Checked for merge-conflict markers (`<<<<<<<`, `>>>>>>>`) across the repo.
-2. Ran workspace test suite (`npm test -- --runInBand`).
-3. Ran lint (`npm run lint`), build (`npm run build`), and type-check (`npm run type-check`).
-4. Reviewed `ROADMAP.md`, `VERSION.md`, and `CHANGELOG.md`.
-5. Reviewed recent merged PR references from git history.
+1. Reviewed `ROADMAP.md`, `VERSION.md`, and `CHANGELOG.md` to orient current priorities.
+2. Audited `/api/status` contract + next rewrite config and implemented explicit non-GET status handling.
+3. Added contract tests for healthy/degraded env permutations and unsupported methods.
+4. Added rewrite test to lock `/status` → `/api/status` behavior.
+5. Updated README/deployment docs/changelog/CLAUDE guidance for next agents.
 
 ## Immediate Next 3 Steps
 
-1. Add baseline smoke tests for `apps/web` (route render + critical API status response assertions).
-2. Add at least one package-level test in `api`, `core`, and `ui` to prevent silent regressions.
-3. Wire CI to fail when test count unexpectedly drops (or when test command only pass-through echoes).
+1. Pull PR/deployment metadata from GitHub Actions once `gh` or API credentials are available.
+2. Add CI check to run the new status contract tests on every PR and fail on route-contract drift.
+3. Expand status contract tests to include malformed expiry-date permutations and snapshot the notes guidance copy.
 
-## Recent PRs Related to Current Branch (from local git history)
+## Recent PRs Related to Current Branch (local git log)
 
-- `#16` — `chore(ci): remove mcp lint noise and clean blocker tracking` (latest on current branch lineage).
-- `#15` — `feat: assign content-records directive with source provenance metadata`.
-- `#8` — `docs: add essential repository documentation`.
-- `#5` — `feat: implement Swords to Silenced brand system and production design`.
-- `#4` and `#3` merged pull requests into branch history.
+- `#30` — Add auth readiness checks, stabilize /status endpoint, and integrate MCP workspace.
+- `#27` — Release/v0.2.0 swords to silenced complete.
+- `#26` — docs: add comprehensive deployment readiness documentation.
+- `#25` — fix(web): stabilize build pipeline and sync agent handoff docs.
 
 ### Test/Deployment Status Snapshot
 
-- Local tests: passing, but mostly "no tests found" placeholders.
-- Local lint/build/type-check: passing.
-- Deployment/preview status from PR platform: **not verifiable in offline local git context**; requires remote CI/PR checks.
+- Local status contract + rewrite tests: passing.
+- Local `apps/web` lint: passing.
+- PR deployment statuses: **blocked locally** (missing PR API access/tooling).
 
 ## Priority Focus (Top 3)
 
-1. Build meaningful automated tests (highest risk reduction).
-2. Close MVP roadmap deliverables with tracked checkboxes and acceptance criteria.
-3. Add CI quality gates for test coverage presence and deployment verification visibility.
+1. Reliability and contract stability for health endpoints (done this session).
+2. CI visibility into PR deployment outcomes (pending external tooling).
+3. Broader automated coverage in under-tested workspaces.
 
 ## Next-Agent Continuity Notes
 
-- Start by adding executable tests before feature expansion.
-- Keep `CHANGELOG.md` `[Unreleased]` in sync with each maintenance pass.
-- Re-check merge-conflict markers before any large cherry-pick/rebase operations.
+- Keep `/status` as the canonical external probe URL; rewrite target should stay `/api/status`.
+- Preserve stable contract keys (`status`, `checks`, `notes`, `version`) even on error methods.
+- If `gh` becomes available, inspect latest PR check runs before new feature expansion and fix failing deploy checks first.
