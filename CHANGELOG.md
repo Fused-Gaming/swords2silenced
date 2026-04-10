@@ -17,13 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls.
 
 ### Changed
+
 - Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
+- Rewrote `narrative-launch` page content architecture to align with the long-form veteran housing fraud narrative, including 10-part structure, pull quotes, and provided source-reference registry.
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
 - Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
 - Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
 
