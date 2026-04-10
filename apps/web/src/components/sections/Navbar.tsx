@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './Navbar.module.css';
 
 interface NavbarProps {
@@ -32,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className={styles.container}>
         {/* Logo */}
         <div className={styles.logoWrapper}>
-          <a href="/" className={styles.logoLink}>
+          <Link href="/" className={styles.logoLink}>
             <Image
               src={logoSrc}
               alt={companyName}
@@ -41,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({
               className={styles.logoImage}
               priority
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}

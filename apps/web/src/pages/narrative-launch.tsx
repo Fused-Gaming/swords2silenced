@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { Inter, Playfair_Display, Source_Serif_4 } from 'next/font/google';
 import Logo from '../components/atoms/Logo';
 import styles from '../styles/NarrativeLaunch.module.css';
 
@@ -162,10 +161,9 @@ export default function NarrativeLaunchPage() {
       <div
         className={styles.page}
         style={{
-          ['--display-font' as string]: '"Playfair Display", Georgia, serif',
+          ['--display-font' as string]: '"Playfair Display", Georgia, "Times New Roman", serif',
           ['--serif-font' as string]: '"Source Serif 4", Georgia, serif',
-          ['--sans-font' as string]:
-            '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          ['--sans-font' as string]: 'Inter, "Segoe UI", Arial, sans-serif',
         }}
       >
         <header className={styles.topbar}>

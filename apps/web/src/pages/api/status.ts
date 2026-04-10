@@ -1,18 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {
-  type DiagnosticReasonCode,
-  type IntegrationName,
-  validateAuthConfig,
-} from '../../lib/authConfigValidator';
-
-type IntegrationStatus = 'ok' | 'degraded' | 'unknown';
-
-type IntegrationDiagnostic = {
-  integration: IntegrationName;
-  status: IntegrationStatus;
-  reasonCodes: DiagnosticReasonCode[];
-  message: string;
-};
+  evaluateAdminAuth,
+  evaluateGithubAuth,
+  evaluateTelegramAuth,
+  type IntegrationStatus,
+} from '../../lib/authReadiness';
 
 type StatusResponse = {
   status: 'ok' | 'degraded';
@@ -25,42 +17,27 @@ type StatusResponse = {
     telegramAuth: IntegrationStatus;
     adminAuth: IntegrationStatus;
   };
-  diagnostics: IntegrationDiagnostic[];
+  diagnostics: {
+    githubAuth: string[];
+    telegramAuth: string[];
+    adminAuth: string[];
+  };
   notes: string[];
 };
 
 const START_TIME = Date.now();
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<StatusResponse>) {
-  const auth = validateAuthConfig(process.env);
+export default function handler(_req: NextApiRequest, res: NextApiResponse<StatusResponse>) {
+  const githubAuth = evaluateGithubAuth();
+  const telegramAuth = evaluateTelegramAuth();
+  const adminAuth = evaluateAdminAuth();
 
   const checks = {
     api: 'ok' as const,
-    githubAuth: auth.github.status,
-    telegramAuth: auth.telegram.status,
-    adminAuth: auth.admin.status,
+    githubAuth: githubAuth.status,
+    telegramAuth: telegramAuth.status,
+    adminAuth: adminAuth.status,
   };
-
-  const diagnostics: IntegrationDiagnostic[] = [
-    {
-      integration: 'github',
-      status: auth.github.status,
-      reasonCodes: auth.github.reasonCodes,
-      message: auth.github.message,
-    },
-    {
-      integration: 'telegram',
-      status: auth.telegram.status,
-      reasonCodes: auth.telegram.reasonCodes,
-      message: auth.telegram.message,
-    },
-    {
-      integration: 'admin',
-      status: auth.admin.status,
-      reasonCodes: auth.admin.reasonCodes,
-      message: auth.admin.message,
-    },
-  ];
 
   const degraded = Object.values(checks).some((status) => status !== 'ok');
 
@@ -68,12 +45,16 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Status
     status: degraded ? 'degraded' : 'ok',
     timestamp: new Date().toISOString(),
     uptimeSeconds: Math.floor((Date.now() - START_TIME) / 1000),
-    version: '0.1.0',
+    version: process.env.npm_package_version || '0.1.0',
     checks,
-    diagnostics,
+    diagnostics: {
+      githubAuth: githubAuth.diagnostics,
+      telegramAuth: telegramAuth.diagnostics,
+      adminAuth: adminAuth.diagnostics,
+    },
     notes: [
       'Use this endpoint for deployment health probes and auth bootstrap checks.',
-      'If auth checks return degraded, inspect diagnostics reasonCodes for deterministic remediation.',
+      'Rotate degraded credentials and redeploy after updating environment secrets.',
     ],
   });
 }
