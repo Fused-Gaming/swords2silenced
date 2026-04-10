@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "strict": true,
@@ -17,14 +21,27 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["packages/*"],
-      "@apps/*": ["apps/*"],
-      "@tools/*": ["tools/*"],
-      "@mcp/*": ["tools/mcp/*"]
+      "@/*": [
+        "packages/*"
+      ],
+      "@apps/*": [
+        "apps/*"
+      ],
+      "@tools/*": [
+        "tools/*"
+      ],
+      "@mcp/*": [
+        "tools/mcp/*"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "references": [
-    { "path": "./tsconfig.node.json" }
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }

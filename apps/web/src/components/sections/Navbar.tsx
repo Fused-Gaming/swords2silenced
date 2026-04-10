@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { H4 } from '../atoms/Typography';
+import Link from 'next/link';
 import styles from './Navbar.module.css';
 
 interface NavbarProps {
@@ -33,24 +33,16 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className={styles.container}>
         {/* Logo */}
         <div className={styles.logoWrapper}>
-          <a href="/" className={styles.logoLink}>
-            {logoSrc.endsWith('.svg') ? (
-              <img
-                src={logoSrc}
-                alt={companyName}
-                className={styles.logoImage}
-              />
-            ) : (
-              <Image
-                src={logoSrc}
-                alt={companyName}
-                width={200}
-                height={60}
-                className={styles.logoImage}
-                priority
-              />
-            )}
-          </a>
+          <Link href="/" className={styles.logoLink}>
+            <Image
+              src={logoSrc}
+              alt={companyName}
+              width={200}
+              height={60}
+              className={styles.logoImage}
+              priority
+            />
+          </Link>
         </div>
 
         {/* Desktop Navigation */}

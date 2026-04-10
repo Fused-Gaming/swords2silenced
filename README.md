@@ -40,6 +40,12 @@ npm run dev
 npm run test
 ```
 
+
+## 🆕 Recent Updates
+
+- Added a new secondary page at `/testimony` to present a structured personal testimony connected from the homepage.
+- Added `CHANGELOG.md` and bumped project version to `0.1.1`.
+
 ## 📋 Branching Strategy
 
 - **main**: Production-ready code
