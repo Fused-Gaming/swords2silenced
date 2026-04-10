@@ -3,6 +3,7 @@
 ## Quick Start
 
 ### 1. Prerequisites
+
 - Node.js 18+
 - npm 9+
 - Vercel account
@@ -33,6 +34,17 @@ cp .env.example .env.local
 ```
 
 ## Deployment Steps
+
+### Admin Secret Migration (plaintext → hash-only)
+
+Use `ADMIN_PASSWORD_HASH` as the primary admin credential. `ADMIN_PASSWORD` is now considered legacy and is only honored when `ADMIN_PASSWORD_MIGRATION_ENABLED=true` is set as a temporary bridge.
+
+Recommended rotation flow:
+
+1. Generate and deploy `ADMIN_PASSWORD_HASH` (bcrypt, argon2, or pbkdf2 format).
+2. Keep `ADMIN_PASSWORD` + `ADMIN_PASSWORD_MIGRATION_ENABLED=true` only during cutover validation windows.
+3. Remove `ADMIN_PASSWORD` and unset `ADMIN_PASSWORD_MIGRATION_ENABLED` after verification.
+4. Treat `/api/status` diagnostics with `legacy_secret_in_use` as action required until plaintext secret is removed.
 
 ### Step 1: Prepare for Deployment
 
@@ -104,7 +116,7 @@ In Cloudflare Dashboard:
    - Type: CNAME
    - Name: www
    - Target: cname.vercel-dns.com
-   
+
 3. Or use A records (root domain):
    - 76.76.19.132
    - 76.76.19.133
@@ -165,20 +177,24 @@ vercel logs --tail
 ## Managing Environments
 
 ### Production (main branch)
+
 - Deployment: Automatic via GitHub Actions
 - Domain: swordstosilenced.com
 
 ### Staging (develop branch)
+
 - Manual deployment
 - Domain: staging.swordstosilenced.com (optional)
 
 ### Development (feature branches)
+
 - Local development with `npm run dev`
 - Preview deployments on each PR
 
 ## Adding Environment Variables
 
 ### In Vercel Dashboard:
+
 ```
 1. Go to Project Settings → Environment Variables
 2. Add new variables:
@@ -188,6 +204,7 @@ vercel logs --tail
 ```
 
 ### In .env.local (local only):
+
 ```
 NEXT_PUBLIC_SITE_URL=https://swordstosilenced.com
 NEXT_PUBLIC_API_URL=https://api.swordstosilenced.com
@@ -196,17 +213,20 @@ NEXT_PUBLIC_API_URL=https://api.swordstosilenced.com
 ## Performance Optimization
 
 ### Cloudflare Configuration
+
 1. Enable "Cache Everything" page rule
 2. Set appropriate cache TTLs
 3. Enable Argo Smart Routing
 4. Enable Automatic HTTPS Rewrites
 
 ### Vercel Configuration
+
 1. Enable Image Optimization
 2. Enable Edge Functions
-3. Configure cache headers in _headers
+3. Configure cache headers in \_headers
 
 ### Application Level
+
 1. Use Next.js Image component
 2. Implement code splitting
 3. Add rel=preconnect for external resources
@@ -215,12 +235,14 @@ NEXT_PUBLIC_API_URL=https://api.swordstosilenced.com
 ## Monitoring
 
 ### Key Metrics to Track
+
 - Page load time (target: < 2s)
 - Lighthouse score (target: > 90)
 - Error rate (target: < 0.1%)
 - Uptime (target: 99.9%)
 
 ### Tools
+
 - Vercel Analytics Dashboard
 - Cloudflare Analytics
 - Google PageSpeed Insights
@@ -229,7 +251,7 @@ NEXT_PUBLIC_API_URL=https://api.swordstosilenced.com
 ## Security Checklist
 
 - [ ] SSL/TLS enabled and valid
-- [ ] Security headers configured (_headers file)
+- [ ] Security headers configured (\_headers file)
 - [ ] HTTPS redirect enabled
 - [ ] Rate limiting configured
 - [ ] DDoS protection enabled (Cloudflare)

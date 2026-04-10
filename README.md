@@ -14,7 +14,8 @@ swords2silenced/
 │   └── api/            # API clients and utilities
 ├── tools/              # Development tools and scripts
 │   ├── cli/            # CLI tools
-│   └── generators/     # Code generators
+│   ├── generators/     # Code generators
+│   └── mcp/            # MCP skills workspace
 └── docs/               # Documentation
 ```
 
@@ -85,6 +86,8 @@ npm install axios --workspace=packages/api
 - `npm run lint` - Lint all packages
 - `npm run format` - Format code with Prettier
 - `npm run type-check` - Run TypeScript type checking
+- `npm run build --workspace=@swords2silenced/mcp-skills` - Build MCP skills workspace
+- `npm run test --workspace=@swords2silenced/mcp-skills` - Run MCP tests (configured to pass when no test files exist)
 
 ## 📦 Deployment
 
@@ -128,6 +131,7 @@ npm run coverage     # Generate coverage report
 - [Deployment Guide](./docs/DEPLOYMENT.md) - Vercel deployment
 - [DNS & Cloudflare Setup](./docs/DNS_CLOUDFLARE_GODADDY.md) - GoDaddy to Cloudflare migration
 - [Skills Integration](./docs/SKILLS_INTEGRATION.md) - Install and use skills
+- [Agent Handoff](./docs/AGENT_HANDOFF.md) - Current blockers, priorities, and next-agent continuity checklist
 
 ## 🤝 Contributing
 
@@ -136,3 +140,8 @@ Please follow our [Contributing Guidelines](./docs/CONTRIBUTING.md).
 ## 📄 License
 
 MIT - See LICENSE for details.
+
+## Runtime status endpoint
+
+- `/status` rewrites to `/api/status` and now reports per-integration readiness for `githubAuth`, `telegramAuth`, and `adminAuth`.
+- Set `*_EXPIRES_AT` environment values alongside rotated secrets to keep diagnostics accurate.
