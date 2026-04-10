@@ -124,7 +124,7 @@ Claude should focus on accelerating these areas.
 
 ---
 
-**Last Updated**: 2026-04-10 (agent maintenance pass)
+**Last Updated**: 2026-04-10 (quality regression fix pass)
 **Last Updated**: 2026-04-04
 
 ## Agent Handoff Notes (2026-04-06)
@@ -137,5 +137,6 @@ Claude should focus on accelerating these areas.
 
 ## Agent Handoff Notes (2026-04-10)
 
+- Merge-conflict regression watch: keep a single `turbopack` key in `apps/web/next.config.js` and avoid stale unused imports in `apps/web/src/pages/api/status.ts` before lint runs.
 - The `/narrative-launch` page now follows a 10-part investigative structure centered on the veteran housing fraud narrative brief; future edits should preserve section IDs (`part-1` to `part-10`) to avoid anchor regressions.
 - Source references on that page are currently narrative registry entries (not outbound URLs) and are intended as placeholders for later verification link wiring.

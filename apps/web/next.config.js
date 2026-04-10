@@ -12,9 +12,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  turbopack: {
-    root: __dirname,
-  },
   env: {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://swordstosilenced.com',
   },
