@@ -109,7 +109,6 @@ According to ROADMAP.md, current priorities are:
 
 Claude should focus on accelerating these areas.
 
-
 ## Agent Continuity Notes
 
 - Keep `tools/*` in root npm workspaces so MCP skill packages are buildable from root scripts.
@@ -134,3 +133,8 @@ Claude should focus on accelerating these areas.
 - Styling semantic token gap identified/fixed: `--color-info` is required by `apps/web/src/pages/case-timeline.tsx`. Add token definitions before introducing new semantic color vars in page logic.
 - Deployment/build guardrail: Next.js 16 with Turbopack in this monorepo requires `turbopack.root` in `apps/web/next.config.js` to avoid workspace root resolution failures.
 - Before handoff: run `npm run lint --workspace=apps/web`, `npm run test --workspace=apps/web -- authConfigValidator.test.ts`, and `npm run build --workspace=apps/web`.
+
+## Agent Handoff Notes (2026-04-10)
+
+- The `/narrative-launch` page now follows a 10-part investigative structure centered on the veteran housing fraud narrative brief; future edits should preserve section IDs (`part-1` to `part-10`) to avoid anchor regressions.
+- Source references on that page are currently narrative registry entries (not outbound URLs) and are intended as placeholders for later verification link wiring.

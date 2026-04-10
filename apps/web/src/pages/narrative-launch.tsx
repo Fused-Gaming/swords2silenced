@@ -1,173 +1,177 @@
 import Head from 'next/head';
-import { Inter, Playfair_Display, Source_Serif_4 } from 'next/font/google';
 import Logo from '../components/atoms/Logo';
 import styles from '../styles/NarrativeLaunch.module.css';
 
-const topPriorities = [
-  {
-    priority: 'P0',
-    title: 'Repair auth chain',
-    detail:
-      'GitHub auth, Telegram auth, and admin-password auth are currently broken and should be restored first to unblock secure operations.',
-    directive:
-      'Assign a platform/auth agent to implement token validation, startup diagnostics, and secret rotation checks.',
-  },
-  {
-    priority: 'P1',
-    title: 'Restore /status endpoint',
-    detail:
-      'Status checks need to expose integration readiness so deploy health and incident triage are observable.',
-    directive:
-      'Assign a reliability agent to maintain endpoint contract and degraded-state behavior.',
-  },
-  {
-    priority: 'P2',
-    title: 'Finish source expansion',
-    detail:
-      'S4-S6 placeholders in thesis-related content should be replaced with primary records and mirrored archival links.',
-    directive:
-      'Assign a content-records agent to replace placeholders, add citation metadata fields, and mark unsourced claims as investigating.',
-  },
-];
+type StorySection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  bullets?: string[];
+};
 
 type SourceRecord = {
   id: string;
-  sourceTitle: string;
-  publicationDate: string;
-  retrievalDate: string;
-  primaryUrl: string;
-  archiveUrl: string;
-  summary: string;
+  label: string;
+  note: string;
 };
 
-type ClaimRecord = {
-  id: string;
-  statement: string;
-  sourceIds: string[];
-};
+const sections: StorySection[] = [
+  {
+    id: 'part-1',
+    title: 'Part I: The Property That Shouldn’t Have Housed Anyone',
+    paragraphs: [
+      'At 1055 72nd Avenue in Oakland, city records identify a 3-bedroom home where veterans were reportedly placed through the VA-funded SSVF program administered by Insight Housing.',
+      'The narrative describes sustained habitability failures: no security, mold, compromised electrical systems, broken windows, and infestation concerns. The claim is that complaints and inspections did not produce meaningful remediation.',
+      'A second veteran account, beginning in early 2025, describes similar conditions and argues the placement model prioritized occupancy and reimbursement over safety.',
+    ],
+  },
+  {
+    id: 'part-2',
+    title: 'Part II: The Paper Trail of Coercion',
+    paragraphs: [
+      'The article alleges 96+ documented communications requesting repairs and safety fixes from both Insight Housing and the landlord, with no effective resolution.',
+      'It frames this as structural behavior rather than isolated neglect, arguing that vulnerable tenants often lack the resources to force legal compliance.',
+      'After escalation requests in June 2025, the author reports being removed from the program without immediate notice, then formally notified in September with no transition housing plan.',
+    ],
+  },
+  {
+    id: 'part-3',
+    title: 'Part III: The Retaliation Mechanism',
+    paragraphs: [
+      'The narrative reports repeated police contacts regarding stalking and harassment and claims non-response despite extensive call documentation.',
+      'It also alleges retaliation after raising concerns through VA channels, including restricted care access and claims that complaints were reframed as instability.',
+      'After contacting the National Hotline for Homeless Veterans, the account states eviction proceedings followed quickly. By January 29, 2026, the author reports becoming homeless again.',
+    ],
+    bullets: [
+      'Create desperation: tie housing access to compliance.',
+      'Extract value: keep federal dollars flowing while minimizing delivery.',
+      'Discredit dissent: pathologize complaints instead of investigating them.',
+      'Escalate enforcement: eviction and exclusion as deterrence.',
+    ],
+  },
+  {
+    id: 'part-4',
+    title: 'Part IV: The Code Inspection That Changed Nothing',
+    paragraphs: [
+      'The complaint states city code violations were sustained but not remediated in practice, and that the same property continued to receive vulnerable placements.',
+      'The core argument: documented violations alone do not disrupt funding flows when contractual and regulatory consequences are weak or delayed.',
+    ],
+  },
+  {
+    id: 'part-5',
+    title: 'Part V: Why Whistleblowers Get Discredited',
+    paragraphs: [
+      'The article argues that people exiting homelessness, incarceration, or untreated trauma are both the target population and the easiest witnesses to dismiss.',
+      'It claims that credibility attacks are not incidental—they are integral to maintaining a system that can process people while minimizing accountability risk.',
+    ],
+  },
+  {
+    id: 'part-6',
+    title: 'Part VI: The Pattern',
+    paragraphs: [
+      'The account asserts this is not a single-event dispute and references an earlier veteran displacement tied to similar habitability complaints at the same address.',
+      'It describes an incentive loop where landlords, nonprofits, and public agencies each retain operational upside while participants absorb the downside of unsafe outcomes.',
+    ],
+  },
+  {
+    id: 'part-7',
+    title: 'Part VII: Four-Step Whistleblower Suppression Pattern',
+    paragraphs: [
+      'The narrative names a repeated sequence: target vulnerable people, create dependency, diagnose dissent, and escalate exclusion when complaints persist.',
+      'Its key claim is that this pattern works because affected people rarely have litigation capacity and because institutions are trained to prioritize procedural closure over participant testimony.',
+    ],
+  },
+  {
+    id: 'part-8',
+    title: 'Part VIII: The $100 Million Question',
+    paragraphs: [
+      'The article centers on the claim that Insight Housing received $12.5M in FY2025 under SSVF and roughly $100M across grant cycles, while safety outcomes remained disputed.',
+      'Its central policy question: is federal veteran-housing funding preventing homelessness, or financing a model that reproduces it under compliance pressure?',
+    ],
+  },
+  {
+    id: 'part-9',
+    title: 'Part IX: Oversight as Theater',
+    paragraphs: [
+      'The narrative contends that code enforcement, VA oversight, and nonprofit governance can all appear active while failing to impose outcome-linked consequences.',
+      'It argues the system rewards throughput metrics—how many people were processed—over durability metrics—who remained safely housed.',
+    ],
+  },
+  {
+    id: 'part-10',
+    title: 'Part X: What Happens When You Speak Up',
+    paragraphs: [
+      'The article lists filings with city, police, VA, hotline, ethics, and legal channels and describes resulting eviction, service restrictions, and social isolation.',
+      'It closes with a call for investigative media review, federal outcome audits, and protections for whistleblowers reporting fraud in veteran housing pipelines.',
+    ],
+  },
+];
+
+const pullQuotes = [
+  'This is $100 million in federal funding — $12.5 million per year, renewed without accountability — generating negative outcomes for the exact population it was designed to serve.',
+  'The system specifically targets people whose credibility is already compromised. That’s the feature, not the bug.',
+  'We built a system where fraud is profitable, silence is rewarded, and speaking up gets you evicted.',
+  'Oversight exists. It’s theater. Designed to reassure the public while ensuring the system operates without real accountability.',
+];
 
 const sourceRegistry: SourceRecord[] = [
   {
     id: 'S1',
-    sourceTitle: 'California State Auditor · Report 2023-102.1',
-    publicationDate: '2024-04-09',
-    retrievalDate: '2026-04-06',
-    primaryUrl: 'https://www.auditor.ca.gov/reports/2023-102.1/index.html',
-    archiveUrl:
-      'https://web.archive.org/web/*/https://www.auditor.ca.gov/reports/2023-102.1/index.html',
-    summary:
-      'Primary audit record on California homelessness spending, cost-effectiveness oversight, and statewide measurement gaps.',
+    label: 'City of Oakland Code Enforcement',
+    note: 'Sustained violation record for the property referenced in this narrative.',
   },
   {
     id: 'S2',
-    sourceTitle: 'California State Auditor · Homelessness in California Fact Sheet',
-    publicationDate: '2024-04-09',
-    retrievalDate: '2026-04-06',
-    primaryUrl: 'https://www.auditor.ca.gov/reports/2023-102/factsheet.html',
-    archiveUrl:
-      'https://web.archive.org/web/*/https://www.auditor.ca.gov/reports/2023-102/factsheet.html',
-    summary:
-      "Condensed statewide findings with topline figures referenced in the auditor's homelessness review.",
+    label: 'Public complaint record',
+    note: 'Bribery and conflict allegations involving inspection handling are referenced by the article.',
   },
   {
     id: 'S3',
-    sourceTitle: 'City of Los Angeles Controller · Interim Housing and Shelter Bed Data Audit',
-    publicationDate: '2023-12-15',
-    retrievalDate: '2026-04-06',
-    primaryUrl: 'https://controller.lacity.gov/audits/interim-housing-and-shelter-bed-data-audit',
-    archiveUrl:
-      'https://web.archive.org/web/*/https://controller.lacity.gov/audits/interim-housing-and-shelter-bed-data-audit',
-    summary:
-      'Municipal audit documentation on data quality issues, shelter bed tracking weaknesses, and reliability concerns in the interim housing system.',
+    label: 'YouTube habitability documentation',
+    note: 'Video evidence referenced as a pattern record for the same address.',
   },
   {
     id: 'S4',
-    sourceTitle: 'LAHSA · Data Dashboards (including Greater Los Angeles Homeless Count)',
-    publicationDate: '2025-07-14',
-    retrievalDate: '2026-04-06',
-    primaryUrl: 'https://www.lahsa.org/dashboards',
-    archiveUrl: 'https://web.archive.org/web/*/https://www.lahsa.org/dashboards',
-    summary:
-      'Primary LAHSA data portal showing published homeless count and supporting dashboard records.',
+    label: 'Communications log',
+    note: '96+ communications cited with housing provider and landlord contacts.',
   },
   {
     id: 'S5',
-    sourceTitle:
-      'U.S. DOJ (Central District of California) · Homelessness Fraud and Corruption Task Force announcement',
-    publicationDate: '2025-04-08',
-    retrievalDate: '2026-04-06',
-    primaryUrl:
-      'https://www.justice.gov/usao-cdca/pr/united-states-attorney-bill-essayli-announces-criminal-task-force-investigate-fraud',
-    archiveUrl:
-      'https://web.archive.org/web/*/https://www.justice.gov/usao-cdca/pr/united-states-attorney-bill-essayli-announces-criminal-task-force-investigate-fraud',
-    summary:
-      'Primary federal announcement documenting anti-fraud enforcement posture tied to homelessness funding oversight.',
+    label: 'National Hotline for Homeless Veterans record',
+    note: 'Complaint escalation channel cited in retaliation timeline.',
   },
   {
     id: 'S6',
-    sourceTitle:
-      'HUD Office of Inspector General · Audit Report 2022-LA-1001 (LAHSA Continuum of Care)',
-    publicationDate: '2022-01-20',
-    retrievalDate: '2026-04-06',
-    primaryUrl: 'https://www.hudoig.gov/sites/default/files/2022-01/2022-LA-1001.pdf',
-    archiveUrl:
-      'https://web.archive.org/web/*/https://www.hudoig.gov/sites/default/files/2022-01/2022-LA-1001.pdf',
-    summary:
-      'Primary HUD OIG audit report documenting federal findings on LAHSA program-administration compliance and controls.',
-  },
-];
-
-const claims: ClaimRecord[] = [
-  {
-    id: 'C1',
-    statement:
-      'California allocated roughly $24 billion across homelessness programs between FY 2018-19 and FY 2022-23.',
-    sourceIds: ['S1', 'S2'],
+    label: 'Oakland Police 911 call history',
+    note: '40+ contacts described by the reporting party.',
   },
   {
-    id: 'C2',
-    statement:
-      'State agencies lacked consistent data needed to evaluate major parts of that spending.',
-    sourceIds: ['S1'],
+    id: 'S7',
+    label: 'USAspending.gov SSVF award data',
+    note: 'Award totals used for $12.5M FY and cumulative ~$100M framing.',
   },
   {
-    id: 'C3',
-    statement:
-      'Federal enforcement activity now explicitly targets fraud and corruption in homelessness funds.',
-    sourceIds: ['S5', 'S6'],
-  },
-  {
-    id: 'C4',
-    statement:
-      'The dashboard layer remains incomplete for cross-jurisdiction, outcome-level comparability.',
-    sourceIds: [],
+    id: 'S8',
+    label: 'VA SSVF NOFO FY2026 (Federal Register)',
+    note: 'Program context and federal administration framework.',
   },
 ];
 
 export default function NarrativeLaunchPage() {
-  const sourceMap = new Map(sourceRegistry.map((item) => [item.id, item]));
-
   return (
     <>
       <Head>
         <title>
-          $24 Billion. More Homeless. The Narrative That Made It Possible | Swords to Silenced
+          How a $100 Million Federal Housing Program Systematized Fraud Against Veterans | Swords to
+          Silenced
         </title>
         <meta
           name="description"
-          content="Dark-system investigative landing page for Swords to Silenced focused on homelessness spending, narrative framing, and public records."
+          content="Long-form investigative narrative on veteran housing fraud allegations, SSVF accountability gaps, and whistleblower retaliation patterns."
         />
       </Head>
 
-      <div
-        className={styles.page}
-        style={{
-          ['--display-font' as string]: '"Playfair Display", Georgia, serif',
-          ['--serif-font' as string]: '"Source Serif 4", Georgia, serif',
-          ['--sans-font' as string]:
-            '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-        }}
-      >
+      <div className={styles.page}>
         <header className={styles.topbar}>
           <div className={styles.topbarInner}>
             <div className={styles.brandWrap}>
@@ -176,9 +180,9 @@ export default function NarrativeLaunchPage() {
             </div>
             <nav className={styles.topnav} aria-label="Primary">
               <a href="#story">Story</a>
-              <a href="#findings">Findings</a>
-              <a href="#records">Records</a>
+              <a href="#pattern">Pattern</a>
               <a href="#sources">Sources</a>
+              <a href="#ask">Action</a>
             </nav>
           </div>
         </header>
@@ -186,138 +190,103 @@ export default function NarrativeLaunchPage() {
         <main className={styles.siteShell}>
           <section className={styles.hero} id="top">
             <div>
-              <div className={styles.eyebrow}>Investigative · Housing · Public Accountability</div>
-              <h1>$24 Billion. More Homeless. The Narrative That Made It Possible.</h1>
+              <div className={styles.eyebrow}>Investigative · Veteran Housing · Accountability</div>
+              <h1>
+                How a $100 Million Federal Housing Program Systematized Fraud Against Veterans
+              </h1>
               <p className={styles.dek}>
-                California&apos;s homelessness crisis is not just a spending story. It is also a
-                measurement story, an accountability story, and a narrative story — one that can
-                keep money moving even when outcomes remain difficult to audit.
+                When oversight becomes complicity: a documented narrative about SSVF placements,
+                sustained code violations, and alleged retaliation after escalation.
               </p>
             </div>
             <div className={styles.heroCard}>
               <div>
-                <div className={styles.label}>Core question</div>
-                <div className={styles.heroBig}>
-                  What becomes politically acceptable when outcomes stay vague?
-                </div>
+                <div className={styles.label}>Core allegation</div>
+                <div className={styles.heroBig}>Oversight exists. Accountability doesn’t.</div>
                 <div className={styles.heroSub}>
-                  A dark-system launch page designed for swordstosilenced.com with a controlled red,
-                  white, and blue signal palette, deep glass panels, and public-record-forward
-                  presentation.
+                  This page reframes the design narrative around one case pattern: unsafe housing,
+                  unresolved complaints, institutional discrediting, and re-entry into homelessness.
                 </div>
               </div>
               <div className={styles.heroMeta}>
-                <span>Launch draft · April 2026</span>
-                <span>Long-form investigation</span>
-                <span>Public record linked</span>
+                <span>Primary keyword: veteran homelessness fraud</span>
+                <span>Estimated read time: 7 minutes</span>
+                <span>Updated: April 2026</span>
               </div>
             </div>
           </section>
 
           <div className={styles.metaRow}>
             <span>By J. Lucus</span>
-            <span>Swords to Silenced</span>
-            <span>California / Los Angeles</span>
-            <span>Audit, data, and court-record supported</span>
+            <span>Oakland, California case focus</span>
+            <span>SSVF / VA grant oversight narrative</span>
+            <span>Whistleblower retaliation framing</span>
           </div>
 
           <section className={styles.layout}>
             <article id="story">
               <section className={styles.section}>
                 <p className={styles.lede}>
-                  The most alarming detail in California&apos;s homelessness debate may not be the
-                  spending alone. It may be how easily public systems can continue operating without
-                  proving that the spending materially reduces homelessness. Once failure is
-                  reframed as inevitable complexity, accountability becomes optional.
+                  The report landed with a thud nobody heard. Habitability violations were
+                  sustained, funding continued, and a federally-supported placement pipeline
+                  allegedly moved forward with no material correction. The thesis of this article is
+                  direct: if outcomes do not trigger consequences, oversight becomes theater.
                 </p>
               </section>
 
-              <section className={styles.section} id="findings">
-                <h2>The spending story is also a records story</h2>
-                <p>
-                  In April 2024, the California State Auditor reported that the state had allocated
-                  roughly
-                  <strong> $24 billion</strong> across homelessness programs between fiscal years
-                  2018-19 and 2022-23 and that state agencies still lacked the consistent data
-                  needed to evaluate major parts of that spending. That is not merely a bookkeeping
-                  flaw. It is a governance warning.
-                </p>
-                <p>
-                  When billions move through fragmented programs without a consistent statewide
-                  outcome framework, the public does not just lose visibility into efficiency. It
-                  loses the ability to ask the most basic question:{' '}
-                  <strong>
-                    what, exactly, changed for the people the money was supposed to house?
-                  </strong>
-                </p>
-              </section>
-
-              <section className={styles.section} id="records">
-                <h2>Findings of fact in the public record</h2>
-                <ul className={styles.factList}>
-                  {claims.map((claim) => {
-                    const sourceCount = claim.sourceIds.filter((id) => sourceMap.has(id)).length;
-                    const status = sourceCount > 0 ? 'verified' : 'investigating';
-
-                    return (
-                      <li key={claim.id}>
-                        {claim.statement}{' '}
-                        <em>
-                          Status: {status}. Sources:{' '}
-                          {sourceCount > 0 ? claim.sourceIds.join(', ') : 'none linked'}.
-                        </em>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-
-              <section className={styles.section} id="solutions">
-                <h2>What accountability would actually require</h2>
-                <p>
-                  Outcome tracking that survives politics: placements, retention, production,
-                  time-to-placement, shelter utilization, and independent audit access.
-                </p>
-                <div className={styles.tags}>
-                  {[
-                    'Homelessness Policy',
-                    'Housing First',
-                    'Public Accountability',
-                    'Los Angeles',
-                    'California',
-                    'Public Records',
-                  ].map((tag) => (
-                    <span className={styles.tag} key={tag}>
-                      {tag}
-                    </span>
+              {sections.map((section) => (
+                <section className={styles.section} id={section.id} key={section.id}>
+                  <h2>{section.title}</h2>
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
                   ))}
-                </div>
-              </section>
+                  {section.bullets && (
+                    <ul className={styles.factList} id="pattern">
+                      {section.bullets.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ))}
 
-              <section className={styles.section} id="operations">
-                <h2>Roadmap snapshot · blockers and active steps</h2>
+              <section className={styles.section} id="ask">
+                <h2>What this page asks for</h2>
                 <ul className={styles.factList}>
-                  {topPriorities.map((item) => (
-                    <li key={item.priority}>
-                      <strong>
-                        {item.priority}: {item.title}.
-                      </strong>{' '}
-                      {item.detail} <em>Directive:</em> {item.directive}
-                    </li>
-                  ))}
+                  <li>
+                    Outcome measurement that tracks durable housing retention, not only processing
+                    volume.
+                  </li>
+                  <li>
+                    Consequence windows for sustained code violations (e.g., 30-day remediation).
+                  </li>
+                  <li>
+                    Whistleblower protection protocols linked to anti-retaliation enforcement.
+                  </li>
+                  <li>
+                    Federal and local investigation paths that treat repeated complaints as pattern
+                    risk, not isolated noise.
+                  </li>
                 </ul>
               </section>
             </article>
 
             <aside className={styles.aside}>
               <div className={styles.panel}>
-                <h3>Record index</h3>
+                <h3>Pull quotes</h3>
                 <ul className={styles.recordList}>
-                  {sourceRegistry.map((source) => (
-                    <li key={source.id}>
-                      <span className={styles.sourcePill}>{source.id}</span> {source.sourceTitle}
-                    </li>
+                  {pullQuotes.map((quote) => (
+                    <li key={quote}>{quote}</li>
                   ))}
+                </ul>
+              </div>
+              <div className={styles.panel}>
+                <h3>Article metadata</h3>
+                <ul className={styles.recordList}>
+                  <li>Secondary keyword: SSVF program accountability</li>
+                  <li>Secondary keyword: federal housing fraud</li>
+                  <li>Secondary keyword: veteran housing retaliation</li>
+                  <li>Secondary keyword: whistleblower retaliation veterans</li>
                 </ul>
               </div>
             </aside>
@@ -327,48 +296,25 @@ export default function NarrativeLaunchPage() {
             <div className={styles.footerTop}>
               <div>
                 <div className={styles.footerBrand}>
-                  Source Registry · Public Records / Data Streams / Government Records
+                  Source References (as provided in article brief)
                 </div>
                 <p className={styles.footerText}>
-                  This page is structured to privilege primary-source material over commentary.
+                  These entries mirror the documentation list supplied for this narrative and are
+                  presented as reference points for follow-up verification work.
                 </p>
               </div>
             </div>
 
             <div className={styles.sourceList}>
               {sourceRegistry.map((source) => (
-                <section
-                  className={styles.sourceSection}
-                  id={`src-${source.id.toLowerCase()}`}
-                  key={source.id}
-                >
+                <section className={styles.sourceSection} key={source.id}>
                   <div className={styles.sourceHead}>
                     <span className={styles.sourcePill}>{source.id}</span>
                     <div>
-                      <div className={styles.sourceTitle}>{source.sourceTitle}</div>
-                      <div className={styles.sourceMeta}>
-                        Publication date: {source.publicationDate} · Retrieved:{' '}
-                        {source.retrievalDate}
-                      </div>
+                      <div className={styles.sourceTitle}>{source.label}</div>
                     </div>
                   </div>
-                  <p className={styles.sourceDesc}>{source.summary}</p>
-                  <a
-                    className={styles.sourceLink}
-                    href={source.primaryUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Primary record
-                  </a>
-                  <a
-                    className={styles.sourceLink}
-                    href={source.archiveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Archive mirror
-                  </a>
+                  <p className={styles.sourceDesc}>{source.note}</p>
                 </section>
               ))}
             </div>
