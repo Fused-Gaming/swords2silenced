@@ -1,14 +1,6 @@
 import Head from 'next/head';
-import { Inter, Playfair_Display, Source_Serif_4 } from 'next/font/google';
 import Logo from '../components/atoms/Logo';
 import styles from '../styles/NarrativeLaunch.module.css';
-
-const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['600', '700', '800', '900'] });
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-});
 
 const topPriorities = [
   {
@@ -167,11 +159,11 @@ export default function NarrativeLaunchPage() {
       </Head>
 
       <div
-        className={`${styles.page} ${inter.className}`}
+        className={styles.page}
         style={{
-          ['--display-font' as string]: playfair.style.fontFamily,
-          ['--serif-font' as string]: sourceSerif.style.fontFamily,
-          ['--sans-font' as string]: inter.style.fontFamily,
+          ['--display-font' as string]: '"Playfair Display", Georgia, "Times New Roman", serif',
+          ['--serif-font' as string]: '"Source Serif 4", Georgia, serif',
+          ['--sans-font' as string]: 'Inter, "Segoe UI", Arial, sans-serif',
         }}
       >
         <header className={styles.topbar}>
