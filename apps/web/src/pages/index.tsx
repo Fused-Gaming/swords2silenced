@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
             <a href="#about">About</a>
             <a href="#features">Features</a>
             <a href="#contact">Contact</a>
-            <a href="/testimony">Testimony</a>
+            <Link href="/testimony">Testimony</Link>
           </nav>
         </header>
 
@@ -30,7 +31,7 @@ export default function Home() {
           <section className={styles.hero}>
             <h2>Transform Your Message</h2>
             <p>Empower your voice. Make an impact. Join the movement.</p>
-            <a className={styles.cta} href="/testimony">Read Personal Testimony</a>
+            <Link className={styles.cta} href="/testimony">Read Personal Testimony</Link>
           </section>
 
           <section id="features" className={styles.features}>
@@ -66,7 +67,7 @@ export default function Home() {
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
             <a href="#contact">Contact</a>
-            <a href="/testimony">Testimony</a>
+            <Link href="/testimony">Testimony</Link>
           </div>
         </footer>
       </div>
