@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Resolved a degraded merge-resolution regression in `apps/web/src/pages/api/status.ts` that duplicated handler/type blocks and broke lint/type-check/build.
+- Fixed `apps/web/next.config.js` duplicate `turbopack` key merge artifact and restored deterministic monorepo root resolution.
+- Fixed web lint gating failures by removing unused imports, migrating navbar home navigation to `next/link`, and replacing raw avatar `<img>` with `next/image`.
 - Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
 - Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
 - Stabilized Next.js workspace build by setting monorepo `turbopack.root` for `apps/web`
