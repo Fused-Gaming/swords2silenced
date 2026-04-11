@@ -54,6 +54,18 @@ See [BRANCHING_STRATEGY.md](./docs/BRANCHING_STRATEGY.md) for details.
 
 ## 🔧 Development
 
+### Styling Stack (Web App)
+
+`apps/web` is configured for Tailwind CSS + PostCSS integration (Tailwind directives are enabled in `src/styles/globals.css`).
+
+```bash
+# install workspace deps (run in network-permitted environment)
+npm install
+
+# run web app
+npm run dev --workspace=apps/web
+```
+
 ### Workspace Management
 
 This project uses npm workspaces. Each workspace has its own `package.json`:

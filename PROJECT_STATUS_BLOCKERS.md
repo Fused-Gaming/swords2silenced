@@ -12,22 +12,25 @@
    - GitHub auth needs expiry and startup diagnostics.
    - Telegram auth needs format and expiry validation.
    - Admin auth needs explicit hash-only enforcement and expiry checks.
-2. **MCP upstream fetch may be blocked from this runtime (intermittent proxy restrictions)**
+2. **MCP upstream fetch is currently blocked from this runtime**
    - `git clone https://github.com/Fused-Gaming/Fused-Gaming-Skill-MCP.git` failed with `CONNECT tunnel failed, response 403`.
-3. **Remote deployment/PR status is not queryable from this local clone**
-   - No git remote is configured, so CI/deployment details cannot be pulled directly from GitHub APIs.
+3. **PR/deployment telemetry is not directly queryable from this local clone**
+   - No GitHub remote is configured in this repository checkout.
 
 ## Current steps in progress
 
-1. Verify deployed environment variables for GitHub/Telegram/admin auth checks.
-2. Monitor deployment health probes against `/status` contract after rollout.
-3. Keep monorepo checks green (`lint`, `type-check`, `test`, `build`) across workspaces.
+1. Harden `/api/status` with deterministic integration diagnostics.
+2. Implement auth contract helpers for GitHub, Telegram, and admin flows.
+3. Ensure MCP skill workspace remains installable inside monorepo scripts.
 
 ## Immediate next 3 steps
 
-1. Run CI and deployment pipeline on this commit and validate all required checks pass.
-2. Validate `/status` response in deployed environment with real rotated secrets/expiries.
-3. Reconnect GitHub remote/API access for automated PR/deployment telemetry reporting.
+1. Add/verify environment variables in deployment targets:
+   - `GITHUB_TOKEN` or `GITHUB_APP_ID`, plus `GITHUB_TOKEN_EXPIRES_AT`
+   - `TELEGRAM_BOT_TOKEN`, plus `TELEGRAM_BOT_TOKEN_EXPIRES_AT`
+   - `ADMIN_PASSWORD_HASH`, plus `ADMIN_SECRET_EXPIRES_AT`
+2. Re-run deployment health probes against `/status` and verify all auth checks return `ok`.
+3. Restore GitHub connectivity for MCP source sync (network egress allowlist or mirrored artifact) and complete fused-gaming source pull.
 
 ## Top 3 prioritized items and directives
 

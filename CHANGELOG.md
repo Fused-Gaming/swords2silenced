@@ -22,6 +22,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Documented stable `/api/status` schema keys (`status`, `checks`, `notes`, `version`) and hosting probe URL `/status` rewrite behavior.
 - Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
+- Tailwind CSS integration scaffolding for `apps/web` with `tailwind.config.js` and `postcss.config.js`.
+- `AGENT_SESSION_HANDOFF.md` with blockers, immediate next steps, and agent directives for auth/status recovery.
+
+### Changed
+
+- Updated web global stylesheet to include Tailwind layers (`@tailwind base/components/utilities`).
+- Updated documentation (`README.md`, `VERSION.md`, `CLAUDE.md`) with current session orientation and styling stack notes.
 
 ### Deprecated
 
@@ -33,13 +40,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Resolved a degraded merge-resolution regression in `apps/web/src/pages/api/status.ts` that duplicated handler/type blocks and broke lint/type-check/build.
 - Fixed `apps/web/next.config.js` duplicate `turbopack` key merge artifact and restored deterministic monorepo root resolution.
 - Fixed web lint gating failures by removing unused imports, migrating navbar home navigation to `next/link`, and replacing raw avatar `<img>` with `next/image`.
+- Resolved merge-conflict regressions in `apps/web/next.config.js` and `/api/status` by removing duplicate `turbopack` config and unused validator imports causing lint failures.
 - Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
 - Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
-- Stabilized Next.js workspace build by setting monorepo `turbopack.root` for `apps/web`
-- Removed build-time Google Font fetch dependency from `narrative-launch` by using resilient local font stacks
-- Fixed MCP workspace lint plugin-resolution conflicts by resolving ESLint plugins from monorepo root
-- Updated MCP workspace tests to pass when no test files are present (`jest --passWithNoTests`)
-- Reduced MCP workspace lint noise by explicitly allowing `console.log` for MCP server diagnostics
+
 - Added missing `--color-info` design token for semantic informational states used by timeline category styling.
 - Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.
 - Removed runtime dependency on Google font fetch in `narrative-launch` by switching to CSS fallback font-family variables for more reliable offline/CI builds.
