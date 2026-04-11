@@ -42,9 +42,9 @@ npm run dev
 npm run test
 ```
 
-
 ## 🆕 Recent Updates
 
+- Fixed Next.js deploy build regression by moving API contract tests from `src/pages/api` to `src/tests/api` so route validators only evaluate real API handlers.
 - Fixed malformed workspace manifests that blocked npm parsing in CI and local hooks.
 - Restored web lint/build stability by resolving merge artifacts and removing unavailable PostCSS plugin requirements.
 - Hardened GitHub deploy + CodeQL workflows for current action versions and reliable execution paths.

@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed Next.js production build regression by moving `status.contract.test.ts` out of `apps/web/src/pages/api` into `apps/web/src/tests/api`, preventing route type-validation from treating tests as API handlers.
 - Repaired malformed root and web workspace `package.json` manifests that were breaking npm parsing and pre-commit hooks.
 - Resolved merge-conflict regressions in `apps/web/next.config.js` and `apps/web/src/pages/index.tsx` that caused lint failures.
 - Hardened GitHub Actions deploy workflow with dedicated build/deploy jobs and Vercel CLI flow for `main` pushes.
