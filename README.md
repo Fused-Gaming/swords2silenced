@@ -45,6 +45,9 @@ npm run test
 
 ## 🆕 Recent Updates
 
+- Fixed malformed workspace manifests that blocked npm parsing in CI and local hooks.
+- Restored web lint/build stability by resolving merge artifacts and removing unavailable PostCSS plugin requirements.
+- Hardened GitHub deploy + CodeQL workflows for current action versions and reliable execution paths.
 - Added a new secondary page at `/testimony` to present a structured personal testimony connected from the homepage.
 - Added `CHANGELOG.md` and bumped project version to `0.1.1`.
 
@@ -149,5 +152,7 @@ MIT - See LICENSE for details.
 
 ## Runtime status endpoint
 
-- `/status` rewrites to `/api/status` and now reports per-integration readiness for `githubAuth`, `telegramAuth`, and `adminAuth`.
+- Probe URL for hosting health checks: `https://<your-domain>/status` (rewritten by Next.js to `/api/status`).
+- Response contract always includes `status`, `checks`, `notes`, and `version` (plus diagnostics and timing metadata for GET requests).
+- Non-GET methods return HTTP `405` with `Allow: GET` and the same top-level contract keys (`status`, `checks`, `notes`, `version`).
 - Set `*_EXPIRES_AT` environment values alongside rotated secrets to keep diagnostics accurate.

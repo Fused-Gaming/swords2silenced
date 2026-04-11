@@ -1,4 +1,4 @@
-# Agent Session Handoff (2026-04-10)
+# Agent Session Handoff (2026-04-11)
 
 ## Sources reviewed
 
@@ -10,22 +10,22 @@
 
 ## Blockers
 
-1. Authentication integrations are currently broken (GitHub, Telegram, admin password).
-2. `/status` endpoint reliability and degraded-state contract are still open.
-3. Remote PR/test/deployment metadata is not available from this local clone (no `origin` remote configured).
-4. Package registry access for new installs is blocked in this environment (`npm` returned 403 while attempting dependency download).
+1. Remote PR comments/deployment telemetry are unavailable in this clone (no `origin` remote configured).
+2. External npm registry installs are blocked in this environment (HTTP 403), so dependency refresh must run in CI/network-permitted dev.
+3. Verify deploy secrets (`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`) in GitHub settings before next main push.
+4. Monitor CodeQL run outcome after workflow migration to v3 actions and JavaScript matrix.
 
 ## Current steps in flight
 
-1. Tailwind CSS framework wiring for `apps/web` (config files + global style directives + workspace deps declared).
-2. Documentation and handoff updates to align roadmap/version/changelog context.
-3. Stack-oriented planning remains documented for sequential thesis/auth/status/content streams.
+1. CI/workflow hardening for deployment and code scanning (`deploy.yml`, `codeql.yml`).
+2. Web lint/test/build stabilization (manifest repair + merge artifact cleanup + PostCSS fallback).
+3. Documentation/version/changelog/continuity updates for next-agent execution.
 
 ## Immediate next 3 steps
 
-1. Run `npm install` in a network-permitted CI/dev environment to materialize newly declared Tailwind/PostCSS packages.
-2. Implement auth contract recovery branch work (`stack/auth-recovery-contracts`) and verify `/api/status` integration outputs.
-3. Harden `/api/status` degraded-state schema and verify rewrite behavior with deployment probes.
+1. Attach `origin` remote and review recent PR comments/deployment statuses for any remaining failures.
+2. Re-enable Tailwind/PostCSS plugins once dependency installation is available in CI/dev environment.
+3. Validate live Vercel deployment + CodeQL run on GitHub Actions after pushing current branch.
 
 ## Recent PR/commit orientation
 

@@ -2,10 +2,10 @@
 
 ## Current Version
 
-**0.1.0** (MVP Development)
+**0.1.2** (MVP Development)
 
-- Last Updated: 2026-04-10
-- Notes: Tailwind CSS scaffolding added for `apps/web`; runtime package install pending network-permitted environment.
+- Last Updated: 2026-04-11
+- Notes: Deployment/CodeQL CI hardening completed; workspace manifests and web build pipeline repaired for lint/test/build stability.
 
 ## Versioning Strategy
 

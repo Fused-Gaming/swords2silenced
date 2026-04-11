@@ -52,6 +52,7 @@ vercel env add API_KEY
 ### Get Vercel Deployment URL
 
 After deployment, note your Vercel URL:
+
 ```
 https://swords2silenced.vercel.app
 ```
@@ -69,6 +70,7 @@ https://swords2silenced.vercel.app
 When adding domain to Vercel, you'll need:
 
 **Option 1: CNAME (Recommended for subdomains)**
+
 ```
 Name: www
 Type: CNAME
@@ -77,6 +79,7 @@ TTL: Auto
 ```
 
 **Option 2: A Records (Root domain)**
+
 ```
 A Records:
 76.76.19.132
@@ -165,6 +168,14 @@ dig swordstosilenced.com
 
 ## Monitoring & Maintenance
 
+### Health Probe Endpoint
+
+- Probe URL: `https://<your-domain>/status`
+- Rewrite target: `/api/status` (configured in `apps/web/next.config.js`)
+- Expected status codes:
+  - `200` for GET requests (healthy or degraded payload state)
+  - `405` for non-GET requests with `Allow: GET`
+
 ### Vercel Dashboard
 
 - View deployment logs
@@ -183,7 +194,7 @@ dig swordstosilenced.com
 
 ```bash
 # Regular health monitoring
-watch 'curl -s https://swordstosilenced.com/health | jq .'
+watch 'curl -s https://swordstosilenced.com/status | jq .'
 
 # Monitor DNS resolution
 watch 'dig swordstosilenced.com'
@@ -205,16 +216,19 @@ vercel promote <deployment-id>
 ## Troubleshooting
 
 **Issue**: Domain shows Vercel default page
+
 - Verify DNS records in Cloudflare
 - Wait for propagation (up to 48 hours)
 - Check Vercel domain settings
 
 **Issue**: SSL certificate errors
+
 - Verify Cloudflare SSL setting
 - Wait for certificate provisioning (usually 10 min)
 - Force Cloudflare to reissue certificate
 
 **Issue**: Slow performance
+
 - Check Cloudflare cache settings
 - Review Vercel performance metrics
 - Optimize image loading in app
@@ -239,6 +253,7 @@ vercel promote <deployment-id>
 ## Support
 
 For deployment issues:
+
 - Check Vercel docs: https://vercel.com/docs
 - Check Cloudflare docs: https://developers.cloudflare.com
 - Open issue in repository
