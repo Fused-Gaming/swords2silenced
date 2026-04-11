@@ -23,7 +23,7 @@ export default function Home() {
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.logo}>
-            <h1>Swords to Silenced</h1>
+            <Logo variant="full" />
           </div>
           <nav className={styles.nav}>
             <a href="#about">About</a>
@@ -37,7 +37,9 @@ export default function Home() {
           <section className={styles.hero}>
             <h2>Transform Your Message</h2>
             <p>Empower your voice. Make an impact. Join the movement.</p>
-            <Link className={styles.cta} href="/testimony">Read Personal Testimony</Link>
+            <Link className={styles.cta} href="/testimony">
+              Read Personal Testimony
+            </Link>
           </section>
 
           <section id="features" className={styles.features}>
@@ -61,31 +63,22 @@ export default function Home() {
           <section id="about" className={styles.about}>
             <h3>About Us</h3>
             <p>
-              Swords to Silenced is a platform dedicated to empowering voices and transforming messages into meaningful change.
-              We believe in the power of communication and the impact that authentic voices can have.
+              Swords to Silenced is a platform dedicated to empowering voices and transforming
+              messages into meaningful change. We believe in the power of communication and the
+              impact that authentic voices can have.
             </p>
           </section>
         </main>
 
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id="contact">
           <p>&copy; 2024 Swords to Silenced. All rights reserved.</p>
           <div className={styles.footerLinks}>
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
             <a href="#contact">Contact</a>
             <Link href="/testimony">Testimony</Link>
-        <main className={styles.main}>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '100vh',
-            }}
-          >
-            <Logo variant="full" />
           </div>
-        </main>
+        </footer>
       </div>
     </>
   );
