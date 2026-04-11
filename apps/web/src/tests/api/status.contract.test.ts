@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import type { NextApiRequest, NextApiResponse } from 'next';
-import handler, { type ApiStatusResponse } from './status';
+import handler, { type ApiStatusResponse } from '../../pages/api/status';
 
 type JsonBody =
   | ApiStatusResponse

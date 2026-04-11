@@ -1,62 +1,77 @@
 # Agent Session Handoff (2026-04-11)
 
-## Sources reviewed
+## Sources reviewed this session
 
 - `ROADMAP.md`
 - `VERSION.md`
 - `CHANGELOG.md`
 - `CLAUDE.md`
-- Local git history (`git log --oneline --decorate -n 10`)
+- Local git history (`git log --oneline -n 12`)
+- Local quality/deploy proxies (`npm run lint`, `npm test -- --runInBand`, `npm run type-check`, `npm run build`)
 
 ## Blockers
 
-1. Remote PR comments/deployment telemetry are unavailable in this clone (no `origin` remote configured).
-2. External npm registry installs are blocked in this environment (HTTP 403), so dependency refresh must run in CI/network-permitted dev.
-3. Verify deploy secrets (`VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`) in GitHub settings before next main push.
-4. Monitor CodeQL run outcome after workflow migration to v3 actions and JavaScript matrix.
+1. No `origin` git remote configured in this clone, so GitHub PR comments/check runs/deployment statuses cannot be queried directly.
+2. `gh` CLI is not installed in this environment, so PR-level comment/status introspection is unavailable locally.
+3. npm emits `Unknown env config "http-proxy"` warnings; not a hard failure, but should be cleaned up in CI/dev env config.
 
-## Current steps in flight
+## Current steps (deployment-fix track)
 
-1. CI/workflow hardening for deployment and code scanning (`deploy.yml`, `codeql.yml`).
-2. Web lint/test/build stabilization (manifest repair + merge artifact cleanup + PostCSS fallback).
-3. Documentation/version/changelog/continuity updates for next-agent execution.
+1. Validate roadmap/version/changelog alignment with deployment priorities.
+2. Identify recent PR lineage from local commit references and run local deployment proxies.
+3. Resolve any build/lint/type-check regressions blocking deploy pipeline.
+4. Update continuity docs for next agent.
 
 ## Immediate next 3 steps
 
-1. Attach `origin` remote and review recent PR comments/deployment statuses for any remaining failures.
-2. Re-enable Tailwind/PostCSS plugins once dependency installation is available in CI/dev environment.
-3. Validate live Vercel deployment + CodeQL run on GitHub Actions after pushing current branch.
+1. Attach `origin` and query latest PR comments/check-runs to prioritize any remote deployment failures.
+2. Remove/normalize the `http-proxy` npm env config source to eliminate noisy warnings in CI logs.
+3. Add CI guard to fail if route test files are placed under `src/pages/**` (prevents Next route type-validation collisions).
 
-## Recent PR/commit orientation
+## Recent PRs related to current branch (local references)
 
-> Remote PR review comments and deployment statuses could not be queried from this clone because no `origin` remote is configured.
+From local commit history:
 
-Local recent commits used for orientation:
+- `#38` — `fix(web): stabilize /api/status contract, method handling, and probe docs`
+- `#31/#29` — personal testimony page additions
+- `#36` — tailwind scaffold + handoff docs
+- `#35` — CI/lint blocker tracking cleanup
+- `#30` — auth readiness checks + status stabilization
 
-- `7eeb37b` — docs: define gitbutler stack plan and priorities
-- `21a8a17` — feat: implement Swords to Silenced brand system and production design (#5)
+### Test/deployment status orientation
 
-## Open issues requiring immediate attention
+> Remote PR comments and deployment statuses remain **blocked** due to missing `origin` remote and missing `gh` CLI.
 
-- **Yes**: Auth breakage and `/status` instability (P0/P1).
-- **Yes**: Dependency install is blocked in this environment, preventing local verification of Tailwind runtime.
+Local deployment proxy status for current branch:
 
-## Execution plan for open issues
+- ✅ lint passes
+- ✅ tests pass
+- ✅ type-check passes
+- ✅ production build now passes after relocating API contract test outside `src/pages/api`
 
-### P0 Auth Recovery Agent directive
+## Top 3 prioritized items
 
-- Define strict env validation for GitHub, Telegram, admin credentials.
-- Return deterministic per-integration readiness states for status consumption.
+1. **Deployment reliability guardrails** (prevent route-test placement regressions that break Next build).
+2. **Remote CI visibility restoration** (`origin` + PR/check metadata access).
+3. **Environment hygiene** (clear npm proxy warning noise to improve signal in deployment logs).
 
-### P1 Reliability Agent directive
+## Agent directives for continuation
 
-- Enforce stable `/api/status` response schema with explicit degraded-state guarantees.
-- Validate `next.config.js` rewrite compatibility with probe/monitor clients.
+### Reliability Agent
 
-### P2 Frontend Agent directive
+- Keep all non-route tests outside `apps/web/src/pages/**`.
+- Preserve `/status` → `/api/status` rewrite and stable status contract fields.
 
-- Continue thesis layout/content stack in isolated branches after auth/status contract stabilization.
+### CI/Release Agent
+
+- As soon as `origin` is available, inspect open PR checks/deploys and fix failing ones before new features.
+- Keep CodeQL/deploy workflow changes aligned with currently supported actions.
+
+### Docs/Continuity Agent
+
+- Update `CHANGELOG.md`, `VERSION.md`, `README.md`, and `CLAUDE.md` whenever deployment-affecting fixes land.
+- Record any repeated failure modes in `CLAUDE.md` to prevent regression loops.
 
 ## Session summary
 
-Configured Tailwind integration scaffolding for the Next.js web app, updated project docs/changelog/context files, and produced an actionable handoff with blockers, priorities, and next steps. Remaining runtime verification is blocked by package-registry restrictions in this environment.
+Completed deployment-focused stabilization by fixing a production build regression caused by a Jest API contract test living under `src/pages/api`. The test was moved to `src/tests/api`, and lint/test/type-check/build all pass locally. Remaining gaps are remote PR/deployment visibility blockers in this environment.
