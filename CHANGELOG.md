@@ -9,18 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial project setup and monorepo structure
-- TypeScript configuration
-- ESLint and Prettier setup
-- CI/CD pipeline foundation
-- Added `docs/AGENT_HANDOFF.md` to track blockers, priorities, and next-agent continuity for test/deployment stabilization work
-- Added deterministic auth configuration validator diagnostics for GitHub, Telegram, and admin integrations in `/api/status`.
-- Added admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls.
+- Tailwind CSS integration scaffolding for `apps/web` with `tailwind.config.js` and `postcss.config.js`.
+- `AGENT_SESSION_HANDOFF.md` with blockers, immediate next steps, and agent directives for auth/status recovery.
 
 ### Changed
 
-- Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
-- Rewrote `narrative-launch` page content architecture to align with the long-form veteran housing fraud narrative, including 10-part structure, pull quotes, and provided source-reference registry.
+- Updated web global stylesheet to include Tailwind layers (`@tailwind base/components/utilities`).
+- Updated documentation (`README.md`, `VERSION.md`, `CLAUDE.md`) with current session orientation and styling stack notes.
 
 ### Deprecated
 

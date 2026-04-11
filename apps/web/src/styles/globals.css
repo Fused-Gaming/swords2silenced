@@ -10,6 +10,10 @@
 @import './theme.css';
 @import './layout.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ===============================================
    CSS RESET
    Normalize and establish baseline
