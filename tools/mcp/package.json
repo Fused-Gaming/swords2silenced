@@ -9,18 +9,13 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "test": "jest",
-    "lint": "eslint src --ext .ts,.tsx",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src --ext .ts,.tsx --resolve-plugins-relative-to ../../",
     "validate": "npm run lint && npm run build"
   },
-  "dependencies": {
-    "fused-gaming-skill-mcp": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
-    "eslint": "^8.56.0",
     "jest": "^29.0.0",
     "typescript": "^5.3.0"
   },

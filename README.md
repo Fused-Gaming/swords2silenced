@@ -14,14 +14,16 @@ swords2silenced/
 │   └── api/            # API clients and utilities
 ├── tools/              # Development tools and scripts
 │   ├── cli/            # CLI tools
-│   └── generators/     # Code generators
+│   ├── generators/     # Code generators
+│   └── mcp/            # MCP skills workspace
 └── docs/               # Documentation
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm 9+
 
 ### Installation
@@ -58,6 +60,18 @@ See [BRANCHING_STRATEGY.md](./docs/BRANCHING_STRATEGY.md) for details.
 
 ## 🔧 Development
 
+### Styling Stack (Web App)
+
+`apps/web` is configured for Tailwind CSS + PostCSS integration (Tailwind directives are enabled in `src/styles/globals.css`).
+
+```bash
+# install workspace deps (run in network-permitted environment)
+npm install
+
+# run web app
+npm run dev --workspace=apps/web
+```
+
 ### Workspace Management
 
 This project uses npm workspaces. Each workspace has its own `package.json`:
@@ -78,6 +92,8 @@ npm install axios --workspace=packages/api
 - `npm run lint` - Lint all packages
 - `npm run format` - Format code with Prettier
 - `npm run type-check` - Run TypeScript type checking
+- `npm run build --workspace=@swords2silenced/mcp-skills` - Build MCP skills workspace
+- `npm run test --workspace=@swords2silenced/mcp-skills` - Run MCP tests (configured to pass when no test files exist)
 
 ## 📦 Deployment
 
@@ -92,6 +108,7 @@ vercel deploy
 ### DNS Configuration
 
 Domain: **swordstosilenced.com**
+
 - Nameservers: Cloudflare
 - A Records: Pointing to Vercel deployment
 
@@ -106,17 +123,21 @@ npm run coverage     # Generate coverage report
 ## 📚 Documentation
 
 ### Getting Started
+
 - [Setup Guide](./docs/SETUP_GUIDE.md) - Local development setup
 - [Deployment Summary](./DEPLOYMENT_SUMMARY.md) - Complete project overview
 
 ### Development & Workflow
+
 - [Branching Strategy](./docs/BRANCHING_STRATEGY.md) - Git Flow workflow
 - [Contributing Guidelines](./docs/CONTRIBUTING.md) - How to contribute
 
 ### Deployment & Infrastructure
+
 - [Deployment Guide](./docs/DEPLOYMENT.md) - Vercel deployment
 - [DNS & Cloudflare Setup](./docs/DNS_CLOUDFLARE_GODADDY.md) - GoDaddy to Cloudflare migration
 - [Skills Integration](./docs/SKILLS_INTEGRATION.md) - Install and use skills
+- [Agent Handoff](./docs/AGENT_HANDOFF.md) - Current blockers, priorities, and next-agent continuity checklist
 
 ## 🤝 Contributing
 
@@ -125,3 +146,8 @@ Please follow our [Contributing Guidelines](./docs/CONTRIBUTING.md).
 ## 📄 License
 
 MIT - See LICENSE for details.
+
+## Runtime status endpoint
+
+- `/status` rewrites to `/api/status` and now reports per-integration readiness for `githubAuth`, `telegramAuth`, and `adminAuth`.
+- Set `*_EXPIRES_AT` environment values alongside rotated secrets to keep diagnostics accurate.

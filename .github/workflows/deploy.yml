@@ -24,13 +24,13 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test --workspace=apps/web
+        run: npm run test -w @swords2silenced/web
 
       - name: Run linting
-        run: npm run lint --workspace=apps/web
+        run: npm run lint -w @swords2silenced/web
 
       - name: Build
-        run: npm run build --workspace=apps/web
+        run: npm run build -w @swords2silenced/web
 
       - name: Deploy to Vercel
         uses: vercel/action@v4

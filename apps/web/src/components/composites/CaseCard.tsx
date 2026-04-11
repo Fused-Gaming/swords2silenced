@@ -12,7 +12,7 @@
  */
 
 import React from 'react';
-import { H3, BodySmall, Caption } from '../atoms/Typography';
+import { H3, Caption } from '../atoms/Typography';
 import Badge from '../atoms/Badge';
 import Button from '../atoms/Button';
 import styles from './CaseCard.module.css';

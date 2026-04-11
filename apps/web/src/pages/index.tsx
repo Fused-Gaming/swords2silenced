@@ -1,19 +1,25 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Logo from '../components/atoms/Logo';
+import Navbar from '../components/sections/Navbar';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Swords to Silenced | Transform Your Voice</title>
-        <meta name="description" content="Empower your voice. Transform your message. Make an impact." />
-        <meta name="og:title" content="Swords to Silenced" />
-        <meta name="og:description" content="Empower your voice. Transform your message. Make an impact." />
-        <meta name="og:url" content="https://swordstosilenced.com" />
+        <title>Swords to Silence | Exposing the Housing-Homelessness Pipeline</title>
+        <meta
+          name="description"
+          content="Peel back the system that turns unsafe housing, weak oversight, and public suffering into a managed story."
+        />
+        <meta name="og:title" content="Swords to Silence" />
+        <meta name="og:description" content="Exposing the housing-homelessness pipeline" />
+        <meta name="og:url" content="https://swordstosilence.com" />
         <meta name="og:type" content="website" />
       </Head>
 
+      <Navbar />
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.logo}>
@@ -68,8 +74,18 @@ export default function Home() {
             <a href="/terms">Terms of Service</a>
             <a href="#contact">Contact</a>
             <Link href="/testimony">Testimony</Link>
+        <main className={styles.main}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '100vh',
+            }}
+          >
+            <Logo variant="full" />
           </div>
-        </footer>
+        </main>
       </div>
     </>
   );

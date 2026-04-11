@@ -1,22 +1,133 @@
-# CLAUDE.md
+# Claude Code Integration Guide
 
-## Agent Orientation Notes
+This document outlines guidelines for working with Claude Code (AI assistance) on the Swords2Silenced project.
 
-- Repository uses npm workspaces at root.
-- Web app is in `apps/web` and uses Next.js pages router.
-- `next lint` is not supported in Next.js 16 CLI behavior used here; use workspace ESLint CLI script instead.
-- Keep `apps/web/next.config.js` free of deprecated options (e.g., avoid `swcMinify` and `eslint` keys).
-- If type-checking fails around `--ignoreDeprecations`, verify TypeScript version compatibility first.
+## Quick Context
 
-## Common Validation Commands
+- **Project**: React static webpage framework
+- **Goal**: Ship MVP with professional design as fast as possible
+- **Team Size**: Solo development
+- **Tech Stack**: React, TypeScript, Node.js, ESLint, Prettier
+
+## How Claude Can Help
+
+### ✅ Recommended Tasks for Claude
+
+1. **Code Generation & Implementation**
+   - Create React components and pages
+   - Write utility functions and helpers
+   - Implement styling and layouts
+   - Scaffold new features from BRANCHING.md workflow
+
+2. **Debugging & Fixes**
+   - Identify and fix bugs
+   - Resolve TypeScript errors
+   - Fix styling issues
+   - Optimize performance
+
+3. **Code Quality**
+   - Refactor code for clarity
+   - Apply linting rules
+   - Improve code organization
+   - Add type safety improvements
+
+4. **Documentation**
+   - Write code comments (when needed)
+   - Update documentation files
+   - Create deployment guides
+   - Document complex logic
+
+5. **Development Workflow**
+   - Create git commits with appropriate messages
+   - Manage branches following BRANCHING.md
+   - Run build, lint, and test commands
+   - Help with deployments
+
+### 📋 Project-Specific Instructions
+
+**Always follow BRANCHING.md** when creating branches:
+
+- Feature work: `feature/<description>` from `develop`
+- Releases: `release/vX.Y.Z` following ROADMAP.md timeline
+- Hotfixes: `hotfix/<description>` from `main`
+
+**Update documentation when:**
+
+- Adding new features → Update CHANGELOG.md (Unreleased section)
+- Releasing a version → Update VERSION.md and CHANGELOG.md
+- Changing architecture → Update CONTRIBUTING.md or ROADMAP.md
+
+**Code style requirements:**
+
+- Use Prettier (2-space indentation)
+- Run ESLint before committing
+- TypeScript with strict mode
+- Conventional commit messages (feat:, fix:, docs:, etc.)
+
+## When NOT to Use Claude
+
+- ❌ Security-sensitive changes without explicit review
+- ❌ Major architectural changes without discussion
+- ❌ Anything that bypasses code quality tools (linting, type-checking)
+- ❌ Changes to dependencies without understanding impact
+
+## Getting the Best Results
+
+1. **Be Specific**: "Add a header component with navigation menu" vs "add component"
+2. **Reference Docs**: Mention BRANCHING.md, CONTRIBUTING.md when relevant
+3. **Provide Context**: "We're launching in X days" helps prioritize work
+4. **Check Results**: Review generated code before committing
+5. **Follow Workflow**: Use feature branches and PRs consistently
+
+## Useful Commands for Claude to Run
 
 ```bash
-npm install
-npm --workspace @swords2silenced/web run lint
-npm --workspace @swords2silenced/web run build
+# Development
+npm run dev              # Start dev server
+npm run build            # Build for production
+npm run test             # Run tests
+npm run lint             # Check code style
+npm run format           # Format code with Prettier
+npm run type-check       # TypeScript validation
+
+# Git workflow
+git status               # Check current state
+git log --oneline        # View recent commits
+git branch -a            # List all branches
 ```
 
-## Documentation Hygiene
+## Sprint Focus (MVP Phase)
 
-- Update `CHANGELOG.md` and version fields when delivering user-facing changes.
-- Update README "Recent Updates" section for visible feature additions.
+According to ROADMAP.md, current priorities are:
+
+1. Core React architecture ✅
+2. UI/Design implementation
+3. Static site generation
+4. Responsive design
+5. Production build & deployment
+6. Performance & SEO optimization
+
+Claude should focus on accelerating these areas.
+
+## Agent Continuity Notes
+
+- Keep `tools/*` in root npm workspaces so MCP skill packages are buildable from root scripts.
+- Use `apps/web/src/lib/authReadiness.ts` as the single contract source for GitHub/Telegram/admin readiness checks consumed by `/api/status`.
+- For auth rotations, update both secret and `*_EXPIRES_AT` variables to avoid false degraded status reports.
+
+## Questions or Issues?
+
+- Review CONTRIBUTING.md for development guidelines
+- Check BRANCHING.md for workflow questions
+- See ROADMAP.md for project timeline and priorities
+- Check VERSION.md for versioning questions
+
+---
+
+**Last Updated**: 2026-04-04
+
+## Agent Continuity Notes (2026-04-10)
+
+- Local clone currently has no `origin` remote configured, so PR comments/deployment statuses cannot be queried from this environment.
+- Attempting `npm install -w apps/web -D tailwindcss postcss autoprefixer` returned HTTP 403 from npm registry; dependency declarations were added manually and should be installed in CI or a network-permitted dev environment.
+- Active priority order remains: (1) auth recovery contracts, (2) `/status` endpoint hardening, (3) thesis content wiring after contract stability.
