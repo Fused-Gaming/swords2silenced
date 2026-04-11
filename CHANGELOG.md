@@ -27,8 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated web global stylesheet to include Tailwind layers (`@tailwind base/components/utilities`).
-- Updated documentation (`README.md`, `VERSION.md`, `CLAUDE.md`) with current session orientation and styling stack notes.
+- Updated web global stylesheet to temporarily disable Tailwind directives in install-constrained environments.
+- Updated PostCSS config to avoid unavailable plugins during CI build execution.
+- Updated documentation (`README.md`, `VERSION.md`, `CLAUDE.md`) with deployment/code-scanning recovery context.
 
 ### Deprecated
 
@@ -36,6 +37,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Repaired malformed root and web workspace `package.json` manifests that were breaking npm parsing and pre-commit hooks.
+- Resolved merge-conflict regressions in `apps/web/next.config.js` and `apps/web/src/pages/index.tsx` that caused lint failures.
+- Hardened GitHub Actions deploy workflow with dedicated build/deploy jobs and Vercel CLI flow for `main` pushes.
+- Updated CodeQL workflow to maintained action version and JavaScript-only matrix to avoid duplicate TypeScript scans.
 - Enforced explicit `405` handling for non-GET `/api/status` requests with consistent contract keys and `Allow: GET` header.
 - Resolved a degraded merge-resolution regression in `apps/web/src/pages/api/status.ts` that duplicated handler/type blocks and broke lint/type-check/build.
 - Fixed `apps/web/next.config.js` duplicate `turbopack` key merge artifact and restored deterministic monorepo root resolution.

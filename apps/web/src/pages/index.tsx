@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Logo from '../components/atoms/Logo';
 import Navbar from '../components/sections/Navbar';
 import styles from '../styles/Home.module.css';
 
@@ -23,7 +22,7 @@ export default function Home() {
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.logo}>
-            <Logo variant="full" />
+            <h1>Swords to Silenced</h1>
           </div>
           <nav className={styles.nav}>
             <a href="#about">About</a>
@@ -63,15 +62,15 @@ export default function Home() {
           <section id="about" className={styles.about}>
             <h3>About Us</h3>
             <p>
-              Swords to Silenced is a platform dedicated to empowering voices and transforming
-              messages into meaningful change. We believe in the power of communication and the
-              impact that authentic voices can have.
+              Swords to Silenced is a platform dedicated to empowering voices and transforming messages into
+              meaningful change. We believe in the power of communication and the impact that authentic voices can
+              have.
             </p>
           </section>
         </main>
 
         <footer className={styles.footer} id="contact">
-          <p>&copy; 2024 Swords to Silenced. All rights reserved.</p>
+          <p>&copy; 2026 Swords to Silenced. All rights reserved.</p>
           <div className={styles.footerLinks}>
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
