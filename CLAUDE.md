@@ -131,3 +131,10 @@ Claude should focus on accelerating these areas.
 - Local clone currently has no `origin` remote configured, so PR comments/deployment statuses cannot be queried from this environment.
 - Attempting `npm install -w apps/web -D tailwindcss postcss autoprefixer` returned HTTP 403 from npm registry; dependency declarations were added manually and should be installed in CI or a network-permitted dev environment.
 - Active priority order remains: (1) auth recovery contracts, (2) `/status` endpoint hardening, (3) thesis content wiring after contract stability.
+
+
+## Agent Continuity Notes (2026-04-11)
+
+- Deployment/code-scanning recovery addressed: root + web package manifests repaired, deploy workflow switched to build-then-deploy with Vercel CLI, CodeQL migrated to `github/codeql-action@v3` and JS matrix only.
+- Web lint/test/build now pass locally after resolving `next.config.js` duplication and malformed `index.tsx` merge artifacts.
+- In install-constrained environments, PostCSS plugins are intentionally empty and Tailwind directives in `globals.css` are disabled to prevent build-time module resolution failures.

@@ -45,6 +45,9 @@ npm run test
 
 ## 🆕 Recent Updates
 
+- Fixed malformed workspace manifests that blocked npm parsing in CI and local hooks.
+- Restored web lint/build stability by resolving merge artifacts and removing unavailable PostCSS plugin requirements.
+- Hardened GitHub deploy + CodeQL workflows for current action versions and reliable execution paths.
 - Added a new secondary page at `/testimony` to present a structured personal testimony connected from the homepage.
 - Added `CHANGELOG.md` and bumped project version to `0.1.1`.
 

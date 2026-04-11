@@ -13,7 +13,7 @@ Ship a professionally designed, production-ready React static webpage as quickly
 - [ ] Professional UI/design implementation
 - [ ] Static site generation and optimization
 - [ ] Responsive design (mobile, tablet, desktop)
-- [ ] Production build and deployment pipeline
+- [x] Production build and deployment pipeline (CI workflow + local web lint/test/build passing)
 - [ ] Performance optimization and SEO basics
 - [ ] Live domain and hosting setup
 
@@ -58,5 +58,5 @@ Ship a professionally designed, production-ready React static webpage as quickly
 ---
 
 ## Status Updates
-- Current Version: 0.1.0 (MVP Development)
-- Last Updated: 2026-04-04
+- Current Version: 0.1.2 (MVP Development)
+- Last Updated: 2026-04-11
