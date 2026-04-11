@@ -152,5 +152,7 @@ MIT - See LICENSE for details.
 
 ## Runtime status endpoint
 
-- `/status` rewrites to `/api/status` and now reports per-integration readiness for `githubAuth`, `telegramAuth`, and `adminAuth`.
+- Probe URL for hosting health checks: `https://<your-domain>/status` (rewritten by Next.js to `/api/status`).
+- Response contract always includes `status`, `checks`, `notes`, and `version` (plus diagnostics and timing metadata for GET requests).
+- Non-GET methods return HTTP `405` with `Allow: GET` and the same top-level contract keys (`status`, `checks`, `notes`, `version`).
 - Set `*_EXPIRES_AT` environment values alongside rotated secrets to keep diagnostics accurate.
