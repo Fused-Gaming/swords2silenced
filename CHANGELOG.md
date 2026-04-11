@@ -40,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Resolved a degraded merge-resolution regression in `apps/web/src/pages/api/status.ts` that duplicated handler/type blocks and broke lint/type-check/build.
 - Fixed `apps/web/next.config.js` duplicate `turbopack` key merge artifact and restored deterministic monorepo root resolution.
 - Fixed web lint gating failures by removing unused imports, migrating navbar home navigation to `next/link`, and replacing raw avatar `<img>` with `next/image`.
+- Repaired malformed workspace `package.json` files after bad conflict resolution by removing duplicate keys and restoring valid JSON metadata.
+- Fixed homepage JSX structure regression in `apps/web/src/pages/index.tsx` (unclosed footer/nav merge debris) to restore ESLint parsing.
 - Resolved merge-conflict regressions in `apps/web/next.config.js` and `/api/status` by removing duplicate `turbopack` config and unused validator imports causing lint failures.
 - Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
 - Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
@@ -93,6 +95,8 @@ Example format:
 
 ### Fixed
 
+- Repaired malformed workspace `package.json` files after bad conflict resolution by removing duplicate keys and restoring valid JSON metadata.
+- Fixed homepage JSX structure regression in `apps/web/src/pages/index.tsx` (unclosed footer/nav merge debris) to restore ESLint parsing.
 - Bug fix description
 
 ### Changed
