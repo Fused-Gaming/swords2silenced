@@ -87,3 +87,52 @@
 1. Expand meaningful automated test coverage across non-web workspaces.
 2. Enforce stronger CI quality gates for placeholder test scripts.
 3. Retrieve and remediate remote PR deployment failures as soon as CI metadata is accessible.
+
+---
+
+# Agent Handoff — 2026-04-11 (Tailwind + Palette stabilization)
+
+## Session Scope
+
+- Fixed Tailwind CSS runtime wiring in `apps/web` so utility classes are compiled again.
+- Repaired missing palette tokens and aligned Tailwind semantic color aliases.
+- Reviewed roadmap/changelog/current branch history to prioritize work before implementation.
+
+## Blockers
+
+1. No git remote configured in this container clone (`git remote -v` returned no remotes), so PR API/comment/deployment lookups are blocked.
+2. No GitHub CLI/API credentials available locally, so recent PR checks/deployments cannot be queried directly.
+
+## Current Steps Completed
+
+1. Reviewed `ROADMAP.md`, `CHANGELOG.md`, `README.md`, and `CLAUDE.md` for orientation.
+2. Audited Tailwind and PostCSS config plus global styles for integration breakpoints.
+3. Restored Tailwind/PostCSS wiring (`postcss.config.js`, `globals.css` directives).
+4. Added missing design tokens (`--color-muted`) and validated existing info token usage.
+5. Expanded Tailwind theme color aliases for semantic/status usage.
+6. Updated continuity docs (`CHANGELOG.md`, `CLAUDE.md`, this handoff file).
+
+## Immediate Next 3 Steps
+
+1. Once remote/API access exists, fetch PR check runs and deployment states; prioritize any failing deployment first.
+2. Add a minimal Tailwind smoke test (or visual snapshot) to detect directive/plugin regressions in CI.
+3. Incrementally migrate hardcoded shadow rgba values in `theme.css` to token-based shadow variables for full palette consistency.
+
+## Recent PRs Related to Current Branch (local history snapshot)
+
+- `#41` — `fix(deploy): unblock next build by relocating api contract test`
+- `#38` — `fix(web): stabilize /api/status contract, method handling, and probe docs`
+- `#36` — `feat(web): scaffold tailwind setup and update agent handoff docs`
+- `#31` — `Add professional personal testimony secondary page (#29)`
+- `#30` — `Add auth readiness checks, stabilize /status endpoint, and integrate MCP workspace`
+
+### Test/Deployment Status
+
+- Local web lint/type-check/build status: verified in this session after Tailwind/palette updates.
+- Remote PR deployment/check status: **blocked locally** (missing remote + CI API access/tooling).
+
+## Priority Focus (Top 3)
+
+1. Restore and lock front-end style-system reliability (completed this session).
+2. Re-establish visibility into PR deployment/check failures (blocked by environment).
+3. Add stronger automated guardrails for style/token regressions (pending).

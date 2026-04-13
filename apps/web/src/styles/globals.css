@@ -10,7 +10,9 @@
 @import './theme.css';
 @import './layout.css';
 
-/* Tailwind directives disabled in CI until tailwindcss package is available in install-constrained environments. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* ===============================================
    CSS RESET

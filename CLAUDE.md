@@ -155,3 +155,5 @@ Claude should focus on accelerating these areas.
 - Merge-conflict regressions can silently duplicate JSON keys in root and workspace `package.json`; run `npm run lint` first to catch parser/no-dupe-keys issues before deeper build checks.
 
 - Next.js build guardrail (2026-04-11): keep Jest/contract tests out of `apps/web/src/pages/**`; route-type validation can treat `*.test.ts` files as API routes and fail production builds.
+- Tailwind guardrail (2026-04-11): keep `apps/web/postcss.config.js` wired with `tailwindcss` + `autoprefixer` and preserve `@tailwind base/components/utilities` in `src/styles/globals.css` to avoid silent utility-class no-op behavior.
+- Color-token guardrail (2026-04-11): maintain `--color-info` and `--color-muted` in `src/styles/tokens.css`; `CaseTimeline` and theme utility classes depend on them.
