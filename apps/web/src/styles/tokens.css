@@ -48,6 +48,7 @@
 
   --color-steel-gray: #A0A8B8;
   --color-blue-mute: #8B7A96;
+  --color-muted: #8B7A96;
   --color-border: #3c2634;
 
   /* ===============================================
@@ -58,6 +59,7 @@
   --color-success: #2A9D8F;
   --color-warning: #F77F00;
   --color-critical: #D62828;
+  --color-info: #5B8DEF;
 
   /* ===============================================
      EXTENDED PALETTE
@@ -208,6 +210,7 @@
     /* Light mode secondary colors */
     --color-steel-gray: #5A6B7D;
     --color-blue-mute: #3A5A7A;
+    --color-muted: #5A6B7D;
     --color-border: #E8D9E0;
 
     /* Light mode backgrounds */
