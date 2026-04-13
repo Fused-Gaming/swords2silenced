@@ -4,8 +4,8 @@
 
 **0.1.2** (MVP Development)
 
-- Last Updated: 2026-04-11 (deployment fix pass)
-- Notes: Deployment/CodeQL CI hardening completed; workspace manifests and web build pipeline repaired for lint/test/build stability. Added guardrail fix by relocating API contract tests outside Next.js pages routing paths to keep production builds green.
+- Last Updated: 2026-04-13 (workspace lint/test stabilization pass)
+- Notes: Tailwind/PostCSS + semantic token stability preserved; MCP workspace lint script updated for ESLint v9 compatibility and root workspace lint/test now execute cleanly in this environment.
 
 ## Versioning Strategy
 

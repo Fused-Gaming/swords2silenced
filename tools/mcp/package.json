@@ -10,7 +10,7 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "test": "jest --passWithNoTests",
-    "lint": "eslint src --ext .ts,.tsx --resolve-plugins-relative-to ../../",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint src --ext .ts,.tsx",
     "validate": "npm run lint && npm run build"
   },
   "dependencies": {},

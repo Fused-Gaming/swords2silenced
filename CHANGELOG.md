@@ -24,6 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
 - Tailwind CSS integration scaffolding for `apps/web` with `tailwind.config.js` and `postcss.config.js`.
 - `AGENT_SESSION_HANDOFF.md` with blockers, immediate next steps, and agent directives for auth/status recovery.
+- Re-enabled Tailwind processing in `apps/web` by restoring PostCSS plugin wiring and Tailwind directives in global styles.
+- Expanded Tailwind theme color mappings to include semantic status + muted/info token aliases.
+- Synced workspace dependencies and refreshed `package-lock.json` to ensure Tailwind/PostCSS packages resolve consistently.
 
 ### Changed
 
@@ -53,8 +56,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
 
 - Added missing `--color-info` design token for semantic informational states used by timeline category styling.
+- Added missing `--color-muted` token and aligned theme utilities to use the active tokenized palette.
 - Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.
 - Removed runtime dependency on Google font fetch in `narrative-launch` by switching to CSS fallback font-family variables for more reliable offline/CI builds.
+- Fixed `@swords2silenced/mcp-skills` lint script for ESLint v9 by removing unsupported CLI behavior and using legacy config mode in workspace lint execution.
 
 ### Security
 

@@ -148,10 +148,13 @@ Claude should focus on accelerating these areas.
 
 - Deployment/code-scanning recovery addressed: root + web package manifests repaired, deploy workflow switched to build-then-deploy with Vercel CLI, CodeQL migrated to `github/codeql-action@v3` and JS matrix only.
 - Web lint/test/build now pass locally after resolving `next.config.js` duplication and malformed `index.tsx` merge artifacts.
-- In install-constrained environments, PostCSS plugins are intentionally empty and Tailwind directives in `globals.css` are disabled to prevent build-time module resolution failures.
+- Tailwind/PostCSS baseline updated: keep `tailwindcss` + `autoprefixer` active in `apps/web/postcss.config.js` and keep `@tailwind` directives enabled in `globals.css`.
 
 ## Agent Continuity Notes (2026-04-11)
 
 - Merge-conflict regressions can silently duplicate JSON keys in root and workspace `package.json`; run `npm run lint` first to catch parser/no-dupe-keys issues before deeper build checks.
 
 - Next.js build guardrail (2026-04-11): keep Jest/contract tests out of `apps/web/src/pages/**`; route-type validation can treat `*.test.ts` files as API routes and fail production builds.
+- Tailwind guardrail (2026-04-11): keep `apps/web/postcss.config.js` wired with `tailwindcss` + `autoprefixer` and preserve `@tailwind base/components/utilities` in `src/styles/globals.css` to avoid silent utility-class no-op behavior.
+- Color-token guardrail (2026-04-11): maintain `--color-info` and `--color-muted` in `src/styles/tokens.css`; `CaseTimeline` and theme utility classes depend on them.
+- ESLint v9 workspace guardrail (2026-04-13): `tools/mcp` lint must not use `--resolve-plugins-relative-to`; use `ESLINT_USE_FLAT_CONFIG=false eslint src --ext .ts,.tsx` to keep workspace lint compatible.
