@@ -50,6 +50,7 @@ npm run test
 - Hardened GitHub deploy + CodeQL workflows for current action versions and reliable execution paths.
 - Added a new secondary page at `/testimony` to present a structured personal testimony connected from the homepage.
 - Added `CHANGELOG.md` and bumped project version to `0.1.1`.
+- Re-validated full root quality gates (`test`, `lint`, `type-check`, `build`) during failed-testing continuation; all local checks are currently green.
 
 ## 📋 Branching Strategy
 
