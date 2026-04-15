@@ -60,6 +60,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.
 - Removed runtime dependency on Google font fetch in `narrative-launch` by switching to CSS fallback font-family variables for more reliable offline/CI builds.
 - Fixed `@swords2silenced/mcp-skills` lint script for ESLint v9 by removing unsupported CLI behavior and using legacy config mode in workspace lint execution.
+- Verified failed-testing continuation sweep with green root workspace `test`, `lint`, `type-check`, and `build` checks; documented remote PR/deployment visibility as the remaining blocker.
 
 ### Security
 
