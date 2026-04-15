@@ -1,3 +1,24 @@
+# Agent Handoff — 2026-04-13 (failed-testing continuation)
+
+## Blockers
+
+1. Missing `origin` remote in this clone prevents querying recent PR comments/check-runs/deployment statuses.
+2. No local `gh` CLI/API credentials to inspect PR review threads directly.
+
+## Current Steps
+
+1. Reviewed roadmap/version/changelog context.
+2. Re-ran root `test`, `lint`, `type-check`, and `build`.
+3. Confirmed local quality gates are all passing.
+
+## Immediate Next 3 Steps
+
+1. Attach remote/API access and fetch PR/deployment status metadata.
+2. Prioritize and remediate any remote failing deployments/check-runs discovered.
+3. Eliminate npm `http-proxy` warning source to improve CI log signal quality.
+
+---
+
 # Agent Handoff — 2026-04-10
 
 ## Session Scope
@@ -136,3 +157,86 @@
 1. Restore and lock front-end style-system reliability (completed this session).
 2. Re-establish visibility into PR deployment/check failures (blocked by environment).
 3. Add stronger automated guardrails for style/token regressions (pending).
+
+---
+
+# Agent Handoff — 2026-04-13 (dependency + lockfile verification)
+
+## Session Scope
+
+- Verified roadmap/version/changelog/CLAUDE context before implementation.
+- Validated installed dependencies and lockfile presence for workspace consistency.
+- Simplified PostCSS config to canonical Tailwind + Autoprefixer plugin wiring after dependency verification.
+
+## Blockers
+
+1. This clone still has no configured git remote, so live PR comments/check-runs/deployment states cannot be queried.
+2. No GitHub API/`gh` context in container to inspect inline review comments directly.
+
+## Current Steps Completed
+
+1. Reviewed `ROADMAP.md`, `VERSION.md`, `CHANGELOG.md`, and `CLAUDE.md`.
+2. Verified dependency installation (`npm install`) and lockfile status.
+3. Updated `apps/web/postcss.config.js` to canonical Tailwind plugin config.
+4. Updated documentation notes to remove stale install-constrained Tailwind guidance.
+5. Re-ran lint/type-check/build to confirm green pipeline.
+
+## Immediate Next 3 Steps
+
+1. Attach remote + CI API access and fetch open PR comments/check runs for direct remediation.
+2. Add a CI assertion that verifies Tailwind plugin presence from lockfile + install.
+3. Add a lightweight visual regression check for palette token changes.
+
+## Recent PRs Related to Current Branch (local history snapshot)
+
+- `fix(web): restore Tailwind pipeline and stabilize color tokens`
+- `#41` — `fix(deploy): unblock next build by relocating api contract test`
+- `#38` — `fix(web): stabilize /api/status contract, method handling, and probe docs`
+- `#36` — `feat(web): scaffold tailwind setup and update agent handoff docs`
+
+### Test/Deployment Status
+
+- Local lint/type-check/build: passing in this session.
+- Remote deployment/check status: blocked due to missing remote/API context.
+
+---
+
+# Agent Handoff — 2026-04-13 (workspace lint/test recovery)
+
+## Session Scope
+
+- Re-ran roadmap/version/changelog/CLAUDE orientation.
+- Investigated reported "4 failing tests"; local suites passed, but root workspace lint had a failing `tools/mcp` lint command under ESLint v9.
+- Applied workspace lint compatibility fix and validated root lint + tests.
+
+## Blockers
+
+1. No git remote/API context in this clone, so inline PR comments and deployment checks cannot be queried directly.
+2. Next.js lockfile patch warnings still appear in test/build due yarn-registry probe in this environment; commands continue and pass, but warning noise persists.
+
+## Current Steps Completed
+
+1. Ran root tests and confirmed web test suites pass (status/auth/next config contracts).
+2. Ran root lint and identified failing `@swords2silenced/mcp-skills` lint script flag compatibility issue.
+3. Updated `tools/mcp/package.json` lint script to ESLint v9-compatible invocation.
+4. Re-ran root lint and root test to confirm green status.
+5. Updated `CHANGELOG.md`, `VERSION.md`, and `CLAUDE.md` continuity notes.
+
+## Immediate Next 3 Steps
+
+1. Add remote and fetch PR check-run/deployment metadata to verify any unresolved CI failures.
+2. Migrate remaining `.eslintrc` configs to flat config to remove `ESLINT_USE_FLAT_CONFIG=false` dependency.
+3. Investigate and remove Next.js lockfile patch warnings by aligning lockfile SWC metadata in a network-permitted environment.
+
+## Recent PRs Related to Current Branch (local history snapshot)
+
+- `fix(web): normalize postcss pipeline and lint stability`
+- `fix(web): restore Tailwind pipeline and stabilize color tokens`
+- `#41` — `fix(deploy): unblock next build by relocating api contract test`
+- `#38` — `fix(web): stabilize /api/status contract, method handling, and probe docs`
+
+### Test/Deployment Status
+
+- Local root lint: passing after MCP lint-script fix.
+- Local root tests: passing (all present suites green).
+- Remote deployment/check status: blocked locally (no remote/API access).

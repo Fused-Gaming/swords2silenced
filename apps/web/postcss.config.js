@@ -7,10 +7,8 @@ const hasTailwind = [
 ].some((candidatePath) => fs.existsSync(candidatePath));
 
 module.exports = {
-  plugins: hasTailwind
-    ? {
-        tailwindcss: {},
-        autoprefixer: {},
-      }
-    : {},
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };

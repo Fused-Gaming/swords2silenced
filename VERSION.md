@@ -4,8 +4,8 @@
 
 **0.1.2** (MVP Development)
 
-- Last Updated: 2026-04-11 (deployment fix pass)
-- Notes: Deployment/CodeQL CI hardening completed; workspace manifests and web build pipeline repaired for lint/test/build stability. Added guardrail fix by relocating API contract tests outside Next.js pages routing paths to keep production builds green.
+- Last Updated: 2026-04-13 (failed-testing continuation verification pass)
+- Notes: Local lint/test/type-check/build all pass after failed-testing continuation verification; remaining gap is remote PR/deployment visibility due to missing git remote + GitHub CLI context in this container.
 
 ## Versioning Strategy
 

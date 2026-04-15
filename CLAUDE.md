@@ -148,7 +148,7 @@ Claude should focus on accelerating these areas.
 
 - Deployment/code-scanning recovery addressed: root + web package manifests repaired, deploy workflow switched to build-then-deploy with Vercel CLI, CodeQL migrated to `github/codeql-action@v3` and JS matrix only.
 - Web lint/test/build now pass locally after resolving `next.config.js` duplication and malformed `index.tsx` merge artifacts.
-- In install-constrained environments, PostCSS plugins are intentionally empty and Tailwind directives in `globals.css` are disabled to prevent build-time module resolution failures.
+- Tailwind/PostCSS baseline updated: keep `tailwindcss` + `autoprefixer` active in `apps/web/postcss.config.js` and keep `@tailwind` directives enabled in `globals.css`.
 
 ## Agent Continuity Notes (2026-04-11)
 
@@ -157,3 +157,12 @@ Claude should focus on accelerating these areas.
 - Next.js build guardrail (2026-04-11): keep Jest/contract tests out of `apps/web/src/pages/**`; route-type validation can treat `*.test.ts` files as API routes and fail production builds.
 - Tailwind guardrail (2026-04-11): keep `apps/web/postcss.config.js` wired with `tailwindcss` + `autoprefixer` and preserve `@tailwind base/components/utilities` in `src/styles/globals.css` to avoid silent utility-class no-op behavior.
 - Color-token guardrail (2026-04-11): maintain `--color-info` and `--color-muted` in `src/styles/tokens.css`; `CaseTimeline` and theme utility classes depend on them.
+- ESLint v9 workspace guardrail (2026-04-13): `tools/mcp` lint must not use `--resolve-plugins-relative-to`; use `ESLINT_USE_FLAT_CONFIG=false eslint src --ext .ts,.tsx` to keep workspace lint compatible.
+
+- CI guardrail (2026-04-13): keep root `package-lock.json` committed and do not ignore it; `actions/setup-node` npm caching depends on lockfile presence.
+- GitHub Actions runtime guardrail (2026-04-13): prefer `actions/checkout@v5` + `actions/setup-node@v5` and Node.js 24 in workflows to stay ahead of Node 20 deprecation deadlines.
+## Agent Continuity Notes (2026-04-13 — failed-testing continuation)
+
+- Root workspace `npm test -- --runInBand`, `npm run lint`, `npm run type-check`, and `npm run build` are currently green in this container.
+- Primary unresolved blocker remains missing `origin` remote + missing `gh` CLI, which prevents direct PR comment/check/deployment triage.
+- npm warns about `Unknown env config "http-proxy"`; cleanup is recommended to reduce CI noise but does not currently fail quality gates.

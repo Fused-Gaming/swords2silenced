@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added root `package-lock.json` to source control so GitHub Actions `setup-node` npm caching can resolve lockfile metadata in CI.
 - Added contract tests for `/api/status` healthy/degraded permutations and unsupported method handling.
 - Initial project setup and monorepo structure
 - TypeScript configuration
@@ -26,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `AGENT_SESSION_HANDOFF.md` with blockers, immediate next steps, and agent directives for auth/status recovery.
 - Re-enabled Tailwind processing in `apps/web` by restoring PostCSS plugin wiring and Tailwind directives in global styles.
 - Expanded Tailwind theme color mappings to include semantic status + muted/info token aliases.
+- Synced workspace dependencies and refreshed `package-lock.json` to ensure Tailwind/PostCSS packages resolve consistently.
 
 ### Changed
 
@@ -39,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Upgraded GitHub Actions workflows to Node.js 24 runtime (`actions/checkout@v5`, `actions/setup-node@v5`) and pinned npm cache to `package-lock.json` to address Node 20 deprecation + cache lockfile errors.
 - Fixed Next.js production build regression by moving `status.contract.test.ts` out of `apps/web/src/pages/api` into `apps/web/src/tests/api`, preventing route type-validation from treating tests as API handlers.
 - Repaired malformed root and web workspace `package.json` manifests that were breaking npm parsing and pre-commit hooks.
 - Resolved merge-conflict regressions in `apps/web/next.config.js` and `apps/web/src/pages/index.tsx` that caused lint failures.
@@ -58,6 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added missing `--color-muted` token and aligned theme utilities to use the active tokenized palette.
 - Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.
 - Removed runtime dependency on Google font fetch in `narrative-launch` by switching to CSS fallback font-family variables for more reliable offline/CI builds.
+- Fixed `@swords2silenced/mcp-skills` lint script for ESLint v9 by removing unsupported CLI behavior and using legacy config mode in workspace lint execution.
+- Verified failed-testing continuation sweep with green root workspace `test`, `lint`, `type-check`, and `build` checks; documented remote PR/deployment visibility as the remaining blocker.
 
 ### Security
 
