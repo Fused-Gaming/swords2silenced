@@ -159,6 +159,8 @@ Claude should focus on accelerating these areas.
 - Color-token guardrail (2026-04-11): maintain `--color-info` and `--color-muted` in `src/styles/tokens.css`; `CaseTimeline` and theme utility classes depend on them.
 - ESLint v9 workspace guardrail (2026-04-13): `tools/mcp` lint must not use `--resolve-plugins-relative-to`; use `ESLINT_USE_FLAT_CONFIG=false eslint src --ext .ts,.tsx` to keep workspace lint compatible.
 
+- CI guardrail (2026-04-13): keep root `package-lock.json` committed and do not ignore it; `actions/setup-node` npm caching depends on lockfile presence.
+- GitHub Actions runtime guardrail (2026-04-13): prefer `actions/checkout@v5` + `actions/setup-node@v5` and Node.js 24 in workflows to stay ahead of Node 20 deprecation deadlines.
 ## Agent Continuity Notes (2026-04-13 — failed-testing continuation)
 
 - Root workspace `npm test -- --runInBand`, `npm run lint`, `npm run type-check`, and `npm run build` are currently green in this container.
