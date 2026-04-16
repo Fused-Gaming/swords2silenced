@@ -142,6 +142,7 @@ npm run coverage     # Generate coverage report
 - [DNS & Cloudflare Setup](./docs/DNS_CLOUDFLARE_GODADDY.md) - GoDaddy to Cloudflare migration
 - [Skills Integration](./docs/SKILLS_INTEGRATION.md) - Install and use skills
 - [Agent Handoff](./docs/AGENT_HANDOFF.md) - Current blockers, priorities, and next-agent continuity checklist
+- [Implementation Steps](./docs/IMPLEMENTATION_STEPS.md) - Phase 1 deliverables mapped to branch stacks, agent ownership, and PR-scoped entry/done criteria
 
 ## 🤝 Contributing
 

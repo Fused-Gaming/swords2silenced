@@ -4,8 +4,8 @@
 
 **0.1.2** (MVP Development)
 
-- Last Updated: 2026-04-13 (failed-testing continuation verification pass)
-- Notes: Local lint/test/type-check/build all pass after failed-testing continuation verification; remaining gap is remote PR/deployment visibility due to missing git remote + GitHub CLI context in this container.
+- Last Updated: 2026-04-16 (implementation-step mapping refresh)
+- Notes: Implementation planning baseline is now documented in `docs/IMPLEMENTATION_STEPS.md`; remaining gap is remote PR/deployment visibility due to missing git remote + GitHub CLI context in this container.
 
 ## Versioning Strategy
 
