@@ -1,3 +1,37 @@
+# Agent Handoff — 2026-04-16 (implementation-steps mapping)
+
+## Blockers
+
+1. Missing git remote/API context in this clone still prevents direct PR comment/check-run/deployment triage.
+2. No local GitHub CLI credentials are available to inspect review threads/status checks.
+
+## Current Steps
+
+1. Auth recovery + status contract (`stack/auth-status-recovery`).
+2. Thesis layout foundation and responsive behavior (`stack/thesis-layout-foundation`).
+3. Production build/deploy checks and SEO/perf pass (`stack/release-seo-perf-pass`).
+
+## Immediate Next 3 Steps
+
+1. Wire PR templates/checklists to the new entry/done criteria in `docs/IMPLEMENTATION_STEPS.md`.
+2. Attach remote/API access and fetch PR comment + deployment status metadata.
+3. Remediate any failing deployments/check-runs before taking on additional feature work.
+
+## Recent PRs Related to Current Branch (local history snapshot)
+
+- `#45` — `fix(ci): add lockfile and migrate workflows to node 24`
+- `#44` — `docs: record failed-testing continuation status and blockers`
+- `#42` — `fix(web): restore tailwind pipeline and stabilize color tokens`
+- `#41` — `fix(deploy): unblock next build by relocating api contract test`
+- `#38` — `fix(web): stabilize /api/status contract, method handling, and probe docs`
+
+### Test/Deployment Status
+
+- Local status: unchanged in this doc-only pass.
+- Remote PR/deployment status: **blocked** (no remote/API context in container).
+
+---
+
 # Agent Handoff — 2026-04-13 (failed-testing continuation)
 
 ## Blockers

@@ -161,8 +161,11 @@ Claude should focus on accelerating these areas.
 
 - CI guardrail (2026-04-13): keep root `package-lock.json` committed and do not ignore it; `actions/setup-node` npm caching depends on lockfile presence.
 - GitHub Actions runtime guardrail (2026-04-13): prefer `actions/checkout@v5` + `actions/setup-node@v5` and Node.js 24 in workflows to stay ahead of Node 20 deprecation deadlines.
+
 ## Agent Continuity Notes (2026-04-13 — failed-testing continuation)
 
 - Root workspace `npm test -- --runInBand`, `npm run lint`, `npm run type-check`, and `npm run build` are currently green in this container.
 - Primary unresolved blocker remains missing `origin` remote + missing `gh` CLI, which prevents direct PR comment/check/deployment triage.
 - npm warns about `Unknown env config "http-proxy"`; cleanup is recommended to reduce CI noise but does not currently fail quality gates.
+
+- Implementation planning baseline (2026-04-16): use `docs/IMPLEMENTATION_STEPS.md` as the source for Phase 1 stack ownership, entry/done criteria, blockers, and seeded current step order.

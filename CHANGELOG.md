@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added `docs/IMPLEMENTATION_STEPS.md` with Phase 1 deliverable-to-stack mapping, owner agent assignments, blockers, and current/immediate-next step sequencing.
 - Added root `package-lock.json` to source control so GitHub Actions `setup-node` npm caching can resolve lockfile metadata in CI.
 - Added contract tests for `/api/status` healthy/degraded permutations and unsupported method handling.
 - Initial project setup and monorepo structure
