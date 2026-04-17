@@ -161,8 +161,15 @@ Claude should focus on accelerating these areas.
 
 - CI guardrail (2026-04-13): keep root `package-lock.json` committed and do not ignore it; `actions/setup-node` npm caching depends on lockfile presence.
 - GitHub Actions runtime guardrail (2026-04-13): prefer `actions/checkout@v5` + `actions/setup-node@v5` and Node.js 24 in workflows to stay ahead of Node 20 deprecation deadlines.
+
 ## Agent Continuity Notes (2026-04-13 — failed-testing continuation)
 
 - Root workspace `npm test -- --runInBand`, `npm run lint`, `npm run type-check`, and `npm run build` are currently green in this container.
 - Primary unresolved blocker remains missing `origin` remote + missing `gh` CLI, which prevents direct PR comment/check/deployment triage.
 - npm warns about `Unknown env config "http-proxy"`; cleanup is recommended to reduce CI noise but does not currently fail quality gates.
+
+## Agent Continuity Notes (2026-04-16)
+
+- If push fails with `CONNECT tunnel failed, response 403`, treat it as environment network/auth restriction and do not assume branch or commit integrity issues.
+- Before deployment triage, confirm both `/status` rewrite and `/api/status` endpoint behavior in the hosted target with real secrets present.
+- Keep session handoff current in `AGENT_SESSION_HANDOFF.md` with blockers, current steps, immediate next 3 steps, and top-3 agent directives.
