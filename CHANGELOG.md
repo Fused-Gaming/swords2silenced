@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added 2026-04-16 session-orientation handoff covering blockers, immediate next 3 steps, and top-priority agent directives for continuation.
 - Added root `package-lock.json` to source control so GitHub Actions `setup-node` npm caching can resolve lockfile metadata in CI.
 - Added contract tests for `/api/status` healthy/degraded permutations and unsupported method handling.
 - Initial project setup and monorepo structure
