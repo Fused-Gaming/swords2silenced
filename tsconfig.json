@@ -20,7 +20,6 @@
     "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
-    "jsx": "react-jsx",
     "paths": {
       "@/*": [
         "packages/*"
@@ -36,10 +35,6 @@
       ]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
