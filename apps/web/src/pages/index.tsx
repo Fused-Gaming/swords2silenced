@@ -28,8 +28,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const fadeClass = (id: string) =>
-    `${styles.fade} ${visibleSections[id] ? styles.visible : ''}`;
+  const fadeClass = (id: string) => `${styles.fade} ${visibleSections[id] ? styles.visible : ''}`;
 
   return (
     <>
@@ -54,7 +53,8 @@ export default function Home() {
           <h1>A SYSTEM THAT CANNOT BE WORKING</h1>
 
           <p className={styles.subtitle}>
-            $100M+ in federal housing funding.<br />
+            $100M+ in federal housing funding.
+            <br />
             More money. More organizations. More "success."
           </p>
 
@@ -76,13 +76,13 @@ export default function Home() {
           <h2>Grounded in Public Data</h2>
 
           <p>
-            Federal expenditure records, IRS nonprofit filings, inspector general complaint logs, and state audit
-            reports.
+            Federal expenditure records, IRS nonprofit filings, inspector general complaint logs,
+            and state audit reports.
           </p>
 
           <p className={styles.small}>
-            Analyzed using independent statistical methods including probability modeling, trend analysis, and
-            system-level evaluation.
+            Analyzed using independent statistical methods including probability modeling, trend
+            analysis, and system-level evaluation.
           </p>
         </section>
 
@@ -104,7 +104,9 @@ export default function Home() {
             </div>
           </div>
 
-          <p className={styles.paradoxNote}>These trajectories should not occur together in a functioning system.</p>
+          <p className={styles.paradoxNote}>
+            These trajectories should not occur together in a functioning system.
+          </p>
         </section>
 
         <div className={styles.divider} />
