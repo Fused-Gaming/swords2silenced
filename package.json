@@ -23,7 +23,7 @@
     "clean": "npm run clean --workspaces && rm -rf node_modules dist coverage",
     "bootstrap": "npm install",
     "prepare": "husky install || true",
-    "type-check": "tsc --noEmit",
+    "type-check": "npm run type-check -w apps/web",
     "release": "semantic-release"
   },
   "devDependencies": {
