@@ -1,0 +1,258 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--bg, #0a0a0a);
+  color: var(--text, #e6e6e6);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Typography */
+.container h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-family: 'Bebas Neue', var(--font-serif), sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.container h2 {
+  color: var(--red, #ff3b3b);
+  margin-bottom: 1rem;
+  font-family: 'Bebas Neue', var(--font-serif), sans-serif;
+  letter-spacing: 1px;
+}
+
+.container h3 {
+  font-family: 'Bebas Neue', var(--font-serif), sans-serif;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.container p {
+  color: var(--text, #e6e6e6);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--muted, #a0a0a0);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: var(--red, #ff3b3b);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.body {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.small {
+  color: var(--muted, #a0a0a0);
+  font-size: 0.95rem;
+}
+
+/* CTA Button */
+.cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--red, #ff3b3b);
+  color: var(--red, #ff3b3b);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.cta:hover,
+.cta:focus {
+  background: var(--red, #ff3b3b);
+  color: #000;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.cta:focus {
+  box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.4);
+}
+
+/* Sections */
+.container section {
+  margin: 5rem 0;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+/* Grid & Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: #111;
+  border: 1px solid rgba(255, 59, 59, 0.4);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 59, 59, 0.7);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text, #e6e6e6);
+}
+
+.card p {
+  margin: 0;
+  color: var(--text, #e6e6e6);
+}
+
+/* Big Stat Numbers */
+.big {
+  font-size: 2.5rem;
+  color: var(--red, #ff3b3b);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Bebas Neue', var(--font-serif), sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--red, #ff3b3b), transparent);
+  margin: 4rem 0;
+}
+
+/* Lists */
+.container ul {
+  padding-left: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.container li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  color: var(--text, #e6e6e6);
+}
+
+/* Paradox Note */
+.paradoxNote {
+  margin-top: 2rem;
+  color: var(--text, #e6e6e6);
+}
+
+/* Animation */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted, #a0a0a0);
+  padding: 3rem 1rem;
+  border-top: 1px solid #222;
+  margin-top: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .container section {
+    margin: 3rem 0;
+  }
+
+  .hero {
+    padding: 3rem 0.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .big {
+    font-size: 2rem;
+  }
+
+  .divider {
+    margin: 2.5rem 0;
+  }
+
+  .footer {
+    padding: 2rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .container h2 {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .container ul {
+    padding-left: 1rem;
+  }
+
+  .container li {
+    font-size: 0.95rem;
+  }
+}
