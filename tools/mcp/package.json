@@ -10,7 +10,7 @@
     "dev": "tsc --watch",
     "build": "tsc",
     "test": "jest --passWithNoTests",
-    "lint": "echo 'TypeScript validation via tsc during build' && npm run build --dry-run 2>&1 | head -1 || true",
+    "lint": "echo 'TypeScript validation via tsc during build' || true",
     "validate": "npm run lint && npm run build"
   },
   "dependencies": {},
