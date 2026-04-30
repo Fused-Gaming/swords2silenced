@@ -148,6 +148,41 @@ export default function Home() {
               <div className={styles.big}>↑</div>
               <p>Complaint volume</p>
             </div>
+          </section>
+
+          <section id="cases" className={styles.cases}>
+            <h3>Featured Cases</h3>
+            <p>
+              Explore documented cases of systemic failures in housing and homeless services. Each case represents
+              real people affected by policy failures and institutional negligence.
+            </p>
+          </section>
+
+          <section id="submit" className={styles.submit}>
+            <h3>Submit Your Evidence</h3>
+            <p>
+              Have a story or evidence of housing-homelessness pipeline failures? Contribute to our growing database
+              of documented accountability. Your testimony matters.
+            </p>
+          </section>
+
+          <section id="about" className={styles.about}>
+            <h3>Our Mission</h3>
+            <p>
+              Swords to Silenced exposes systemic failures in the housing-homelessness pipeline through transparent
+              documentation, community testimony, and data-driven accountability. We believe affected communities
+              must be heard, policy failures must be documented, and accountability is non-negotiable.
+            </p>
+          </section>
+        </main>
+
+        <footer className={styles.footer} id="contact">
+          <p>&copy; 2026 Swords to Silenced. All rights reserved.</p>
+          <div className={styles.footerLinks}>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="#contact">Contact</a>
+            <Link href="/testimony">Testimony</Link>
           </div>
         </section>
 
