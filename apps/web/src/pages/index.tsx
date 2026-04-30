@@ -34,8 +34,8 @@ export default function Home() {
 
         <main className={styles.main}>
           <section className={styles.hero}>
-            <h2>Transform Your Message</h2>
-            <p>Empower your voice. Make an impact. Join the movement.</p>
+            <h2>Expose the Housing-Homelessness Pipeline</h2>
+            <p>Transparent documentation of systemic failures in housing and homeless services</p>
             <Link className={styles.cta} href="/testimony">
               Read Personal Testimony
             </Link>
