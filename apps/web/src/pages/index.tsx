@@ -45,16 +45,16 @@ export default function Home() {
             <h3>Features</h3>
             <div className={styles.featureGrid}>
               <div className={styles.featureCard}>
-                <h4>Powerful</h4>
-                <p>Built on modern, scalable architecture</p>
+                <h4>Documented Evidence</h4>
+                <p>Real cases with verified sources and transparent documentation of systemic failures</p>
               </div>
               <div className={styles.featureCard}>
-                <h4>Fast</h4>
-                <p>Lightning-quick performance across all devices</p>
+                <h4>Track Impact</h4>
+                <p>Monitor consequences of policy failures and understand who is affected and how</p>
               </div>
               <div className={styles.featureCard}>
-                <h4>Secure</h4>
-                <p>Enterprise-grade security and privacy</p>
+                <h4>Community-Driven</h4>
+                <p>Direct accounts from affected communities creating collective accountability records</p>
               </div>
             </div>
           </section>
