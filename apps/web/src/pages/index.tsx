@@ -166,6 +166,38 @@ export default function Home() {
 
         <div className={styles.divider} />
 
+        {/* CASES */}
+        <section id="cases" className={fadeClass('cases')} data-fade>
+          <h2>Featured Cases</h2>
+
+          <p>
+            Explore documented cases of systemic failures in housing and homeless services. Each case represents
+            real people affected by policy failures and institutional negligence.
+          </p>
+
+          <p className={styles.small}>
+            Case documentation coming soon. Community submissions and verified evidence drive this archive.
+          </p>
+        </section>
+
+        <div className={styles.divider} />
+
+        {/* SUBMIT */}
+        <section id="submit" className={fadeClass('submit')} data-fade>
+          <h2>Submit Your Evidence</h2>
+
+          <p>
+            Have a story or evidence of housing-homelessness pipeline failures? Contribute to our growing database
+            of documented accountability. Your testimony matters.
+          </p>
+
+          <p className={styles.small}>
+            Submit through <Link href="/testimony">Personal Testimony</Link> or contact us with documented evidence.
+          </p>
+        </section>
+
+        <div className={styles.divider} />
+
         {/* CTA */}
         <section id="cta" className={fadeClass('cta')} data-fade style={{ textAlign: 'center' }}>
           <h2>Explore the Evidence</h2>
@@ -178,12 +210,10 @@ export default function Home() {
         </section>
 
         {/* FOOTER */}
-        <div className={styles.footer}>
-          Built on publicly available data.
-          <br />
-          All claims traceable to primary sources.
-          <br />
-          Transparency and verification prioritized.
+        <div className={styles.footer} id="contact">
+          <p>Built on publicly available data.</p>
+          <p>All claims traceable to primary sources.</p>
+          <p>Transparency and verification prioritized.</p>
         </div>
       </div>
     </>
