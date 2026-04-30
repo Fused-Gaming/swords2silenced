@@ -4,13 +4,24 @@ import { useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import Button from '../components/atoms/Button';
 import Input from '../components/atoms/Input';
+import Footer from '../components/sections/Footer';
 import styles from '../styles/Contact.module.css';
+
+interface SubmissionStatus {
+  type: 'idle' | 'loading' | 'success' | 'error';
+  message: string;
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState<SubmissionStatus>({
+    type: 'idle',
     message: '',
   });
 
@@ -22,11 +33,39 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    // eslint-disable-next-line no-console
-    console.log('Contact form submitted:', formData);
+    setStatus({ type: 'loading', message: 'Sending...' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: data.message || 'Message sent successfully!',
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus({
+          type: 'error',
+          message: data.error || 'Failed to send message. Please try again.',
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'An error occurred. Please try again.',
+      });
+    }
   };
 
   return (
@@ -58,6 +97,19 @@ export default function Contact() {
           <section className={styles.content}>
             <div className={styles.formSection}>
               <h2>Send Us a Message</h2>
+              {status.type !== 'idle' && (
+                <div
+                  className={
+                    status.type === 'success'
+                      ? styles.statusSuccess
+                      : status.type === 'error'
+                        ? styles.statusError
+                        : styles.statusLoading
+                  }
+                >
+                  {status.message}
+                </div>
+              )}
               <form onSubmit={handleSubmit} className={styles.contactForm}>
                 <div className={styles.formGroup}>
                   <label htmlFor="name">Name</label>
@@ -190,15 +242,9 @@ export default function Contact() {
             </div>
           </section>
 
-          <footer className={styles.footer}>
-            <nav className={styles.footerNav}>
-              <Link href="/">Home</Link>
-              <Link href="/about">About</Link>
-              <Link href="/submit">Submit Records</Link>
-            </nav>
-          </footer>
         </main>
       </div>
+      <Footer />
     </>
   );
 }

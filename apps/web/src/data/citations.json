@@ -1,0 +1,39 @@
+{
+  "citations": [
+    {
+      "id": "cit-1",
+      "text": "Silenced voices and suppressed narratives in contemporary society",
+      "source": "Smith, J. (2023). The Impact of Censorship on Modern Discourse. Academic Press.",
+      "url": "https://example.com/study-1",
+      "date": "2023-06-15",
+      "type": "study",
+      "notes": "Primary research on narrative suppression",
+      "addedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "cit-2",
+      "text": "Legal framework for freedom of expression",
+      "source": "Universal Declaration of Human Rights, Article 19",
+      "url": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+      "date": "1948-12-10",
+      "type": "legal",
+      "notes": "International human rights standard",
+      "addedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "cit-3",
+      "text": "Government transparency and public accountability metrics",
+      "source": "Department of Information Transparency. (2024). Annual Transparency Report.",
+      "date": "2024-03-01",
+      "type": "government",
+      "notes": "Official government publication",
+      "addedAt": "2024-01-01T00:00:00Z"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-01T00:00:00Z",
+    "totalCitations": 3,
+    "createdAt": "2024-01-01T00:00:00Z"
+  }
+}
