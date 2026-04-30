@@ -1,34 +1,16 @@
 {
+  "root": false,
   "extends": ["eslint:recommended"],
-  "parser": "@typescript-eslint/parser",
+  "parser": "espree",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "@typescript-eslint/no-explicit-any": "warn",
-    "no-console": ["warn", { "allow": ["warn", "error"] }]
+    "sourceType": "module"
   },
   "env": {
-    "browser": true,
-    "node": true,
-    "es2020": true
+    "node": true
   },
-  "overrides": [
-    {
-      "files": ["*.js", "jest.config.js", "next.config.js"],
-      "env": {
-        "node": true,
-        "commonjs": true
-      },
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    }
-  ]
+  "rules": {
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-unused-vars": "off"
+  }
 }
