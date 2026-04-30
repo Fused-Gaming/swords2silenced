@@ -24,6 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: 'Cases', href: '#cases' },
     { label: 'About', href: '#about' },
+    { label: 'Research', href: '/research-paper' },
     { label: 'Submit Evidence', href: '#submit' },
     { label: 'Contact', href: '#contact' },
   ];
