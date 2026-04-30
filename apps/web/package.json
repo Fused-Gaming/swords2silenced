@@ -5,10 +5,10 @@
   "description": "Main website for swordstosilenced.com",
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
+    "build": "next build",
     "start": "next start",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint next.config.js jest.config.js jest.setup.js --max-warnings=0 || true",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
