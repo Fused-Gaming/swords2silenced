@@ -71,6 +71,19 @@ export default function Home() {
 
         <div className={styles.divider} />
 
+        {/* ABOUT */}
+        <section id="about" className={fadeClass('about')} data-fade>
+          <h2>Our Mission</h2>
+
+          <p>
+            Swords to Silenced exposes systemic failures in the housing-homelessness pipeline through transparent
+            documentation, community testimony, and data-driven accountability. We believe affected communities
+            must be heard, policy failures must be documented, and accountability is non-negotiable.
+          </p>
+        </section>
+
+        <div className={styles.divider} />
+
         {/* CREDIBILITY */}
         <section id="credibility" className={fadeClass('credibility')} data-fade>
           <h2>Grounded in Public Data</h2>
