@@ -186,6 +186,24 @@
 }
 
 /* Responsive */
+.about,
+.cases,
+.submit {
+  padding: 2rem 0;
+}
+
+.about h2,
+.cases h2,
+.submit h2 {
+  margin-bottom: 1rem;
+}
+
+.about p,
+.cases p,
+.submit p {
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1.5rem;
