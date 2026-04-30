@@ -193,6 +193,22 @@
   --z-modal: 2000;
   --z-tooltip: 3000;
   --z-notification: 4000;
+
+  /* ===============================================
+     NAVIGATION TOKENS
+     Navigation menu and link styling
+     =============================================== */
+
+  --nav-bg: var(--color-navy-deep);
+  --nav-text: var(--color-white-off);
+  --nav-link-hover: var(--color-red-alert);
+  --nav-link-active: var(--color-red-alert);
+  --nav-border: var(--color-border);
+  --nav-height: 60px;
+  --nav-padding: var(--space-md);
+
+  --nav-link-font-size: var(--type-body);
+  --nav-link-font-weight: var(--font-weight-medium);
 }
 
 /* ===============================================
@@ -230,6 +246,13 @@
 
     /* Light mode focus outline */
     --focus-outline: 2px solid var(--color-molten-lava);
+
+    /* Light mode navigation */
+    --nav-bg: var(--color-violet-bloom);
+    --nav-text: var(--color-navy-deep);
+    --nav-link-hover: var(--color-red-alert);
+    --nav-link-active: var(--color-red-alert);
+    --nav-border: var(--color-border);
   }
 }
 

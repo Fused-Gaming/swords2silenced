@@ -14,3 +14,5 @@ export type { default as EntityProfileProps } from './EntityProfile';
 
 export { default as AlertBanner } from './AlertBanner';
 export type { default as AlertBannerProps } from './AlertBanner';
+
+export { default as PDFViewer } from './PDFViewer';

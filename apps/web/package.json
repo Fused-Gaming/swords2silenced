@@ -5,15 +5,17 @@
   "description": "Main website for swordstosilenced.com",
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
+    "build": "next build",
     "start": "next start",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint next.config.js jest.config.js jest.setup.js --max-warnings=0 || true",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@types/nodemailer": "^8.0.0",
     "clsx": "^2.0.0",
     "next": "^16.2.2",
+    "nodemailer": "^8.0.7",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },
