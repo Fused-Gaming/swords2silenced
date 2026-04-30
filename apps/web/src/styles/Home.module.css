@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-violet-mist) 0%, var(--color-molten-lava) 100%);
 }
 
 .header {
@@ -96,7 +96,7 @@
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
   background: white;
-  color: #667eea;
+  color: var(--color-red-alert);
   border-radius: 50px;
   font-weight: 700;
   text-decoration: none;

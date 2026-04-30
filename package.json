@@ -23,7 +23,7 @@
     "clean": "npm run clean --workspaces && rm -rf node_modules dist coverage",
     "bootstrap": "npm install",
     "prepare": "husky install || true",
-    "type-check": "tsc --noEmit",
+    "type-check": "npm run type-check -w apps/web",
     "release": "semantic-release"
   },
   "devDependencies": {
@@ -56,6 +56,15 @@
   "author": "Fused Gaming",
   "license": "MIT",
   "dependencies": {
+    "@h4shed/mcp-cli": "^1.0.9",
+    "@h4shed/mcp-core": "^1.0.9",
+    "@h4shed/skill-frontend-design": "^1.0.9",
+    "@h4shed/skill-mcp-builder": "^1.0.9",
+    "@h4shed/skill-pre-deploy-validator": "^1.0.9",
+    "@h4shed/skill-project-manager": "^1.0.8",
+    "@h4shed/skill-project-status-tool": "^1.0.8",
+    "@h4shed/skill-syncpulse": "^0.1.3",
+    "@h4shed/skill-theme-factory": "^1.0.9",
     "next": "16.2.2"
   }
 }
