@@ -14,6 +14,12 @@ export default function Contact() {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -22,11 +28,47 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    // eslint-disable-next-line no-console
-    console.log('Contact form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message || 'Message sent successfully!',
+        });
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.message || 'Failed to send message. Please try again.',
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'An error occurred. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -58,6 +100,19 @@ export default function Contact() {
           <section className={styles.content}>
             <div className={styles.formSection}>
               <h2>Send Us a Message</h2>
+
+              {submitStatus.type === 'success' && (
+                <div className={styles.successMessage}>
+                  <strong>✓ Success!</strong> {submitStatus.message}
+                </div>
+              )}
+
+              {submitStatus.type === 'error' && (
+                <div className={styles.errorMessage}>
+                  <strong>✗ Error!</strong> {submitStatus.message}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className={styles.contactForm}>
                 <div className={styles.formGroup}>
                   <label htmlFor="name">Name</label>
@@ -110,8 +165,13 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button variant="primary" size="large" type="submit">
-                  Send Message
+                <Button
+                  variant="primary"
+                  size="large"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>
