@@ -33,7 +33,26 @@ export default async function handler(
     });
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  // Simple email validation without polynomial complexity
+  // Email must be under 254 chars (RFC 5321) and contain @ and .
+  if (email.length > 254 || !email.includes('@') || !email.includes('.')) {
+    return res.status(400).json({
+      success: false,
+      message: 'Validation failed',
+      error: 'Invalid email address',
+    });
+  }
+
+  const emailParts = email.split('@');
+  if (emailParts.length !== 2 || !emailParts[0].length || !emailParts[1].length) {
+    return res.status(400).json({
+      success: false,
+      message: 'Validation failed',
+      error: 'Invalid email address',
+    });
+  }
+
+  if (!emailParts[1].includes('.')) {
     return res.status(400).json({
       success: false,
       message: 'Validation failed',
