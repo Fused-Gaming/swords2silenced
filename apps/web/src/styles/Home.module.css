@@ -150,6 +150,47 @@
   line-height: 1.6;
 }
 
+.cases {
+  padding: 4rem 0;
+  color: white;
+  text-align: center;
+}
+
+.cases h3 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.cases p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+.submit {
+  padding: 4rem 0;
+  color: white;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.submit h3 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.submit p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
 .about {
   padding: 4rem 0;
   color: white;
@@ -162,7 +203,7 @@
 }
 
 .about p {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.8;
