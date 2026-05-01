@@ -1,23 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Navbar from '../components/sections/Navbar';
-import PDFEmbed from '../components/composites/PDFEmbed';
-import CTASection from '../components/composites/CTASection';
 import styles from '../styles/Testimony.module.css';
-import { buildStructuredData } from '../lib/og-utils';
-
-const baseUrl = 'https://swordstosilenced.com';
-const pageUrl = `${baseUrl}/testimony`;
-const ogImageUrl = `${baseUrl}/api/og/testimony`;
-
-const structuredData = buildStructuredData({
-  title: 'Personal Testimony | Swords to Silenced',
-  description: 'A structured personal testimony documenting housing misrepresentation, safety failures, and requests for accountability.',
-  url: pageUrl,
-  imageUrl: ogImageUrl,
-  type: 'Article',
-  datePublished: '2026-01-29',
-});
 
 export default function TestimonyPage() {
   return (
@@ -26,43 +9,9 @@ export default function TestimonyPage() {
         <title>Personal Testimony | Swords to Silenced</title>
         <meta
           name="description"
-          content="A structured personal testimony documenting housing misrepresentation, safety failures, and requests for accountability."
-        />
-        <link rel="canonical" href={pageUrl} />
-
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Personal Testimony | Swords to Silenced" />
-        <meta
-          property="og:description"
-          content="A structured account of housing misrepresentation, unsafe living conditions, retaliation, and the fight for accountability."
-        />
-        <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:image:alt" content="Personal Testimony - Swords to Silenced" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:type" content="article" />
-
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Personal Testimony | Swords to Silenced" />
-        <meta
-          name="twitter:description"
-          content="A structured account of housing misrepresentation, unsafe living conditions, retaliation, and the fight for accountability."
-        />
-        <meta name="twitter:image" content={ogImageUrl} />
-        <meta name="twitter:image:alt" content="Personal Testimony - Swords to Silenced" />
-
-        {/* Structured Data (JSON-LD) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
+          content="A structured personal testimony documenting housing instability, safety concerns, and requests for accountability."
         />
       </Head>
-
-      <Navbar />
 
       <main className={styles.page}>
         <div className={styles.container}>
@@ -77,19 +26,6 @@ export default function TestimonyPage() {
               ← Return to main page
             </Link>
           </header>
-
-          <CTASection
-            variant="read-documentation"
-            heading="Full Documentation Available"
-            description="Review the complete testimony document in Google Docs format. You can read it inline below or open it in a new window for full-screen viewing."
-            position="top"
-            buttons={{
-              label: 'View as Fullscreen',
-              href: 'https://docs.google.com/document/d/1Y1rGcXbpacNcRrP-CIH-x-EfkKEA9_zQyPiUCLIYyIE/view',
-              variant: 'secondary',
-              external: true,
-            }}
-          />
 
           <section className={styles.section}>
             <h2>Overview</h2>
@@ -167,17 +103,6 @@ export default function TestimonyPage() {
           </section>
 
           <section className={styles.section}>
-            <h2>Full Document Embed</h2>
-            <p>Below is the complete testimony document embedded directly from Google Docs:</p>
-            <PDFEmbed
-              pdfUrl="https://docs.google.com/document/d/1Y1rGcXbpacNcRrP-CIH-x-EfkKEA9_zQyPiUCLIYyIE/preview"
-              title="Personal Testimony - Swords to Silenced"
-              fallbackUrl="https://docs.google.com/document/d/1Y1rGcXbpacNcRrP-CIH-x-EfkKEA9_zQyPiUCLIYyIE/view"
-              customHeight="850px"
-            />
-          </section>
-
-          <section className={styles.section}>
             <h2>Referenced Materials</h2>
             <ul className={styles.linksList}>
               <li><a href="https://drive.google.com/file/d/1l9K_JXz0Pjqac-x2JmJ0rZOg3LaGVGXX/view?usp=drivesdk">SSVF-related disclosure record</a></li>
@@ -192,30 +117,6 @@ export default function TestimonyPage() {
               <li><a href="https://drive.google.com/file/d/1slyBYzliK-F5jftKAS58kzvdOJcAImgh/view?usp=drivesdk">Community meeting cancellation record</a></li>
             </ul>
           </section>
-
-          <CTASection
-            variant="submit-story"
-            heading="Share Your Experience"
-            description="If you have experienced similar issues or have additional information that could help, we encourage you to share your story."
-            position="bottom"
-            buttons={{
-              label: 'Submit Your Story',
-              href: '/submit',
-              variant: 'primary',
-            }}
-          />
-
-          <CTASection
-            variant="view-cases"
-            heading="Explore Related Cases"
-            description="View our comprehensive case timeline to see how these issues connect across the community."
-            position="bottom"
-            buttons={{
-              label: 'View Case Timeline',
-              href: '/case-timeline',
-              variant: 'primary',
-            }}
-          />
         </div>
       </main>
     </>
