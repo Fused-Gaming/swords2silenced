@@ -2,6 +2,19 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styles from '../styles/LandingPage.module.css';
+import { buildStructuredData } from '../lib/og-utils';
+
+const baseUrl = 'https://swordstosilenced.com';
+const pageUrl = baseUrl;
+const ogImageUrl = `${baseUrl}/api/og/`;
+
+const structuredData = buildStructuredData({
+  title: 'A System That Cannot Be Working | Swords to Silenced',
+  description: 'Federal housing funding analysis revealing systemic failures in housing assistance programs. $100M+ in federal funding, more complaints than ever.',
+  url: pageUrl,
+  imageUrl: ogImageUrl,
+  type: 'WebPage',
+});
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
@@ -33,18 +46,43 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>A System That Cannot Be Working</title>
+        <title>A System That Cannot Be Working | Swords to Silenced</title>
         <meta
           name="description"
-          content="Federal housing funding analysis revealing systemic failures in housing assistance programs."
+          content="Federal housing funding analysis revealing systemic failures in housing assistance programs. $100M+ in federal funding, more complaints than ever."
         />
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Open Graph Meta Tags */}
         <meta property="og:title" content="A System That Cannot Be Working" />
         <meta
           property="og:description"
-          content="Federal housing funding analysis revealing systemic failures in housing assistance programs."
+          content="$100M+ in federal housing funding. More money. More organizations. And more complaints than ever. That combination is mathematically improbable — and demands explanation."
         />
-        <meta property="og:url" content="https://swordstosilence.com" />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:alt" content="A System That Cannot Be Working - Swords to Silenced" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="A System That Cannot Be Working" />
+        <meta
+          name="twitter:description"
+          content="$100M+ in federal housing funding with more complaints than ever. Federal housing funding analysis."
+        />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image:alt" content="A System That Cannot Be Working - Swords to Silenced" />
+
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </Head>
 
       <div className={styles.container}>

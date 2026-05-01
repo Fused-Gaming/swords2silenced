@@ -1,6 +1,20 @@
 import Head from 'next/head';
 import Logo from '../components/atoms/Logo';
 import styles from '../styles/NarrativeLaunch.module.css';
+import { buildStructuredData } from '../lib/og-utils';
+
+const baseUrl = 'https://swordstosilenced.com';
+const pageUrl = `${baseUrl}/narrative-launch`;
+const ogImageUrl = `${baseUrl}/api/og/narrative-launch`;
+
+const structuredData = buildStructuredData({
+  title: 'How a $100 Million Federal Housing Program Systematized Fraud Against Veterans | Swords to Silenced',
+  description: 'Long-form investigative narrative on veteran housing fraud allegations, SSVF accountability gaps, and whistleblower retaliation patterns.',
+  url: pageUrl,
+  imageUrl: ogImageUrl,
+  type: 'Article',
+  datePublished: '2026-01-29',
+});
 
 type StorySection = {
   id: string;
@@ -161,13 +175,42 @@ export default function NarrativeLaunchPage() {
   return (
     <>
       <Head>
-        <title>
-          How a $100 Million Federal Housing Program Systematized Fraud Against Veterans | Swords to
-          Silenced
-        </title>
+        <title>How a $100 Million Federal Housing Program Systematized Fraud Against Veterans | Swords to Silenced</title>
         <meta
           name="description"
           content="Long-form investigative narrative on veteran housing fraud allegations, SSVF accountability gaps, and whistleblower retaliation patterns."
+        />
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="How a $100 Million Federal Housing Program Systematized Fraud Against Veterans | Swords to Silenced" />
+        <meta
+          property="og:description"
+          content="Housing fraud, retaliation, and systemic failure documented in real time. 100+ public records. Evidence-based investigation."
+        />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:alt" content="The Full Story - Swords to Silenced" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="article" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="How a $100 Million Federal Housing Program Systematized Fraud Against Veterans" />
+        <meta
+          name="twitter:description"
+          content="Housing fraud, retaliation, and systemic failure documented in real time. 100+ public records."
+        />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image:alt" content="The Full Story - Swords to Silenced" />
+
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </Head>
 
