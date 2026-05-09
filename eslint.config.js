@@ -73,16 +73,21 @@ export default [
     },
   },
 
-  // Config files
+  // Config files (CommonJS - allow require)
   {
-    files: ['*.config.js', '*.config.mjs'],
+    files: ['*.config.js', '*.config.mjs', '**/jest.config.js', '**/next.config.js'],
     languageOptions: {
       ecmaVersion: 2020,
-      sourceType: 'module',
+      sourceType: 'commonjs',
       globals: {
         process: 'readonly',
         require: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
       },
+    },
+    rules: {
+      '@typescript-eslint/no-var-requires': 'off',
     },
   },
 

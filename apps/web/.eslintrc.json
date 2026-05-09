@@ -27,15 +27,32 @@
   },
   "overrides": [
     {
-      "files": ["*.js", "*.config.js"],
+      "files": ["jest.config.js", "next.config.js"],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "commonjs"
+      },
+      "env": {
+        "node": true,
+        "commonjs": true
+      },
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      "files": ["jest.setup.js"],
       "parser": "espree",
       "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module"
       },
       "env": {
-        "node": true,
-        "commonjs": true
+        "node": true
+      },
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
       }
     },
     {
