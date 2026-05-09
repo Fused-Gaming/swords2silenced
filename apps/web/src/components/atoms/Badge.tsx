@@ -24,12 +24,7 @@ const icons: Record<BadgeVariant, string> = {
   critical: '!',
 };
 
-const Badge: React.FC<BadgeProps> = ({
-  variant,
-  label,
-  icon = icons[variant],
-  className,
-}) => {
+const Badge: React.FC<BadgeProps> = ({ variant, label, icon = icons[variant], className }) => {
   return (
     <span className={`${styles.badge} ${styles[`variant-${variant}`]} ${className || ''}`}>
       <span className={styles.icon}>{icon}</span>

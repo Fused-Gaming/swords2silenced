@@ -8,7 +8,10 @@ export default function About() {
     <>
       <Head>
         <title>About | Swords to Silence</title>
-        <meta name="description" content="About Swords to Silence and our mission to expose the housing-homelessness pipeline." />
+        <meta
+          name="description"
+          content="About Swords to Silence and our mission to expose the housing-homelessness pipeline."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -23,10 +26,14 @@ export default function About() {
           <section className={styles.mission}>
             <h2>Our Mission</h2>
             <p>
-              Swords to Silence documents the paper trail between unsafe housing, failed enforcement, displacement, and homelessness systems with weak accountability.
+              Swords to Silence documents the paper trail between unsafe housing, failed
+              enforcement, displacement, and homelessness systems with weak accountability.
             </p>
             <p>
-              We believe the homelessness crisis is not random failure. It is a predictable pipeline: housing neglect creates displacement, weak enforcement enables corruption, and absence of outcome tracking allows the system to perpetuate without proof of results.
+              We believe the homelessness crisis is not random failure. It is a predictable
+              pipeline: housing neglect creates displacement, weak enforcement enables corruption,
+              and absence of outcome tracking allows the system to perpetuate without proof of
+              results.
             </p>
           </section>
 
@@ -36,28 +43,32 @@ export default function About() {
               <div className={styles.card}>
                 <h3>Document, Don&apos;t Judge</h3>
                 <p>
-                  We present evidence from public records, court filings, ethics commissions, and audit reports. Facts speak for themselves.
+                  We present evidence from public records, court filings, ethics commissions, and
+                  audit reports. Facts speak for themselves.
                 </p>
               </div>
 
               <div className={styles.card}>
                 <h3>Trace Relationships</h3>
                 <p>
-                  We map the financial and administrative connections between landlords, inspectors, government agencies, and service providers.
+                  We map the financial and administrative connections between landlords, inspectors,
+                  government agencies, and service providers.
                 </p>
               </div>
 
               <div className={styles.card}>
                 <h3>Focus on Accountability</h3>
                 <p>
-                  We ask not why people are homeless, but why the system fails to prevent it—and who benefits from those failures.
+                  We ask not why people are homeless, but why the system fails to prevent it—and who
+                  benefits from those failures.
                 </p>
               </div>
 
               <div className={styles.card}>
                 <h3>Make It Public</h3>
                 <p>
-                  We transform hard-to-find documents into searchable data, timelines, and relationship maps anyone can explore.
+                  We transform hard-to-find documents into searchable data, timelines, and
+                  relationship maps anyone can explore.
                 </p>
               </div>
             </div>
@@ -66,10 +77,14 @@ export default function About() {
           <section className={styles.scope}>
             <h2>Scope & Focus</h2>
             <p>
-              This initial phase focuses on Oakland, California, and the documented relationship between housing enforcement failure, inspector corruption, and homelessness system accountability gaps.
+              This initial phase focuses on Oakland, California, and the documented relationship
+              between housing enforcement failure, inspector corruption, and homelessness system
+              accountability gaps.
             </p>
             <p>
-              We start with Oakland because the evidence is public, documented, and instructive. The patterns revealed here—enforcement failure, corruption, weak outcome tracking—appear in other cities as well.
+              We start with Oakland because the evidence is public, documented, and instructive. The
+              patterns revealed here—enforcement failure, corruption, weak outcome tracking—appear
+              in other cities as well.
             </p>
           </section>
 

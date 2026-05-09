@@ -38,7 +38,7 @@ export function initializeMCPSkills(): void {
     'skill-creator',
     'ascii-mockup',
     'algorithmic-art',
-    'canvas-design'
+    'canvas-design',
   ];
 
   console.log(`Loaded ${skills.length} skills:`);
@@ -59,7 +59,7 @@ export function getInstalledSkills(): string[] {
     'skill-creator',
     'ascii-mockup',
     'algorithmic-art',
-    'canvas-design'
+    'canvas-design',
   ];
 }
 
@@ -73,5 +73,5 @@ export function validateMCPConfig(config: MCPConfig): boolean {
 export default {
   initializeMCPSkills,
   getInstalledSkills,
-  validateMCPConfig
+  validateMCPConfig,
 };

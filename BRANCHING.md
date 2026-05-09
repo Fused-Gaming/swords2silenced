@@ -7,12 +7,14 @@ This project uses **Git Flow**, a branching model designed for managing releases
 ### Main Branches
 
 #### `main`
+
 - **Purpose**: Production-ready code only
 - **Protection**: Should only receive merges from `release/` and `hotfix/` branches
 - **Deployment**: Automatically deployed to production
 - **Tag**: Tagged with version numbers (e.g., `v0.1.0`)
 
 #### `develop`
+
 - **Purpose**: Integration branch for features
 - **Protection**: Requires PR reviews before merging
 - **Deployment**: Staging/pre-production environment
@@ -21,6 +23,7 @@ This project uses **Git Flow**, a branching model designed for managing releases
 ### Supporting Branches
 
 #### `feature/*`
+
 - **Purpose**: Develop new features
 - **Created from**: `develop`
 - **Merged back into**: `develop`
@@ -29,6 +32,7 @@ This project uses **Git Flow**, a branching model designed for managing releases
 - **Lifetime**: Deleted after merge
 
 #### `release/*`
+
 - **Purpose**: Prepare production release
 - **Created from**: `develop`
 - **Merged back into**: `main` and `develop`
@@ -37,6 +41,7 @@ This project uses **Git Flow**, a branching model designed for managing releases
 - **Lifetime**: Deleted after merge
 
 #### `hotfix/*`
+
 - **Purpose**: Emergency fixes to production
 - **Created from**: `main`
 - **Merged back into**: `main` and `develop`
@@ -132,13 +137,14 @@ git push origin --delete hotfix/critical-fix
 
 ## Naming Conventions
 
-| Branch Type | Format | Examples |
-|---|---|---|
-| Feature | `feature/<description>` | `feature/nav-redesign`, `feature/contact-form` |
-| Release | `release/v<version>` | `release/v0.2.0`, `release/v1.0.0` |
-| Hotfix | `hotfix/<description>` | `hotfix/security-patch`, `hotfix/css-bug` |
+| Branch Type | Format                  | Examples                                       |
+| ----------- | ----------------------- | ---------------------------------------------- |
+| Feature     | `feature/<description>` | `feature/nav-redesign`, `feature/contact-form` |
+| Release     | `release/v<version>`    | `release/v0.2.0`, `release/v1.0.0`             |
+| Hotfix      | `hotfix/<description>`  | `hotfix/security-patch`, `hotfix/css-bug`      |
 
 **Guidelines:**
+
 - Use lowercase
 - Use hyphens to separate words (not underscores)
 - Keep names descriptive but concise
@@ -157,6 +163,7 @@ footer
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation
@@ -168,6 +175,7 @@ footer
 - `ci`: CI/CD configuration
 
 **Examples:**
+
 ```
 feat(navbar): add mobile menu toggle
 fix(carousel): prevent image overflow on mobile

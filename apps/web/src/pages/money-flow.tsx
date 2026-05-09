@@ -11,7 +11,10 @@ export default function MoneyFlow() {
     <>
       <Head>
         <title>Follow the Money | Swords to Silence</title>
-        <meta name="description" content="Trace the financial pipeline from rental property income through housing neglect, corruption, displacement, and into homelessness systems." />
+        <meta
+          name="description"
+          content="Trace the financial pipeline from rental property income through housing neglect, corruption, displacement, and into homelessness systems."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -21,7 +24,9 @@ export default function MoneyFlow() {
             ← Back to Home
           </Link>
           <h1>Follow the Money</h1>
-          <p>The financial pipeline from property income to public spending with no accountability</p>
+          <p>
+            The financial pipeline from property income to public spending with no accountability
+          </p>
         </header>
 
         <main className={styles.main}>
@@ -75,19 +80,25 @@ export default function MoneyFlow() {
               <div className={styles.insightCard}>
                 <h3>The Cycle Never Closes</h3>
                 <p>
-                  Weak tracking and vague metrics mean problems cycle repeatedly. The same neighborhoods experience housing failures again and again, creating predictable homelessness pipelines while spending increases without clear outcomes.
+                  Weak tracking and vague metrics mean problems cycle repeatedly. The same
+                  neighborhoods experience housing failures again and again, creating predictable
+                  homelessness pipelines while spending increases without clear outcomes.
                 </p>
               </div>
               <div className={styles.insightCard}>
                 <h3>Multiple Incentive Failures</h3>
                 <p>
-                  Landlords benefit from collecting rent while delaying repairs. Inspectors may benefit from corruption. Cities manage spending without proving results. The system is designed to perpetuate itself.
+                  Landlords benefit from collecting rent while delaying repairs. Inspectors may
+                  benefit from corruption. Cities manage spending without proving results. The
+                  system is designed to perpetuate itself.
                 </p>
               </div>
               <div className={styles.insightCard}>
                 <h3>The Accountability Gap</h3>
                 <p>
-                  2023 audits revealed homelessness outcome data often lacked baselines. 2024 statewide audits confirmed California cannot clearly evaluate major homeless programs. This gap allows the cycle to continue.
+                  2023 audits revealed homelessness outcome data often lacked baselines. 2024
+                  statewide audits confirmed California cannot clearly evaluate major homeless
+                  programs. This gap allows the cycle to continue.
                 </p>
               </div>
             </div>
@@ -124,25 +135,13 @@ export default function MoneyFlow() {
           <section className={styles.ctaSection}>
             <h2>Explore the Full Documentation</h2>
             <div className={styles.ctaButtons}>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case/case-01')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case/case-01')}>
                 The Landlord File
               </Button>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case/case-02')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case/case-02')}>
                 The Inspector File
               </Button>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case/case-03')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case/case-03')}>
                 The Budget File
               </Button>
             </div>

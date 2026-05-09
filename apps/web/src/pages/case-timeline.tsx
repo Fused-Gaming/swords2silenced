@@ -29,13 +29,15 @@ export default function CaseTimeline() {
     {
       year: 2015,
       title: 'Ethics Records Surface',
-      description: 'City ethics records document $100,000+ in payments from Williams to city inspector, plus additional consulting/contracting work',
+      description:
+        'City ethics records document $100,000+ in payments from Williams to city inspector, plus additional consulting/contracting work',
       category: 'ethics',
     },
     {
       year: 2018,
       title: 'Media Investigation',
-      description: 'East Bay Express reports on inspector case and ties it to tenant displacement efforts',
+      description:
+        'East Bay Express reports on inspector case and ties it to tenant displacement efforts',
       category: 'press',
     },
     {
@@ -47,13 +49,15 @@ export default function CaseTimeline() {
     {
       year: 2023,
       title: 'Audit Gap Revealed',
-      description: 'Oakland Measure Q audit finds homelessness outcomes around parks lacked baseline/performance data',
+      description:
+        'Oakland Measure Q audit finds homelessness outcomes around parks lacked baseline/performance data',
       category: 'audit',
     },
     {
       year: 2024,
       title: 'State Audit',
-      description: 'Statewide audit confirms California still cannot clearly evaluate several major homeless programs',
+      description:
+        'Statewide audit confirms California still cannot clearly evaluate several major homeless programs',
       category: 'audit',
     },
   ];
@@ -70,7 +74,10 @@ export default function CaseTimeline() {
     <>
       <Head>
         <title>Case Timeline | Swords to Silence</title>
-        <meta name="description" content="Timeline of housing violations, corruption, and audit gaps from 2006 to 2024." />
+        <meta
+          name="description"
+          content="Timeline of housing violations, corruption, and audit gaps from 2006 to 2024."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -113,19 +120,22 @@ export default function CaseTimeline() {
               <div className={styles.patternCard}>
                 <h3>Housing Crisis Ignored</h3>
                 <p>
-                  From 2006-2013, violations continued at the same properties despite court injunctions. The system was designed to enforce but did not.
+                  From 2006-2013, violations continued at the same properties despite court
+                  injunctions. The system was designed to enforce but did not.
                 </p>
               </div>
               <div className={styles.patternCard}>
                 <h3>Corruption Documented</h3>
                 <p>
-                  Payments and consulting fees linked code case outcomes. The inspector tasked with enforcing codes was financially benefiting from the landlord.
+                  Payments and consulting fees linked code case outcomes. The inspector tasked with
+                  enforcing codes was financially benefiting from the landlord.
                 </p>
               </div>
               <div className={styles.patternCard}>
                 <h3>Accountability Gap</h3>
                 <p>
-                  By 2023-2024, audits revealed homelessness outcomes lacked measurement. The downstream crisis had no clear accountability either.
+                  By 2023-2024, audits revealed homelessness outcomes lacked measurement. The
+                  downstream crisis had no clear accountability either.
                 </p>
               </div>
             </div>
@@ -151,7 +161,9 @@ export default function CaseTimeline() {
               </div>
             </div>
             <p className={styles.connectionText}>
-              The same timeline shows housing failure, corruption, and then homelessness accountability gaps. These are not separate crises—they are sequential failures of the same system.
+              The same timeline shows housing failure, corruption, and then homelessness
+              accountability gaps. These are not separate crises—they are sequential failures of the
+              same system.
             </p>
           </section>
 
@@ -182,25 +194,13 @@ export default function CaseTimeline() {
           <section className={styles.ctaSection}>
             <h2>Explore the Full Cases</h2>
             <div className={styles.ctaButtons}>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case/case-01')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case/case-01')}>
                 Case 01: The Landlord File
               </Button>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case/case-02')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case/case-02')}>
                 Case 02: The Inspector File
               </Button>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case/case-03')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case/case-03')}>
                 Case 03: The Budget File
               </Button>
             </div>

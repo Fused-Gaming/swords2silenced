@@ -106,6 +106,7 @@
   3. Secure → Enterprise-grade security
   ```
 - [ ] Replace with mission-aligned features:
+
   ```
   1. Documented Evidence
      → Real cases with verified sources
@@ -119,6 +120,7 @@
      → Direct accounts from affected communities
      → Collective accountability records
   ```
+
 - [ ] Update feature card styling if needed (check `.featureCard` in Home.module.css)
 - [ ] Ensure feature descriptions are mission-aligned
 - [ ] Test visual layout in dev environment

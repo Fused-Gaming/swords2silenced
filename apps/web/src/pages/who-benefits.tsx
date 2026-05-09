@@ -12,28 +12,44 @@ export default function WhoBenefits() {
       id: 'landlords',
       name: 'Landlords',
       role: 'Property owners receiving rental income',
-      benefits: ['Collecting rent while deferring repairs', 'Evicting tenants without accountability', 'Benefiting from corruption in inspection process'],
+      benefits: [
+        'Collecting rent while deferring repairs',
+        'Evicting tenants without accountability',
+        'Benefiting from corruption in inspection process',
+      ],
       example: 'Elizabeth Ann Williams: 13 properties, 55 units, decades of violations',
     },
     {
       id: 'inspectors',
       name: 'Corrupt Inspectors',
       role: 'City enforcement officials',
-      benefits: ['Direct payments from landlords', 'Consulting fees for "property management"', 'Leverage over landlords for stops/starts'],
+      benefits: [
+        'Direct payments from landlords',
+        'Consulting fees for "property management"',
+        'Leverage over landlords for stops/starts',
+      ],
       example: '$100,000+ in payments documented; $300,000+ in fines assessed',
     },
     {
       id: 'city',
       name: 'City Government',
       role: 'Enforcement and service providers',
-      benefits: ['Appearance of enforcement without results', 'Managing homeless services contracts', 'Weak outcome tracking = no accountability'],
+      benefits: [
+        'Appearance of enforcement without results',
+        'Managing homeless services contracts',
+        'Weak outcome tracking = no accountability',
+      ],
       example: 'Audits reveal homelessness spending lacks baseline data',
     },
     {
       id: 'homeless-services',
       name: 'Homeless Services Industry',
       role: 'Non-profits and contractors',
-      benefits: ['Recurring contracts for services', 'Weak outcome requirements', 'Predictable demand from ongoing pipeline'],
+      benefits: [
+        'Recurring contracts for services',
+        'Weak outcome requirements',
+        'Predictable demand from ongoing pipeline',
+      ],
       example: 'Billions in spending with vague metrics and limited result tracking',
     },
   ];
@@ -81,7 +97,10 @@ export default function WhoBenefits() {
     <>
       <Head>
         <title>Who Benefits | Swords to Silence</title>
-        <meta name="description" content="Map of how the housing-homelessness pipeline creates financial incentives and accountability failures." />
+        <meta
+          name="description"
+          content="Map of how the housing-homelessness pipeline creates financial incentives and accountability failures."
+        />
       </Head>
 
       <div className={styles.container}>
@@ -148,8 +167,12 @@ export default function WhoBenefits() {
                 {/* Connections */}
                 <div className={styles.connections}>
                   <div className={styles.connectionArrow + ' ' + styles.arrow1}>Payments</div>
-                  <div className={styles.connectionArrow + ' ' + styles.arrow2}>False enforcement</div>
-                  <div className={styles.connectionArrow + ' ' + styles.arrow3}>Unsafe conditions</div>
+                  <div className={styles.connectionArrow + ' ' + styles.arrow2}>
+                    False enforcement
+                  </div>
+                  <div className={styles.connectionArrow + ' ' + styles.arrow3}>
+                    Unsafe conditions
+                  </div>
                   <div className={styles.connectionArrow + ' ' + styles.arrow4}>Displacement</div>
                   <div className={styles.connectionArrow + ' ' + styles.arrow5}>Contracts</div>
                 </div>
@@ -179,21 +202,28 @@ export default function WhoBenefits() {
               <div className={styles.problemCard}>
                 <h3>Incentive Misalignment</h3>
                 <p>
-                  Everyone in the system benefits from the status quo except tenants. Landlords profit from cheap housing without maintenance. Inspectors profit from corruption. Cities profit from the appearance of enforcement without real costs. Homeless services have predictable funding.
+                  Everyone in the system benefits from the status quo except tenants. Landlords
+                  profit from cheap housing without maintenance. Inspectors profit from corruption.
+                  Cities profit from the appearance of enforcement without real costs. Homeless
+                  services have predictable funding.
                 </p>
               </div>
 
               <div className={styles.problemCard}>
                 <h3>Accountability Vacuum</h3>
                 <p>
-                  Housing violations take years to prosecute. Corruption is caught by accident. Homeless program outcomes are not measured. No one asks: why do the same buildings create the same displacement decade after decade?
+                  Housing violations take years to prosecute. Corruption is caught by accident.
+                  Homeless program outcomes are not measured. No one asks: why do the same buildings
+                  create the same displacement decade after decade?
                 </p>
               </div>
 
               <div className={styles.problemCard}>
                 <h3>Predictable Pipeline</h3>
                 <p>
-                  The system is so reliable that it creates funding certainty. If housing failures are predictable, homelessness is predictable. And if homelessness is predictable, government contracts are predictable. The cycle self-sustains.
+                  The system is so reliable that it creates funding certainty. If housing failures
+                  are predictable, homelessness is predictable. And if homelessness is predictable,
+                  government contracts are predictable. The cycle self-sustains.
                 </p>
               </div>
             </div>
@@ -205,22 +235,34 @@ export default function WhoBenefits() {
             <div className={styles.solutionGrid}>
               <div className={styles.solutionCard}>
                 <h3>Enforcement with Teeth</h3>
-                <p>Real consequences for code violations, not just paper orders. Fast-track litigation. Mandatory repairs or property seizure.</p>
+                <p>
+                  Real consequences for code violations, not just paper orders. Fast-track
+                  litigation. Mandatory repairs or property seizure.
+                </p>
               </div>
 
               <div className={styles.solutionCard}>
                 <h3>Corruption Prosecution</h3>
-                <p>Regular audits of inspector-landlord relationships. Financial transparency. Prosecution of bribes as crimes, not ethics violations.</p>
+                <p>
+                  Regular audits of inspector-landlord relationships. Financial transparency.
+                  Prosecution of bribes as crimes, not ethics violations.
+                </p>
               </div>
 
               <div className={styles.solutionCard}>
                 <h3>Outcome Tracking</h3>
-                <p>Require homeless programs to track outcomes with baseline data. End funding without measurement. Trace long-term results, not just service counts.</p>
+                <p>
+                  Require homeless programs to track outcomes with baseline data. End funding
+                  without measurement. Trace long-term results, not just service counts.
+                </p>
               </div>
 
               <div className={styles.solutionCard}>
                 <h3>Prevention Over Service</h3>
-                <p>Fund housing preservation, not just housing rescue. Make enforcement cheaper than homelessness management. Break the pipeline, not just the symptom.</p>
+                <p>
+                  Fund housing preservation, not just housing rescue. Make enforcement cheaper than
+                  homelessness management. Break the pipeline, not just the symptom.
+                </p>
               </div>
             </div>
           </section>
@@ -229,18 +271,10 @@ export default function WhoBenefits() {
           <section className={styles.ctaSection}>
             <h2>Understand the Full Picture</h2>
             <div className={styles.ctaButtons}>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/money-flow')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/money-flow')}>
                 Follow the Money Flow
               </Button>
-              <Button
-                variant="primary"
-                size="large"
-                onClick={() => router.push('/case-timeline')}
-              >
+              <Button variant="primary" size="large" onClick={() => router.push('/case-timeline')}>
                 View the Timeline
               </Button>
               <Button

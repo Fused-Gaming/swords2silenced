@@ -66,7 +66,8 @@ export default function Sources() {
         <main className={styles.main}>
           <section className={styles.intro}>
             <p>
-              All evidence on this platform comes from public sources. Below is a categorized list of the types of records we use.
+              All evidence on this platform comes from public sources. Below is a categorized list
+              of the types of records we use.
             </p>
           </section>
 
@@ -89,28 +90,32 @@ export default function Sources() {
               <div className={styles.method}>
                 <h3>Court Records</h3>
                 <p>
-                  Access through Oakland Superior Court Public Access, California Case Law databases, or court clerk offices.
+                  Access through Oakland Superior Court Public Access, California Case Law
+                  databases, or court clerk offices.
                 </p>
               </div>
 
               <div className={styles.method}>
                 <h3>City Records</h3>
                 <p>
-                  Request through Oakland Public Records Act (CPRA) requests, or access public databases maintained by the City.
+                  Request through Oakland Public Records Act (CPRA) requests, or access public
+                  databases maintained by the City.
                 </p>
               </div>
 
               <div className={styles.method}>
                 <h3>Audit Reports</h3>
                 <p>
-                  Published by City Auditor and California State Auditor. Available on official city and state websites.
+                  Published by City Auditor and California State Auditor. Available on official city
+                  and state websites.
                 </p>
               </div>
 
               <div className={styles.method}>
                 <h3>Journalism</h3>
                 <p>
-                  Published in local and regional press outlets. Archives available through news databases and publication websites.
+                  Published in local and regional press outlets. Archives available through news
+                  databases and publication websites.
                 </p>
               </div>
             </div>
@@ -119,7 +124,8 @@ export default function Sources() {
           <section className={styles.contribute}>
             <h2>Have a Public Record to Share?</h2>
             <p>
-              If you have access to public documents that are relevant to these cases or the housing-homelessness pipeline, we would like to review them.
+              If you have access to public documents that are relevant to these cases or the
+              housing-homelessness pipeline, we would like to review them.
             </p>
             <Link href="/submit">Submit Records</Link>
           </section>
