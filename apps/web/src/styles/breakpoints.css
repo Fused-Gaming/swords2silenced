@@ -1,0 +1,451 @@
+/**
+ * Responsive Breakpoints & Media Queries
+ * Mobile-first design system with accessible breakpoints
+ *
+ * Breakpoints:
+ * - Mobile: 320px (base)
+ * - Tablet: 768px
+ * - Desktop: 1024px
+ * - Wide: 1440px
+ * - Ultra-wide: 1920px
+ */
+
+/* ===============================================
+   MOBILE-FIRST BASE STYLES (320px)
+   =============================================== */
+
+:root {
+  /* Mobile typography scale */
+  --type-hero-mobile: 32px;
+  --type-h1-mobile: 28px;
+  --type-h2-mobile: 24px;
+  --type-h3-mobile: 20px;
+  --type-h4-mobile: 18px;
+
+  /* Mobile spacing */
+  --space-mobile-padding: 16px;
+  --gutter-mobile: 16px;
+}
+
+/* ===============================================
+   TABLET BREAKPOINT (768px+)
+   =============================================== */
+
+@media (min-width: 768px) {
+  :root {
+    --space-mobile-padding: 20px;
+    --gutter-mobile: 20px;
+  }
+
+  /* Navigation adjustments */
+  nav {
+    height: var(--space-3xl);
+  }
+
+  /* Typography increases */
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  /* Layout changes */
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Grid adjustments */
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* ===============================================
+   DESKTOP BREAKPOINT (1024px+)
+   =============================================== */
+
+@media (min-width: 1024px) {
+  :root {
+    --space-mobile-padding: 24px;
+    --gutter-mobile: 24px;
+  }
+
+  /* Full typography scale */
+  h1 {
+    font-size: var(--type-h1);
+  }
+
+  h2 {
+    font-size: var(--type-h2);
+  }
+
+  h3 {
+    font-size: var(--type-h3);
+  }
+
+  h4 {
+    font-size: var(--type-h4);
+  }
+
+  /* Full container */
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+  }
+
+  /* Full grid */
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  /* Multi-column layouts */
+  .cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gutter);
+  }
+
+  .cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gutter);
+  }
+
+  .cols-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gutter);
+  }
+}
+
+/* ===============================================
+   WIDE BREAKPOINT (1440px+)
+   =============================================== */
+
+@media (min-width: 1440px) {
+  :root {
+    --space-mobile-padding: 32px;
+  }
+
+  .container {
+    padding: 0 var(--space-2xl);
+  }
+
+  /* Enhanced typography spacing */
+  h1 {
+    letter-spacing: -0.03em;
+  }
+
+  /* Wider layout options */
+  .cols-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--gutter);
+  }
+
+  .cols-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--gutter);
+  }
+}
+
+/* ===============================================
+   ULTRA-WIDE BREAKPOINT (1920px+)
+   =============================================== */
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+    padding: 0 var(--space-3xl);
+  }
+
+  /* Content width cap */
+  .content-main {
+    max-width: 900px;
+  }
+
+  /* Sidebar layouts */
+  .with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--space-2xl);
+  }
+}
+
+/* ===============================================
+   MOBILE-ONLY STYLES (max-width: 767px)
+   =============================================== */
+
+@media (max-width: 767px) {
+  /* Hide desktop elements */
+  .desktop-only {
+    display: none;
+  }
+
+  /* Show mobile elements */
+  .mobile-only {
+    display: block;
+  }
+
+  /* Mobile navigation */
+  nav {
+    height: var(--space-2xl);
+    flex-direction: column;
+  }
+
+  /* Stack layouts */
+  .cols-auto,
+  [class*='cols-'] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Full-width containers */
+  .container {
+    padding: var(--space-md);
+  }
+
+  /* Touch-friendly sizes */
+  button,
+  a[role='button'],
+  input[type='button'],
+  input[type='submit'] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  /* Reduced padding on mobile */
+  article,
+  section {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  /* Font size adjustments */
+  .text-hero {
+    font-size: 32px;
+  }
+
+  .text-h1 {
+    font-size: 28px;
+  }
+
+  .text-h2 {
+    font-size: 24px;
+  }
+
+  .text-h3 {
+    font-size: 20px;
+  }
+}
+
+/* ===============================================
+   TABLET-ONLY STYLES (768px - 1023px)
+   =============================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  /* Two-column layouts */
+  .cols-auto {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tablet navigation */
+  nav ul {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: var(--space-lg);
+    max-width: 100%;
+  }
+}
+
+/* ===============================================
+   LARGE TEXT MODE (text zoom 125%+)
+   =============================================== */
+
+@media (prefers-reduced-data: reduce) {
+  /* Reduce animations and transitions */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===============================================
+   SCREEN READER ONLY CONTENT
+   =============================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===============================================
+   FOCUS VISIBLE STYLES (Keyboard Navigation)
+   =============================================== */
+
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* ===============================================
+   REDUCED MOTION (Accessibility)
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===============================================
+   HIGH CONTRAST MODE (Accessibility)
+   =============================================== */
+
+@media (prefers-contrast: more) {
+  * {
+    border-color: var(--color-navy-deep) !important;
+  }
+
+  button {
+    border: 2px solid var(--color-navy-deep) !important;
+  }
+
+  input,
+  textarea,
+  select {
+    border: 2px solid var(--color-navy-deep) !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ===============================================
+   LIGHT MODE OVERRIDES
+   =============================================== */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-navy-deep: #f5f5f5;
+    --color-white-off: #000000;
+    --color-steel-gray: #333333;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+}
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  /* Hide interactive elements */
+  nav,
+  button,
+  form,
+  .no-print {
+    display: none;
+  }
+
+  /* Optimize for printing */
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+/* ===============================================
+   ORIENTATION-SPECIFIC STYLES
+   =============================================== */
+
+@media (orientation: portrait) {
+  .landscape-only {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  .portrait-only {
+    display: none;
+  }
+}
+
+/* ===============================================
+   TOUCH DEVICE DETECTION
+   =============================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  /* Desktop with mouse - show hover states */
+  button:hover,
+  a:hover {
+    opacity: 0.8;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device - no hover states needed */
+  button:hover,
+  a:hover {
+    opacity: 1;
+  }
+}

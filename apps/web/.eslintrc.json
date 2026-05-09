@@ -1,16 +1,48 @@
 {
   "root": false,
-  "extends": ["eslint:recommended"],
-  "parser": "espree",
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "warnOnUnsupportedTypeScriptVersion": false
   },
+  "plugins": ["@typescript-eslint"],
   "env": {
-    "node": true
+    "node": true,
+    "browser": true,
+    "es2021": true
   },
   "rules": {
     "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "no-unused-vars": "off"
-  }
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/no-explicit-any": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.config.js"],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "env": {
+        "node": true,
+        "commonjs": true
+      }
+    },
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "**/__tests__/**/*"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }

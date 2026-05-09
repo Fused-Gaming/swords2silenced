@@ -14,3 +14,9 @@ export type { default as EntityProfileProps } from './EntityProfile';
 
 export { default as AlertBanner } from './AlertBanner';
 export type { default as AlertBannerProps } from './AlertBanner';
+
+export {
+  TestimonyCallScript,
+  default as TestimonyCallScriptComponent,
+} from './TestimonyCallScript';
+export type { default as TestimonyCallScriptProps } from './TestimonyCallScript';
