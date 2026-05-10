@@ -28,7 +28,7 @@ export interface MCPServer {
  * Initialize MCP skills
  */
 export function initializeMCPSkills(): void {
-  console.log('Initializing Fused-Gaming MCP Skills...');
+  console.warn('Initializing Fused-Gaming MCP Skills...');
 
   const skills = [
     'pre-deploy-validator',
@@ -38,12 +38,12 @@ export function initializeMCPSkills(): void {
     'skill-creator',
     'ascii-mockup',
     'algorithmic-art',
-    'canvas-design'
+    'canvas-design',
   ];
 
-  console.log(`Loaded ${skills.length} skills:`);
+  console.warn(`Loaded ${skills.length} skills:`);
   skills.forEach((skill) => {
-    console.log(`  - ${skill}`);
+    console.warn(`  - ${skill}`);
   });
 }
 
@@ -59,7 +59,7 @@ export function getInstalledSkills(): string[] {
     'skill-creator',
     'ascii-mockup',
     'algorithmic-art',
-    'canvas-design'
+    'canvas-design',
   ];
 }
 
@@ -73,5 +73,5 @@ export function validateMCPConfig(config: MCPConfig): boolean {
 export default {
   initializeMCPSkills,
   getInstalledSkills,
-  validateMCPConfig
+  validateMCPConfig,
 };

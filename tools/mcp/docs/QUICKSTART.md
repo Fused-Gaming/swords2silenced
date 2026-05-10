@@ -43,31 +43,37 @@ Your MCP skills are now ready to use. See below for common commands.
 ## Essential Commands
 
 ### Validation
+
 ```bash
 npm run validate
 ```
 
 ### Generate Components
+
 ```bash
 npx skill frontend-design generate ComponentName
 ```
 
 ### Generate Themes
+
 ```bash
 npx skill theme-factory generate
 ```
 
 ### Create Custom Skills
+
 ```bash
 npx skill skill-creator new skill-name
 ```
 
 ### Build All Workspaces
+
 ```bash
 npm run build
 ```
 
 ### Run Tests
+
 ```bash
 npm run test
 ```
@@ -77,16 +83,19 @@ npm run test
 ## Common Workflows
 
 ### Create a Button Component
+
 ```bash
 npx skill frontend-design generate Button
 ```
 
 ### Create a Complete Theme
+
 ```bash
 npx skill theme-factory generate --primary="#4F46E5"
 ```
 
 ### Create a Custom Tool
+
 ```bash
 npx skill skill-creator new my-tool
 npm run build --workspace=tools/mcp/custom-skills/my-tool

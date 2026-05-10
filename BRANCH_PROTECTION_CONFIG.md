@@ -9,12 +9,14 @@ This document describes the branch protection rules that should be configured fo
 The following branch protection rules have been specified for the `main` branch:
 
 ### 1. Pull Request Reviews
+
 - **Requirement**: Require pull request reviews before merging
 - **Approval Count**: At least 1 approval required
 - **Dismiss Stale Reviews**: Yes - stale reviews will be dismissed when new commits are pushed
 - **Code Owner Reviews**: Not required (can be enabled if needed)
 
 ### 2. Status Checks
+
 - **Requirement**: Require status checks to pass before merging
 - **Strict Mode**: Enabled - branches must be up to date with the base branch before merging
 - **Workflows Detected**:
@@ -22,12 +24,15 @@ The following branch protection rules have been specified for the `main` branch:
   - `Deploy to Vercel` workflow (deploy.yml) - Runs on pushes to main branch
 
 ### 3. Branch Currency
+
 - **Require Branches to be Up to Date**: Yes - pull request branches must be up to date with the base branch before merging
 
 ### 4. Administrator Restrictions
+
 - **Include Administrators**: Yes - branch protection rules apply to administrators as well
 
 ### 5. Additional Security Settings
+
 - **Allow Force Pushes**: No - force pushes are not allowed
 - **Allow Deletions**: No - branch cannot be deleted
 - **Block Creations**: No
@@ -47,6 +52,7 @@ python3 configure_branch_protection.py
 ```
 
 **Requirements**:
+
 - Python 3.x
 - `requests` library: `pip install requests`
 - GitHub Personal Access Token with `repo` scope
@@ -62,6 +68,7 @@ bash configure-branch-protection.sh
 ```
 
 **Requirements**:
+
 - `curl` command-line tool
 - GitHub Personal Access Token with `repo` scope
 
@@ -112,6 +119,7 @@ EOF
 ## GitHub Token Requirements
 
 To apply this configuration programmatically, you'll need a GitHub Personal Access Token with the following scope:
+
 - `repo` - Full control of private and public repositories
 
 Generate a token at: https://github.com/settings/tokens
@@ -125,6 +133,7 @@ After applying the configuration, verify it by:
 3. Verifying all configured options are visible
 
 Or via API:
+
 ```bash
 curl -H "Authorization: token YOUR_TOKEN" \
   https://api.github.com/repos/Fused-Gaming/swords2silenced/branches/main/protection
@@ -144,14 +153,17 @@ Once these rules are in place:
 ## Troubleshooting
 
 ### "No status checks are configured for this repository"
+
 This is normal if no CI workflows have completed yet. Once workflows run, GitHub will automatically populate the available status checks.
 
 ### Authentication issues
+
 - Ensure your GITHUB_TOKEN is set correctly
 - Verify the token has the `repo` scope
 - Check that the token hasn't expired
 
 ### Permission denied errors
+
 - Ensure you have admin access to the Fused-Gaming/swords2silenced repository
 - Your GitHub account must have push access to the repository
 

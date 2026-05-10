@@ -76,9 +76,10 @@ export default function Home() {
           <h2>Our Mission</h2>
 
           <p>
-            Swords to Silenced exposes systemic failures in the housing-homelessness pipeline through transparent
-            documentation, community testimony, and data-driven accountability. We believe affected communities
-            must be heard, policy failures must be documented, and accountability is non-negotiable.
+            Swords to Silenced exposes systemic failures in the housing-homelessness pipeline
+            through transparent documentation, community testimony, and data-driven accountability.
+            We believe affected communities must be heard, policy failures must be documented, and
+            accountability is non-negotiable.
           </p>
         </section>
 
@@ -184,12 +185,13 @@ export default function Home() {
           <h2>Featured Cases</h2>
 
           <p>
-            Explore documented cases of systemic failures in housing and homeless services. Each case represents
-            real people affected by policy failures and institutional negligence.
+            Explore documented cases of systemic failures in housing and homeless services. Each
+            case represents real people affected by policy failures and institutional negligence.
           </p>
 
           <p className={styles.small}>
-            Case documentation coming soon. Community submissions and verified evidence drive this archive.
+            Case documentation coming soon. Community submissions and verified evidence drive this
+            archive.
           </p>
         </section>
 
@@ -200,12 +202,13 @@ export default function Home() {
           <h2>Submit Your Evidence</h2>
 
           <p>
-            Have a story or evidence of housing-homelessness pipeline failures? Contribute to our growing database
-            of documented accountability. Your testimony matters.
+            Have a story or evidence of housing-homelessness pipeline failures? Contribute to our
+            growing database of documented accountability. Your testimony matters.
           </p>
 
           <p className={styles.small}>
-            Submit through <Link href="/testimony">Personal Testimony</Link> or contact us with documented evidence.
+            Submit through <Link href="/testimony">Personal Testimony</Link> or contact us with
+            documented evidence.
           </p>
         </section>
 

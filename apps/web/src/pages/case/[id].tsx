@@ -35,13 +35,15 @@ const cases: Record<string, CaseData> = {
     subtitle: 'Unsafe Units, Blight, and Decades Without Accountability',
     severity: 'critical',
     status: 'verified',
-    summary: 'A 13-property portfolio with 55 units that has been subject to housing code violations, injunctions, and tenant complaints for nearly two decades.',
+    summary:
+      'A 13-property portfolio with 55 units that has been subject to housing code violations, injunctions, and tenant complaints for nearly two decades.',
     overview: `From 2006 onwards, the city pursued enforcement against Elizabeth Ann Williams for operating unsafe housing across multiple properties. Despite a 2009 injunction requiring safe and sanitary housing, violations and complaints continued. The case reveals a system where housing code enforcement moves slowly while tenant harm accumulates. By 2015, records showed inspector payments to the owner creating conflicts of interest in enforcement.`,
     timeline: [
       {
         year: 2006,
         title: 'Lawsuit Filed',
-        description: 'Oakland Housing Department sues for housing code violations across 13 properties with 55 units',
+        description:
+          'Oakland Housing Department sues for housing code violations across 13 properties with 55 units',
       },
       {
         year: 2008,
@@ -67,7 +69,8 @@ const cases: Record<string, CaseData> = {
     keyEvidence: [
       {
         title: 'Property Violations Database',
-        description: 'Complete record of code violations, complaints, and inspection outcomes 2006-2024',
+        description:
+          'Complete record of code violations, complaints, and inspection outcomes 2006-2024',
         source: 'Oakland Housing Department',
       },
       {
@@ -86,9 +89,14 @@ const cases: Record<string, CaseData> = {
         source: 'East Bay Express, local press',
       },
     ],
-    impact: 'Dozens of tenants displaced from unsafe housing; no landlord license suspension or significant penalties applied until ethics violations were prosecuted separately.',
+    impact:
+      'Dozens of tenants displaced from unsafe housing; no landlord license suspension or significant penalties applied until ethics violations were prosecuted separately.',
     caseNumbers: ['2006-CV-123456', '2008-CV-234567', '2009-INJ-345678'],
-    relatedActors: ['Elizabeth Ann Williams (Landlord)', 'City Inspector (Alleged Corruption)', 'Oakland Housing Department'],
+    relatedActors: [
+      'Elizabeth Ann Williams (Landlord)',
+      'City Inspector (Alleged Corruption)',
+      'Oakland Housing Department',
+    ],
   },
 
   'case-02': {
@@ -97,13 +105,15 @@ const cases: Record<string, CaseData> = {
     subtitle: 'Corruption, Conflicts, and Failed Code Enforcement',
     severity: 'critical',
     status: 'verified',
-    summary: 'A city housing inspector received over $100,000 in payments from a property owner while overseeing code cases against that same owner.',
+    summary:
+      'A city housing inspector received over $100,000 in payments from a property owner while overseeing code cases against that same owner.',
     overview: `Between 2015 and 2021, ethics records documented that city housing inspector received direct payments and consulting fees from Elizabeth Ann Williams while simultaneously responsible for enforcing code violations at Williams properties. This created a direct financial incentive to pass properties that should have failed inspection. The inspector was eventually fined $300,000+ for ethics violations, but the properties remained in operation with ongoing complaints.`,
     timeline: [
       {
         year: 2013,
         title: 'Inspection Leverage',
-        description: 'Inspector documented as having oversight role on Williams properties code cases',
+        description:
+          'Inspector documented as having oversight role on Williams properties code cases',
       },
       {
         year: 2015,
@@ -113,17 +123,20 @@ const cases: Record<string, CaseData> = {
       {
         year: 2016,
         title: 'Consulting Fees',
-        description: 'Inspector receives payments for "consulting" and "property management" services',
+        description:
+          'Inspector receives payments for "consulting" and "property management" services',
       },
       {
         year: 2018,
         title: 'Public Investigation',
-        description: 'East Bay Express publishes investigation into inspector-landlord relationship',
+        description:
+          'East Bay Express publishes investigation into inspector-landlord relationship',
       },
       {
         year: 2021,
         title: 'Ethics Fine',
-        description: 'Inspector fined over $300,000 for ethics violations and conflicts of interest',
+        description:
+          'Inspector fined over $300,000 for ethics violations and conflicts of interest',
       },
     ],
     keyEvidence: [
@@ -148,9 +161,14 @@ const cases: Record<string, CaseData> = {
         source: 'East Bay Express, CBS News',
       },
     ],
-    impact: 'Properties continued to fail safety standards while receiving passing inspections. Corruption in enforcement mechanism directly contributed to tenant harm and displacement.',
+    impact:
+      'Properties continued to fail safety standards while receiving passing inspections. Corruption in enforcement mechanism directly contributed to tenant harm and displacement.',
     caseNumbers: ['ETHICS-2015-001', 'ETHICS-2021-FINE-300K'],
-    relatedActors: ['City Housing Inspector (Defendant)', 'Elizabeth Ann Williams (Property Owner)', 'Oakland Ethics Commission'],
+    relatedActors: [
+      'City Housing Inspector (Defendant)',
+      'Elizabeth Ann Williams (Property Owner)',
+      'Oakland Ethics Commission',
+    ],
   },
 
   'case-03': {
@@ -159,7 +177,8 @@ const cases: Record<string, CaseData> = {
     subtitle: 'Billions in Spending with No Clear Outcome Tracking',
     severity: 'warning',
     status: 'under_investigation',
-    summary: 'Homelessness services in Oakland and California receive billions in funding while outcome metrics remain vague and baseline data is often absent.',
+    summary:
+      'Homelessness services in Oakland and California receive billions in funding while outcome metrics remain vague and baseline data is often absent.',
     overview: `Beginning in 2023, city and state audits revealed that homelessness spending lacked clear performance metrics. The 2023 Oakland Measure Q audit found that programs distributing money for homeless services had no baseline data to measure against. The 2024 California audit confirmed the state cannot clearly evaluate several major homeless programs. This accountability gap means the system perpetuates without proof of results, even as the homelessness crisis continues to grow.`,
     timeline: [
       {
@@ -186,7 +205,8 @@ const cases: Record<string, CaseData> = {
     keyEvidence: [
       {
         title: 'Oakland Measure Q Audit Report',
-        description: 'Complete audit findings on outcome tracking gaps and program effectiveness measurement',
+        description:
+          'Complete audit findings on outcome tracking gaps and program effectiveness measurement',
         source: 'Oakland City Auditor',
       },
       {
@@ -205,9 +225,14 @@ const cases: Record<string, CaseData> = {
         source: 'Oakland Department of Human Services',
       },
     ],
-    impact: 'Billions in public spending with no clear accountability for results. The absence of outcome tracking means the system cannot prove effectiveness, preventing informed allocation of resources.',
+    impact:
+      'Billions in public spending with no clear accountability for results. The absence of outcome tracking means the system cannot prove effectiveness, preventing informed allocation of resources.',
     caseNumbers: ['AUDIT-2023-MeasureQ', 'AUDIT-2024-CaliforniaHomelessness'],
-    relatedActors: ['Oakland City Government', 'California State Government', 'Non-Profit Service Providers'],
+    relatedActors: [
+      'Oakland City Government',
+      'California State Government',
+      'Non-Profit Service Providers',
+    ],
   },
 };
 
@@ -252,8 +277,8 @@ export default function CaseDetail() {
                   caseData.severity === 'critical'
                     ? 'critical'
                     : caseData.severity === 'warning'
-                    ? 'unverified'
-                    : 'unverified'
+                      ? 'unverified'
+                      : 'unverified'
                 }
                 label={caseData.severity.toUpperCase()}
               />
@@ -262,10 +287,16 @@ export default function CaseDetail() {
                   caseData.status === 'verified'
                     ? 'verified'
                     : caseData.status === 'alleged'
-                    ? 'unverified'
-                    : 'unverified'
+                      ? 'unverified'
+                      : 'unverified'
                 }
-                label={caseData.status === 'verified' ? 'VERIFIED' : caseData.status === 'alleged' ? 'ALLEGED' : 'INVESTIGATING'}
+                label={
+                  caseData.status === 'verified'
+                    ? 'VERIFIED'
+                    : caseData.status === 'alleged'
+                      ? 'ALLEGED'
+                      : 'INVESTIGATING'
+                }
               />
             </div>
 
@@ -341,18 +372,19 @@ export default function CaseDetail() {
           <section className={styles.ctaSection}>
             <h2>Explore Other Cases</h2>
             <div className={styles.ctaButtons}>
-              {Object.keys(cases).map((caseKey) => (
-                caseKey !== id && (
-                  <Button
-                    key={caseKey}
-                    variant="primary"
-                    size="large"
-                    onClick={() => router.push(`/case/${caseKey}`)}
-                  >
-                    {cases[caseKey].title}
-                  </Button>
-                )
-              ))}
+              {Object.keys(cases).map(
+                (caseKey) =>
+                  caseKey !== id && (
+                    <Button
+                      key={caseKey}
+                      variant="primary"
+                      size="large"
+                      onClick={() => router.push(`/case/${caseKey}`)}
+                    >
+                      {cases[caseKey].title}
+                    </Button>
+                  )
+              )}
             </div>
           </section>
 
@@ -363,13 +395,21 @@ export default function CaseDetail() {
               <Button variant="secondary" size="large" onClick={() => router.push('/money-flow')}>
                 Follow the Money Flow
               </Button>
-              <Button variant="secondary" size="large" onClick={() => router.push('/case-timeline')}>
+              <Button
+                variant="secondary"
+                size="large"
+                onClick={() => router.push('/case-timeline')}
+              >
                 View the Timeline
               </Button>
               <Button variant="secondary" size="large" onClick={() => router.push('/who-benefits')}>
                 Who Benefits?
               </Button>
-              <Button variant="secondary" size="large" onClick={() => router.push('/explore-records')}>
+              <Button
+                variant="secondary"
+                size="large"
+                onClick={() => router.push('/explore-records')}
+              >
                 Explore All Records
               </Button>
             </div>

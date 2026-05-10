@@ -32,6 +32,7 @@ cat tools/mcp/config.json | jq '.skills.preDeployValidator'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "pre-deploy-validator": {
@@ -68,13 +69,14 @@ npm run validate -- --verbose
 ### CI/CD Integration
 
 Add to `.github/workflows/deploy.yml`:
+
 ```yaml
 - name: Validate deployment
   run: npm run validate
-  
+
 - name: Check branch protection
   run: npm run validate -- --check-branch-protection
-  
+
 - name: Fail on warnings
   run: npm run validate -- --fail-on-warning
 ```
@@ -106,6 +108,7 @@ cat tools/mcp/config.json | jq '.skills.frontendDesign'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "frontend-design": {
@@ -149,6 +152,7 @@ npx skill frontend-design generate Input --with-story
 ### Component Structure
 
 Generated component will include:
+
 ```
 apps/web/src/components/
 └── Button/
@@ -187,6 +191,7 @@ cat tools/mcp/config.json | jq '.skills.themeFactory'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "theme-factory": {
@@ -233,6 +238,7 @@ npx skill theme-factory export --format=tailwind
 ### Theme Structure
 
 Generated theme will include:
+
 ```
 apps/web/src/themes/
 ├── default/
@@ -254,7 +260,7 @@ import { useTheme } from 'apps/web/src/themes';
 
 export function MyComponent() {
   const theme = useTheme();
-  
+
   return (
     <div style={{
       color: theme.colors.primary,
@@ -295,6 +301,7 @@ cat tools/mcp/config.json | jq '.skills.mcpBuilder'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "mcp-builder": {
@@ -343,6 +350,7 @@ npm run dev --workspace=tools/mcp/custom/my-mcp
 ### MCP Structure
 
 Generated MCP will include:
+
 ```
 tools/mcp/custom/my-mcp/
 ├── src/
@@ -367,7 +375,7 @@ export class MyMCPServer extends MCPServer {
   constructor() {
     super({
       name: 'my-mcp',
-      version: '1.0.0'
+      version: '1.0.0',
     });
   }
 
@@ -409,6 +417,7 @@ cat tools/mcp/config.json | jq '.skills.skillCreator'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "skill-creator": {
@@ -457,6 +466,7 @@ npm run publish --workspace=tools/mcp/custom-skills/my-skill
 ### Skill Structure
 
 Generated skill will include:
+
 ```
 tools/mcp/custom-skills/my-skill/
 ├── src/
@@ -486,7 +496,7 @@ export class MySkill {
     this.options = {
       debug: false,
       timeout: 5000,
-      ...options
+      ...options,
     };
   }
 
@@ -494,7 +504,7 @@ export class MySkill {
     if (this.options.debug) {
       console.log(`Executing skill with input: ${input}`);
     }
-    
+
     return `Result: ${input}`;
   }
 }
@@ -530,6 +540,7 @@ cat tools/mcp/config.json | jq '.skills.asciiMockup'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "ascii-mockup": {
@@ -622,6 +633,7 @@ npm list p5
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "algorithmic-art": {
@@ -678,9 +690,9 @@ export function createParticleSystem(p: p5): void {
 
   p.draw = () => {
     p.background(255);
-    
+
     // Update and display particles
-    particles.forEach(particle => {
+    particles.forEach((particle) => {
       particle.update();
       particle.display(p);
     });
@@ -692,10 +704,7 @@ export function createParticleSystem(p: p5): void {
 
     constructor(x: number, y: number) {
       this.position = p.createVector(x, y);
-      this.velocity = p.createVector(
-        p.random(-1, 1),
-        p.random(-1, 1)
-      );
+      this.velocity = p.createVector(p.random(-1, 1), p.random(-1, 1));
     }
 
     update(): void {
@@ -704,11 +713,7 @@ export function createParticleSystem(p: p5): void {
 
     display(p: p5): void {
       p.fill(0);
-      p.circle(
-        this.position.x,
-        this.position.y,
-        5
-      );
+      p.circle(this.position.x, this.position.y, 5);
     }
   }
 }
@@ -742,6 +747,7 @@ cat tools/mcp/config.json | jq '.skills.canvasDesign'
 ### Configuration
 
 Edit `config.json`:
+
 ```json
 {
   "canvas-design": {
@@ -866,6 +872,7 @@ npx skill frontend-design generate Button Badge Input Card
 ### Version Control
 
 Always commit skill configurations:
+
 ```bash
 git add tools/mcp/config.json tools/mcp/.env
 git commit -m "Update MCP skill configurations"

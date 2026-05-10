@@ -25,28 +25,33 @@ export default function Methodology() {
               <div className={styles.principle}>
                 <h3>Use Public Records Only</h3>
                 <p>
-                  All evidence comes from public sources: court filings, government records, ethics commission documents, audit reports, and published journalism.
+                  All evidence comes from public sources: court filings, government records, ethics
+                  commission documents, audit reports, and published journalism.
                 </p>
               </div>
 
               <div className={styles.principle}>
                 <h3>Verify Before Publishing</h3>
                 <p>
-                  We cross-reference multiple sources. We distinguish between documented facts and allegations. We note what is verified, what is alleged, and what is under investigation.
+                  We cross-reference multiple sources. We distinguish between documented facts and
+                  allegations. We note what is verified, what is alleged, and what is under
+                  investigation.
                 </p>
               </div>
 
               <div className={styles.principle}>
                 <h3>Transparency About Sources</h3>
                 <p>
-                  Every claim includes its source. Users can trace evidence back to original documents and judge credibility themselves.
+                  Every claim includes its source. Users can trace evidence back to original
+                  documents and judge credibility themselves.
                 </p>
               </div>
 
               <div className={styles.principle}>
                 <h3>Avoid Speculation</h3>
                 <p>
-                  We present what the record shows, not what we infer. We do not guess at motives or make claims beyond what evidence supports.
+                  We present what the record shows, not what we infer. We do not guess at motives or
+                  make claims beyond what evidence supports.
                 </p>
               </div>
             </div>
@@ -57,15 +62,23 @@ export default function Methodology() {
             <ol className={styles.processList}>
               <li>
                 <h4>Identify Case</h4>
-                <p>Select a documented pattern with public records, litigation, or audit findings available.</p>
+                <p>
+                  Select a documented pattern with public records, litigation, or audit findings
+                  available.
+                </p>
               </li>
               <li>
                 <h4>Gather Records</h4>
-                <p>Retrieve court filings, government documents, ethics cases, and audit reports from official sources.</p>
+                <p>
+                  Retrieve court filings, government documents, ethics cases, and audit reports from
+                  official sources.
+                </p>
               </li>
               <li>
                 <h4>Create Timeline</h4>
-                <p>Organize events chronologically, noting dates, key actions, and evidence types.</p>
+                <p>
+                  Organize events chronologically, noting dates, key actions, and evidence types.
+                </p>
               </li>
               <li>
                 <h4>Map Relationships</h4>
@@ -73,11 +86,17 @@ export default function Methodology() {
               </li>
               <li>
                 <h4>Verify & Tag</h4>
-                <p>Cross-reference sources, classify evidence status (verified/alleged/investigating), and note gaps.</p>
+                <p>
+                  Cross-reference sources, classify evidence status
+                  (verified/alleged/investigating), and note gaps.
+                </p>
               </li>
               <li>
                 <h4>Publish with Sources</h4>
-                <p>Present findings with direct links to original documents so readers can verify independently.</p>
+                <p>
+                  Present findings with direct links to original documents so readers can verify
+                  independently.
+                </p>
               </li>
             </ol>
           </section>
@@ -88,21 +107,24 @@ export default function Methodology() {
               <div className={styles.classification}>
                 <h3>Verified</h3>
                 <p>
-                  Documented in official records. Cross-referenced by multiple sources. Court-established fact or audit finding.
+                  Documented in official records. Cross-referenced by multiple sources.
+                  Court-established fact or audit finding.
                 </p>
               </div>
 
               <div className={styles.classification}>
                 <h3>Alleged</h3>
                 <p>
-                  Claimed in court filings or ethics cases but not yet fully established. Reported in journalism. Requires additional evidence.
+                  Claimed in court filings or ethics cases but not yet fully established. Reported
+                  in journalism. Requires additional evidence.
                 </p>
               </div>
 
               <div className={styles.classification}>
                 <h3>Under Investigation</h3>
                 <p>
-                  Pattern identified but investigation ongoing. Not yet concluded by authorities. Sources documented but results pending.
+                  Pattern identified but investigation ongoing. Not yet concluded by authorities.
+                  Sources documented but results pending.
                 </p>
               </div>
             </div>
@@ -111,10 +133,13 @@ export default function Methodology() {
           <section className={styles.limitations}>
             <h2>Limitations & Gaps</h2>
             <p>
-              We can only document what is made public. Private communications, internal decision-making, and unreleased records are beyond our scope. We note these gaps explicitly.
+              We can only document what is made public. Private communications, internal
+              decision-making, and unreleased records are beyond our scope. We note these gaps
+              explicitly.
             </p>
             <p>
-              Our initial focus is Oakland. Other cities likely experience similar patterns, but we do not generalize beyond where we have verified evidence.
+              Our initial focus is Oakland. Other cities likely experience similar patterns, but we
+              do not generalize beyond where we have verified evidence.
             </p>
           </section>
 

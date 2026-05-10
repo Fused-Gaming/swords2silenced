@@ -7,6 +7,7 @@ This project uses a **Git Flow** inspired branching strategy optimized for monor
 ## Main Branches
 
 ### `main`
+
 - **Purpose**: Production-ready code
 - **Requirements**:
   - All tests must pass
@@ -20,6 +21,7 @@ This project uses a **Git Flow** inspired branching strategy optimized for monor
   - Administrators cannot bypass rules
 
 ### `develop`
+
 - **Purpose**: Integration branch for features
 - **Base for**: Feature branches
 - **Merging**: Features merged here are released together
@@ -30,14 +32,16 @@ This project uses a **Git Flow** inspired branching strategy optimized for monor
 ## Supporting Branches
 
 ### Feature Branches (`feature/*`)
+
 - **Naming**: `feature/descriptive-name`
 - **Based on**: `develop`
 - **Merge back to**: `develop`
-- **Example**: 
+- **Example**:
   - `feature/user-authentication`
   - `feature/payment-integration`
 
 ### Bugfix Branches (`bugfix/*`)
+
 - **Naming**: `bugfix/issue-description`
 - **Based on**: `develop`
 - **Merge back to**: `develop`
@@ -46,6 +50,7 @@ This project uses a **Git Flow** inspired branching strategy optimized for monor
   - `bugfix/api-timeout-issue`
 
 ### Hotfix Branches (`hotfix/*`)
+
 - **Naming**: `hotfix/issue-description`
 - **Based on**: `main`
 - **Merge back to**: `main` AND `develop`
@@ -55,6 +60,7 @@ This project uses a **Git Flow** inspired branching strategy optimized for monor
   - `hotfix/payment-processing-error`
 
 ### Release Branches (`release/*`)
+
 - **Naming**: `release/v*.*.* ` or `release/YYYY-MM-DD`
 - **Based on**: `develop`
 - **Merge back to**: `main` and `develop`
@@ -122,6 +128,7 @@ Use conventional commit format in PR titles:
 - `chore:` - Dependency updates, tool changes
 
 Examples:
+
 - `feat: add user authentication system`
 - `fix: resolve payment processing error`
 - `docs: update API documentation`
@@ -156,6 +163,7 @@ Use **Semantic Versioning** (MAJOR.MINOR.PATCH):
 - **PATCH**: Bug fixes
 
 Example progression:
+
 - `v1.0.0` → `v1.1.0` (new feature)
 - `v1.1.0` → `v1.1.1` (bug fix)
 - `v1.1.1` → `v2.0.0` (breaking change)
