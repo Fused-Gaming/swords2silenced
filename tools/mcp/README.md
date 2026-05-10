@@ -13,21 +13,25 @@ Fused-Gaming MCP (Model Context Protocol) skills integrated with the swords2sile
 ### Quick Start
 
 1. Clone the repository (already done in swords2silenced):
+
 ```bash
 cd /home/user/swords2silenced
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Build the MCP module:
+
 ```bash
 npm run build --workspace=@swords2silenced/mcp-skills
 ```
 
 4. Initialize environment variables:
+
 ```bash
 cp tools/mcp/.env.example tools/mcp/.env
 ```
@@ -83,11 +87,13 @@ The `config.json` file contains skill-specific configurations:
 Validates code before deployment with configurable rules.
 
 #### Usage:
+
 ```bash
 npm run validate
 ```
 
 #### Configuration:
+
 ```json
 {
   "pre-deploy-validator": {
@@ -100,6 +106,7 @@ npm run validate
 ```
 
 #### Examples:
+
 ```bash
 # Run standard validation
 npm run validate
@@ -120,11 +127,13 @@ npm run validate:deploy
 HTML/CSS component design and generation for the frontend.
 
 #### Usage:
+
 ```bash
 npx skill frontend-design generate component
 ```
 
 #### Configuration:
+
 ```json
 {
   "frontend-design": {
@@ -137,6 +146,7 @@ npx skill frontend-design generate component
 ```
 
 #### Examples:
+
 ```bash
 # Generate a new component
 npx skill frontend-design generate Button
@@ -160,11 +170,13 @@ npx skill frontend-design list-templates
 Design system and theme generation with consistent branding.
 
 #### Usage:
+
 ```bash
 npx skill theme-factory generate
 ```
 
 #### Configuration:
+
 ```json
 {
   "theme-factory": {
@@ -178,6 +190,7 @@ npx skill theme-factory generate
 ```
 
 #### Examples:
+
 ```bash
 # Generate default theme
 npx skill theme-factory generate
@@ -201,11 +214,13 @@ npx skill theme-factory list
 Create custom MCP server implementations.
 
 #### Usage:
+
 ```bash
 npx skill mcp-builder create <name>
 ```
 
 #### Configuration:
+
 ```json
 {
   "mcp-builder": {
@@ -218,6 +233,7 @@ npx skill mcp-builder create <name>
 ```
 
 #### Examples:
+
 ```bash
 # Create new MCP server
 npx skill mcp-builder create my-custom-mcp
@@ -241,11 +257,13 @@ npm run test --workspace=tools/mcp/my-custom-mcp
 Build custom skills for the project.
 
 #### Usage:
+
 ```bash
 npx skill skill-creator new <name>
 ```
 
 #### Configuration:
+
 ```json
 {
   "skill-creator": {
@@ -258,6 +276,7 @@ npx skill skill-creator new <name>
 ```
 
 #### Examples:
+
 ```bash
 # Create new skill
 npx skill skill-creator new database-migrator
@@ -281,11 +300,13 @@ npm run build --workspace=tools/mcp/custom-skills/database-migrator
 Mobile-first wireframe designs using ASCII art.
 
 #### Usage:
+
 ```bash
 npx skill ascii-mockup create
 ```
 
 #### Configuration:
+
 ```json
 {
   "ascii-mockup": {
@@ -296,6 +317,7 @@ npx skill ascii-mockup create
 ```
 
 #### Examples:
+
 ```bash
 # Create wireframe mockup
 npx skill ascii-mockup create --name=landing-page
@@ -319,11 +341,13 @@ npx skill ascii-mockup export --format=png
 Generative art using p5.js.
 
 #### Usage:
+
 ```bash
 npx skill algorithmic-art create
 ```
 
 #### Configuration:
+
 ```json
 {
   "algorithmic-art": {
@@ -335,6 +359,7 @@ npx skill algorithmic-art create
 ```
 
 #### Examples:
+
 ```bash
 # Create generative art piece
 npx skill algorithmic-art create --name=particle-system
@@ -358,11 +383,13 @@ npx skill algorithmic-art export --format=gif
 SVG-based visual design and vector graphics.
 
 #### Usage:
+
 ```bash
 npx skill canvas-design create
 ```
 
 #### Configuration:
+
 ```json
 {
   "canvas-design": {
@@ -373,6 +400,7 @@ npx skill canvas-design create
 ```
 
 #### Examples:
+
 ```bash
 # Create SVG design
 npx skill canvas-design create --name=logo
@@ -390,16 +418,19 @@ npx skill canvas-design export --format=png
 ## Building
 
 ### Compile TypeScript:
+
 ```bash
 npm run build --workspace=@swords2silenced/mcp-skills
 ```
 
 ### Watch for changes:
+
 ```bash
 npm run dev --workspace=@swords2silenced/mcp-skills
 ```
 
 ### Type checking:
+
 ```bash
 npm run type-check
 ```
@@ -407,16 +438,19 @@ npm run type-check
 ## Testing
 
 ### Run tests:
+
 ```bash
 npm run test --workspace=@swords2silenced/mcp-skills
 ```
 
 ### Run with coverage:
+
 ```bash
 npm run test -- --coverage
 ```
 
 ### Watch mode:
+
 ```bash
 npm run test -- --watch
 ```
@@ -424,11 +458,13 @@ npm run test -- --watch
 ## Linting
 
 ### Lint code:
+
 ```bash
 npm run lint --workspace=@swords2silenced/mcp-skills
 ```
 
 ### Fix linting issues:
+
 ```bash
 npm run lint -- --fix
 ```
@@ -470,6 +506,7 @@ The root `tsconfig.json` includes paths for MCP skills:
 ```
 
 Use these in your imports:
+
 ```typescript
 import { initializeMCPSkills } from '@mcp/src/index';
 ```
@@ -479,6 +516,7 @@ import { initializeMCPSkills } from '@mcp/src/index';
 ### Issue: Skills not found
 
 **Solution:**
+
 ```bash
 # Verify installation
 npm list @swords2silenced/mcp-skills
@@ -493,6 +531,7 @@ npm run clean && npm install
 ### Issue: Dependency conflicts
 
 **Solution:**
+
 ```bash
 # Check for conflicts
 npm audit
@@ -507,6 +546,7 @@ npm update
 ### Issue: TypeScript compilation errors
 
 **Solution:**
+
 ```bash
 # Clear dist directory
 rm -rf tools/mcp/dist
@@ -521,6 +561,7 @@ cat tools/mcp/tsconfig.json
 ### Issue: ESLint errors
 
 **Solution:**
+
 ```bash
 # Run linter with details
 npm run lint --workspace=@swords2silenced/mcp-skills
@@ -532,6 +573,7 @@ npm run lint -- --fix --workspace=@swords2silenced/mcp-skills
 ### Issue: Environment variables not loaded
 
 **Solution:**
+
 ```bash
 # Verify .env file exists
 ls -la tools/mcp/.env
@@ -546,6 +588,7 @@ cat tools/mcp/.env | head -20
 ### Issue: Skill command not working
 
 **Solution:**
+
 ```bash
 # Check if skill is installed
 npm run -l | grep skill
@@ -562,6 +605,7 @@ grep "_ENABLED=true" tools/mcp/.env
 ### Creating a custom skill:
 
 1. Create skill with skill-creator:
+
 ```bash
 npx skill skill-creator new my-skill
 ```
@@ -569,16 +613,19 @@ npx skill skill-creator new my-skill
 2. Implement skill logic in generated files
 
 3. Add tests:
+
 ```bash
 npm run test --workspace=tools/mcp/custom-skills/my-skill
 ```
 
 4. Build:
+
 ```bash
 npm run build --workspace=tools/mcp/custom-skills/my-skill
 ```
 
 5. Use in your project:
+
 ```typescript
 import { mySkill } from '@mcp/custom-skills/my-skill';
 ```
@@ -590,11 +637,13 @@ import { mySkill } from '@mcp/custom-skills/my-skill';
 2. Update environment variables in `.env` if needed
 
 3. Rebuild:
+
 ```bash
 npm run build --workspace=@swords2silenced/mcp-skills
 ```
 
 4. Test changes:
+
 ```bash
 npm run test --workspace=@swords2silenced/mcp-skills
 ```
@@ -639,6 +688,7 @@ MIT - See LICENSE file for details
 ## Support
 
 For issues or questions:
+
 1. Check the troubleshooting section above
 2. Review configuration in `config.json`
 3. Check environment variables in `.env`

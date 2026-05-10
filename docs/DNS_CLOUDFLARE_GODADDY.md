@@ -5,6 +5,7 @@
 This guide walks through migrating your domain from GoDaddy's default nameservers to Cloudflare, then configuring DNS to point to your Vercel deployment.
 
 ### Architecture Flow
+
 ```
 GoDaddy Account
     ↓
@@ -40,6 +41,7 @@ https://swordstosilenced.com
 ### Step 2: Note Cloudflare Nameservers
 
 Cloudflare will provide two nameservers:
+
 ```
 Primary:   ns1.cloudflare.com
 Secondary: ns2.cloudflare.com
@@ -119,12 +121,14 @@ Before migrating nameservers, pre-configure your DNS records in Cloudflare:
 ### Step 2: Replace Nameservers
 
 **Before:** GoDaddy default nameservers
+
 ```
 ns1.godaddy.com
 ns2.godaddy.com
 ```
 
 **After:** Cloudflare nameservers
+
 ```
 ns1.cloudflare.com
 ns2.cloudflare.com
@@ -173,6 +177,7 @@ dig CNAME www.swordstosilenced.com
 ```
 
 **Expected Results:**
+
 ```
 ; swordstosilenced.com             IN      NS
 swordstosilenced.com      900     IN      NS      ns1.cloudflare.com.
@@ -207,6 +212,7 @@ openssl s_client -connect swordstosilenced.com:443
 5. If using www: also add `www.swordstosilenced.com`
 
 ### Vercel will:
+
 - ✅ Detect Cloudflare as DNS provider
 - ✅ Verify DNS configuration
 - ✅ Issue SSL certificate (via Cloudflare)
@@ -243,6 +249,7 @@ openssl s_client -connect swordstosilenced.com:443
 ### Issue: "Site Shows Vercel Default 404"
 
 1. Verify DNS records are correct:
+
    ```bash
    dig swordstosilenced.com
    dig www.swordstosilenced.com
@@ -257,6 +264,7 @@ openssl s_client -connect swordstosilenced.com:443
 ### Issue: "Cloudflare Returns Error 522 - Connection Timed Out"
 
 1. Check Vercel deployment is running:
+
    ```bash
    curl -I https://swords2silenced.vercel.app
    ```
@@ -306,6 +314,7 @@ curl https://swordstosilenced.com/api/health
 ## DNS Record Reference
 
 ### CNAME Record (www subdomain)
+
 ```
 Zone:   swordstosilenced.com
 Type:   CNAME
@@ -315,6 +324,7 @@ TTL:    Auto (default)
 ```
 
 ### A Records (root domain)
+
 ```
 Zone:  swordstosilenced.com
 Type:  A
@@ -327,6 +337,7 @@ TTL:   Auto (default)
 ```
 
 ### MX Records (optional - for email)
+
 ```
 If you add email later, configure in Cloudflare:
 Type: MX
@@ -355,6 +366,7 @@ Value: mx.google.com (or your email provider)
 ## Support
 
 If you encounter issues:
+
 1. Check the troubleshooting section above
 2. Review Cloudflare's DNS logs
 3. Check Vercel's deployment logs

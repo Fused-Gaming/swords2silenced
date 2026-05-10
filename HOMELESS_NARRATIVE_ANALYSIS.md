@@ -49,6 +49,7 @@ By the 1990s, [the narrative had shifted from structural critique (housing costs
 ### 1. Government Agencies & Politicians
 
 **The Function:** If homelessness is an individual problem, then government failure is invisible.
+
 - Spending $24 billion while homelessness increases isn't a policy failure—it's evidence of how difficult the problem is
 - [Lack of tracking and accountability becomes acceptable because "it's hard to measure outcomes with this population"](https://www.auditor.ca.gov/reports/2023-102-1/)
 - [The California Interagency Council claims it "doesn't have funds" to track spending](https://calmatters.org/housing/homelessness/2024/04/california-homelessness-spending/)—a political choice, not a budget constraint
@@ -72,6 +73,7 @@ By the 1990s, [the narrative had shifted from structural critique (housing costs
 **The Narrative Function:** [If homelessness is a medical/mental health problem, the solution is treatment and medication](https://pmc.ncbi.nlm.nih.gov/articles/PMC10845136/).
 
 **The Reality:**
+
 - [Pharmaceutical companies spend more on sales/marketing than R&D](https://pmc.ncbi.nlm.nih.gov/articles/PMC10845136/), incentivizing them to expand the definition of mental illness
 - [The American Psychiatric Association has progressively broadened mental illness definitions to include normative human distress, creating new billable diagnoses](https://pmc.ncbi.nlm.nih.gov/articles/PMC10845136/)
 - [Medications have not comprehensively addressed homelessness; they've contributed to it by deflecting from social determinants](https://journalofethics.ama-assn.org/article/how-pharmaceuticals-mask-health-and-social-inequity/2021-07)
@@ -83,11 +85,12 @@ By the 1990s, [the narrative had shifted from structural critique (housing costs
 **The Structural Problem:** [Legal aid organizations funded by the same sources as homeless services cannot represent homeless people against those same funders](https://laist.com/news/housing-homelessness/los-angeles-city-council-stay-housed-la-legal-aid-foundation-contract-vote-city-attorney).
 
 **The LA Example:**
-[The city awarded $107-177 million to the Legal Aid Foundation of Los Angeles (LAFLA) for eviction defense and homeless services, while LAFLA simultaneously sued the city repeatedly](https://laist.com/news/housing-homelessness/los-angeles-city-council-stay-housed-la-legal-aid-foundation-contract-vote-city-attorney). 
+[The city awarded $107-177 million to the Legal Aid Foundation of Los Angeles (LAFLA) for eviction defense and homeless services, while LAFLA simultaneously sued the city repeatedly](https://laist.com/news/housing-homelessness/los-angeles-city-council-stay-housed-la-legal-aid-foundation-contract-vote-city-attorney).
 
 [The City Attorney objected, warning of conflict of interest: the city cannot audit an organization that's litigating against it](https://laist.com/news/housing-homelessness/los-angeles-city-council-stay-housed-la-legal-aid-foundation-contract-vote-city-attorney).
 
 **The Gap:** A homeless person harmed by a failed nonprofit has no legal recourse because:
+
 - Legal aid is funded by the same foundations that fund services
 - Privacy/HIPAA claims block the data needed to prove harm
 - Attorney-client privilege shields organizations from accountability
@@ -110,7 +113,7 @@ What this obscures: The VA has [a documented 18-year record of audit failures on
 
 #### 1. The Data Gap
 
-[California spent $24 billion on homelessness but didn't track outcomes. The state agency responsible claims it "doesn't have funds" to collect data](https://calmatters.org/housing/homelessness/2024/04/california-homelessness-spending/). 
+[California spent $24 billion on homelessness but didn't track outcomes. The state agency responsible claims it "doesn't have funds" to collect data](https://calmatters.org/housing/homelessness/2024/04/california-homelessness-spending/).
 
 This is a choice, not a budget constraint. [Service providers use privacy and HIPAA claims to prevent data release](https://www.nola.com/news/politics/louisiana-homeless-lawsuit/article_dbd7fefe-a201-11ef-9a0c-33fb5b52abc7.html), claiming that if they had to share homeless people's information, they'd "limit their input" into official systems.
 
@@ -125,6 +128,7 @@ Homeless people cannot sue service providers because legal aid is conflicted. Th
 [Organizations that fail continue receiving contracts because funding is based on throughput (people served), not outcomes (people housed)](https://poverty.ucdavis.edu/policy-brief/shelter-funding-homeless-individuals-and-families-brings-tradeoffs).
 
 **The System's Logic:**
+
 - Service provider gets $5 million to serve 100 homeless people
 - Provider serves 100 people but houses 0
 - Provider claims the population is "hard to serve" (confirming the narrative)
@@ -142,7 +146,7 @@ Failure is reframed as evidence of the population's intractability.
 
 **Key Finding:** [In a four-year trial in Santa Clara County, 86% of people in supportive housing were stably housed, compared to 36% in the control group](https://nlihc.org/resource/systematic-research-review-finds-benefits-housing-first-programs-us-outweigh-costs).
 
-**Why It Works:** 
+**Why It Works:**
 Housing isn't a reward for sobriety or mental health treatment. It's a foundation. Once people have stable housing, they can access services that actually help. [The approach addresses the primary cause (lack of housing) rather than secondary symptoms (mental illness caused by homelessness)](https://cbpp.org/research/housing/policymakers-can-solve-homelessness-by-scaling-up-proven-solutions-rental).
 
 ### Rental Assistance & Income Support
@@ -185,6 +189,7 @@ Narrative reinforced
 ### The Accountability Prevention
 
 None of this triggers scrutiny because:
+
 - The narrative frames the problem as individual incapacity
 - This narrative justifies why spending doesn't produce results
 - Anyone who questions the spending can be countered with: "These people are hard to help"
@@ -219,6 +224,7 @@ No accountability possible
 The framing of "homeless people are too mentally ill to access legal services" obscures the real barrier: **systemic inaccessibility combined with privacy violations**.
 
 Actual barriers:
+
 - Medical appointments are hard to keep without stable housing
 - Privacy is compromised in shelter systems
 - Weather and location make it difficult to travel to lawyer offices or medical facilities
@@ -254,6 +260,7 @@ The shift from "homelessness is caused by structural policy failures and housing
 Homelessness isn't primarily caused by mental illness. [Homelessness is caused by housing shortage and economic policy](https://cbpp.org/research/housing/policymakers-can-solve-homelessness-by-scaling-up-proven-solutions-rental). [Housing First works because it addresses the primary cause](https://nlihc.org/resource/systematic-research-review-finds-benefits-housing-first-programs-us-outweigh-costs).
 
 The narrative that shifts blame to individuals serves the system by:
+
 - Obscuring why $24-37 billion didn't work
 - Preventing scrutiny of fraud and misuse
 - Justifying why organizations can fail and retain funding
@@ -267,44 +274,53 @@ The narrative that shifts blame to individuals serves the system by:
 ## Sources
 
 ### Causation & Evidence
+
 - [Mental Illness & Homelessness: Making the Connections (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7525583/)
 - [History of Homelessness in the US (NCBI)](https://ncbi.nlm.nih.gov/books/NBK519584/)
 - [Prevalence of Mental Disorders Among Homeless (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC8423293/)
 
 ### Narrative Construction & History
+
 - [Creating a Science of Homelessness During the Reagan Era (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC4364434/)
 - [Rethinking Homelessness: Social Constructions (Taylor & Francis)](https://tandfonline.com/doi/full/10.1080/10530789.2025.2506841)
 - [Is There Really a Link Between Mental Illness and Homelessness? (JSTOR)](https://daily.jstor.org/is-there-really-a-link-between-mental-illness-and-homelessness/)
 
 ### Spending & Accountability
+
 - [California State Auditor Report 2023-102.1](https://www.auditor.ca.gov/reports/2023-102-1/)
 - [CalMatters: California Audit on Homelessness Spending](https://calmatters.org/housing/homelessness/2024/04/california-homelessness-spending/)
 - [CBS San Francisco: $24B Audit Report](https://www.cbsnews.com/sanfrancisco/news/california-homelessness-spending-audit-24b-five-years-didnt-consistently-track-outcomes/)
 
 ### Funding Incentives & Conflicts
+
 - [How Profit and Policy Keep Homelessness Crisis Alive (Medium)](https://medium.com/@mybuddy4u03/how-profit-and-policy-keep-the-homeless-crisis-alive-33d1f9c09ea5)
 - [Shelter Funding Tradeoffs (UC Davis)](https://poverty.ucdavis.edu/policy-brief/shelter-funding-homeless-individuals-and-families-brings-tradeoffs)
 - [LAFLA Contract Despite City Attorney Opposition (LAist)](https://laist.com/news/housing-homelessness/los-angeles-city-council-stay-housed-la-legal-aid-foundation-contract-vote-city-attorney)
 
 ### Fraud & Failure Cases
+
 - [Alexander Soofer $23M Theft (NBC LA)](https://www.nbclosangeles.com/news/local/los-angeles-homeless-fraud-department-of-justice-abundant-blessings/3835498/)
 - [Real Estate Developers $50M Fraud (Fox Business)](https://www.foxbusiness.com/politics/california-homeless-crisis-doj-accuses-real-estate-developers-of-50m-funding-fraud)
 - [HOPICS $140M Failure (CalMatters)](https://calmatters.org/housing/homelessness/2023/12/homeless-los-angeles-displaced/)
 - [Oakland Chronic Homelessness Increase (Oakland Report)](https://oaklandreport.org/p/as-homelessness-budgets-grow-why)
 
 ### What Works
+
 - [Housing First Evidence (NLIHC)](https://nlihc.org/resource/systematic-research-review-finds-benefits-housing-first-programs-us-outweigh-costs)
 - [Cost-Effectiveness of Housing First (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6707012/)
 - [Proven Solutions: Rental Assistance (CBPP)](https://cbpp.org/research/housing/policymakers-can-solve-homelessness-by-scaling-up-proven-solutions-rental)
 
 ### Deinstitutionalization & Reagan Era
+
 - [Deinstitutionalization Did Not Cause Homelessness (Behavioral Health News)](https://behavioralhealthnews.org/deinstitutionalization-did-not-cause-homelessness-loss-of-low-income-housing-and-disability-benefits-did)
 - [PolitiFact: Reagan Defunding Claims](https://politifact.com/factchecks/2023/apr/20/mike-pence/mike-pence-said-liberals-emptied-mental-hospitals/)
 
 ### Pharmaceutical Industry Influence
+
 - [Industry Influence on Mental Health Research (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10845136/)
 - [How Pharmaceuticals Mask Social Inequity (Journal of Ethics)](https://journalofethics.ama-assn.org/article/how-pharmaceuticals-mask-health-and-social-inequity/2021-07)
 
 ### Legal & Accountability Gaps
+
 - [LAHSA Audit Failures (Westside Current)](https://www.westsidecurrent.com/news/lahsa-s-18-year-record-of-audit-failures-on-homeless-spending-laid-bare-in-federal/article_5c30a8e1-2e35-4062-8d43-2c3dd5fb2b47.html)
 - [Louisiana Homeless Lawsuit Over Data (NOLA.com)](https://www.nola.com/news/politics/louisiana-homeless-lawsuit/article_dbd7fefe-a201-11ef-9a0c-33fb5b52abc7.html)

@@ -25,10 +25,10 @@ Please **do not** open a public GitHub issue for security vulnerabilities. Inste
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.1.x   | Development        |
-| < 0.1   | Not supported      |
+| Version | Supported     |
+| ------- | ------------- |
+| 0.1.x   | Development   |
+| < 0.1   | Not supported |
 
 ## Security Best Practices
 
@@ -43,6 +43,7 @@ When using Swords to Silenced:
 ## Dependency Security
 
 We use:
+
 - **Dependabot** for automated dependency monitoring and updates
 - **GitHub Secret Scanning** to prevent accidental credential exposure
 - **CodeQL** for code security analysis
@@ -52,6 +53,7 @@ All security updates are prioritized and released as soon as possible.
 ## Contact
 
 For security-related questions or concerns, please contact:
+
 - Email: Report via GitHub Security Advisory (recommended)
 - GitHub: [@4eckd](https://github.com/4eckd)
 

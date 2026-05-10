@@ -49,6 +49,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation
@@ -59,6 +60,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 - `chore`: Dependencies, tools
 
 **Example:**
+
 ```
 feat(auth): add user authentication system
 

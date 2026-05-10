@@ -5,10 +5,12 @@ This document outlines the recommended GitHub repository settings for Fused-Gami
 ## 1. Repository Visibility and Access Settings
 
 ### Current Status
+
 - Repository: Public (recommended for open-source projects)
 - Default branch: `main`
 
 ### Recommended Settings
+
 - **Visibility**: Public
 - **Allow forking**: Enabled
 - **Allow discussions**: Enabled
@@ -23,11 +25,13 @@ This document outlines the recommended GitHub repository settings for Fused-Gami
 ## 2. Branch Protection Settings
 
 ### Main Branch Protection Rules
+
 Configure the following rules for the `main` branch:
 
 **Location**: Settings > Branches > Branch protection rules > Add rule for `main`
 
 #### Required Settings
+
 1. **Require status checks to pass before merging**
    - Enabled
    - Dismiss stale PR approvals when new commits are pushed: Enabled
@@ -60,12 +64,11 @@ Configure the following rules for the `main` branch:
 ## 3. Pull Request and Issue Templates
 
 ### Configured Templates
+
 - **PR Template**: `.github/PULL_REQUEST_TEMPLATE.md`
   - Includes description, type of change, testing, and checklist sections
-  
 - **Bug Report**: `.github/ISSUE_TEMPLATE/bug_report.md`
   - Includes reproduction steps, expected/actual behavior, environment
-  
 - **Feature Request**: `.github/ISSUE_TEMPLATE/feature_request.md`
   - Includes problem description, proposed solution, and priority
 
@@ -100,12 +103,16 @@ Configure the following rules for the `main` branch:
 ### Recommended Workflows to Add
 
 #### CodeQL Analysis
+
 Location: `.github/workflows/codeql.yml`
+
 - Runs on every push to main and PRs
 - Scans for security vulnerabilities and code quality issues
 
 #### Dependabot Configuration
+
 Location: `.github/dependabot.yml`
+
 - Monitors npm dependencies
 - Creates automatic PRs for updates
 - Configured with reasonable review intervals
@@ -115,8 +122,9 @@ Location: `.github/dependabot.yml`
 ## 5. Repository Description and Topics
 
 ### Recommended Configuration
+
 - **Description**: "Swords to Silenced - A comprehensive monorepo platform"
-- **Topics**: 
+- **Topics**:
   - `monorepo`
   - `nextjs`
   - `typescript`
@@ -131,6 +139,7 @@ Location: `.github/dependabot.yml`
 ## 6. Additional Recommended Settings
 
 ### General Settings
+
 1. **Default branch**: `main` ✓ (Already configured)
 2. **Squash merging**: Allow
 3. **Rebase merging**: Allow
@@ -141,6 +150,7 @@ Location: `.github/dependabot.yml`
 8. **Projects**: Enabled (default board)
 
 ### Access and Permissions
+
 1. **Default permissions for new repositories**: Read
 2. **GitHub Pages**: Enable if documentation site is needed
 3. **Actions permissions**: Enabled (required for CI/CD)
@@ -150,10 +160,12 @@ Location: `.github/dependabot.yml`
 ## 7. Workflow Configuration
 
 ### Current Workflows
+
 - `.github/workflows/test.yml` - Testing pipeline
 - `.github/workflows/deploy.yml` - Deployment pipeline
 
 ### Recommended Additional Workflows
+
 1. **Lint and Format Check** - Ensure code quality
 2. **Security Scanning** - CodeQL or similar
 3. **Dependency Updates** - Dependabot integration

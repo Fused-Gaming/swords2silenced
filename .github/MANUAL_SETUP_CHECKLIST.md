@@ -5,6 +5,7 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Repository Settings
 
 ### General Settings
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings
 
 - [ ] **Repository Name**: Verify set to "swords2silenced"
@@ -24,6 +25,7 @@ This checklist contains the remaining manual configuration steps that must be co
 - [ ] **Use GitHub-flavored markdown in issue and pull request descriptions**: Enable
 
 ### About Section
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced
 
 - [ ] **Add topics** (edit repository details):
@@ -39,6 +41,7 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Branch Protection Rules
 
 ### Main Branch Protection
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings/branches
 
 - [ ] Create new rule for "main"
@@ -54,7 +57,7 @@ This checklist contains the remaining manual configuration steps that must be co
     - [ ] `Test Suite` (from test.yml)
     - [ ] `Build` (from deploy.yml)
     - [ ] `Lint and Format Check` (from lint.yml)
-    - [ ] `CodeQL / Analyze` (from codeql.yml) - *add after first run*
+    - [ ] `CodeQL / Analyze` (from codeql.yml) - _add after first run_
 
 - [ ] **Additional protections**
   - [ ] Require conversation resolution before merging: `Enable`
@@ -68,9 +71,11 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Code Security & Analysis
 
 ### Security and Analysis Settings
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings/security_analysis
 
 #### Dependabot
+
 - [ ] **Dependabot alerts**: Enable
 - [ ] **Dependabot security updates**: Enable
 - [ ] **Dependabot version updates**: Enable
@@ -81,11 +86,13 @@ This checklist contains the remaining manual configuration steps that must be co
     - [ ] GitHub Actions (weekly)
 
 #### Secret Scanning
+
 - [ ] **Secret scanning**: Enable
 - [ ] **Push protection**: Enable
 - [ ] **Secret scanning validity checks**: Enable (if available)
 
 #### Code Scanning
+
 - [ ] **CodeQL analysis**: Enable
   - Note: `.github/workflows/codeql.yml` is configured
   - Verify workflows run on:
@@ -94,6 +101,7 @@ This checklist contains the remaining manual configuration steps that must be co
     - [ ] Weekly schedule (Sunday midnight UTC)
 
 #### Private Vulnerability Reporting
+
 - [ ] **Private vulnerability reporting**: Enable
 
 ---
@@ -101,6 +109,7 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Access Management
 
 ### Repository Permissions
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings/access
 
 - [ ] **Default permissions**: Set to "Read"
@@ -124,14 +133,16 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Actions & Workflows
 
 ### Workflow Configuration
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings/actions
 
 - [ ] **Actions permissions**: Enable
-- [ ] **Workflow permissions**: 
+- [ ] **Workflow permissions**:
   - [ ] Read and write permissions: Enable
   - [ ] Allow GitHub Actions to create and approve pull requests: Enable (optional)
 
 ### Verify All Workflows
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/actions
 
 - [ ] **test.yml**: Verify runs on PR and push to main
@@ -145,6 +156,7 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Pages & Deployment
 
 ### GitHub Pages (if needed)
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings/pages
 
 - [ ] **Source**: Select branch and folder if deploying docs
@@ -156,12 +168,14 @@ This checklist contains the remaining manual configuration steps that must be co
 ## Notifications & Alerts
 
 ### Repository Notifications
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/settings/notifications
 
 - [ ] **Default notifications**: Configure as needed
 - [ ] **Watch settings**: Verify watching repository for updates
 
 ### Code Scanning Alerts
+
 **Location**: https://github.com/Fused-Gaming/swords2silenced/security/code-scanning
 
 - [ ] Set up alert notifications
@@ -174,6 +188,7 @@ This checklist contains the remaining manual configuration steps that must be co
 Once all manual settings are configured, verify the following:
 
 ### Workflow Testing
+
 - [ ] Make a test branch and create a test PR
 - [ ] Verify all required checks run and pass
 - [ ] Verify code owner review is required
@@ -182,11 +197,13 @@ Once all manual settings are configured, verify the following:
 - [ ] Verify head branch auto-deletes after merge
 
 ### Security Testing
+
 - [ ] Run CodeQL analysis and verify results appear in security tab
 - [ ] Check for any security alerts
 - [ ] Verify Dependabot creates PRs for updates
 
 ### Branch Protection Testing
+
 - [ ] Attempt to push directly to main (should fail)
 - [ ] Verify only PRs can merge to main
 - [ ] Verify all status checks are required
@@ -196,17 +213,17 @@ Once all manual settings are configured, verify the following:
 
 ## Documentation References
 
-| Topic | File/Link |
-|-------|-----------|
-| Full Configuration Guide | [`.github/REPOSITORY_CONFIG.md`](REPOSITORY_CONFIG.md) |
-| Setup Summary | [`.github/SETUP_SUMMARY.md`](SETUP_SUMMARY.md) |
-| Security Policy | [`SECURITY.md`](../../SECURITY.md) |
-| Pull Request Template | [`.github/PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md) |
-| Bug Report Template | [`.github/ISSUE_TEMPLATE/bug_report.md`](ISSUE_TEMPLATE/bug_report.md) |
+| Topic                    | File/Link                                                                        |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| Full Configuration Guide | [`.github/REPOSITORY_CONFIG.md`](REPOSITORY_CONFIG.md)                           |
+| Setup Summary            | [`.github/SETUP_SUMMARY.md`](SETUP_SUMMARY.md)                                   |
+| Security Policy          | [`SECURITY.md`](../../SECURITY.md)                                               |
+| Pull Request Template    | [`.github/PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md)                   |
+| Bug Report Template      | [`.github/ISSUE_TEMPLATE/bug_report.md`](ISSUE_TEMPLATE/bug_report.md)           |
 | Feature Request Template | [`.github/ISSUE_TEMPLATE/feature_request.md`](ISSUE_TEMPLATE/feature_request.md) |
-| Code Owners | [`.github/CODEOWNERS`](CODEOWNERS) |
-| Dependabot Config | [`.github/dependabot.yml`](dependabot.yml) |
-| GitHub Docs | https://docs.github.com/en/repositories |
+| Code Owners              | [`.github/CODEOWNERS`](CODEOWNERS)                                               |
+| Dependabot Config        | [`.github/dependabot.yml`](dependabot.yml)                                       |
+| GitHub Docs              | https://docs.github.com/en/repositories                                          |
 
 ---
 

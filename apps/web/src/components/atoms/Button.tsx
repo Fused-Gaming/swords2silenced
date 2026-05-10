@@ -45,12 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       .join(' ');
 
     return (
-      <button
-        ref={ref}
-        className={classNames}
-        disabled={disabled || isLoading}
-        {...rest}
-      >
+      <button ref={ref} className={classNames} disabled={disabled || isLoading} {...rest}>
         {isLoading ? (
           <>
             <span className={styles.spinner}></span>

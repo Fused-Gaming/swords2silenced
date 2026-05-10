@@ -64,6 +64,7 @@ cp tools/mcp/.env.example tools/mcp/.env
 ### For apps/web
 
 Update `apps/web/package.json`:
+
 ```json
 {
   "scripts": {
@@ -124,6 +125,7 @@ Update workspace `tsconfig.json` files:
 ### Root package.json Scripts
 
 Add or verify build scripts:
+
 ```json
 {
   "scripts": {
@@ -174,21 +176,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Build MCP skills
         run: npm run build --workspace=@swords2silenced/mcp-skills
-      
+
       - name: Run MCP tests
         run: npm run test --workspace=@swords2silenced/mcp-skills
-      
+
       - name: Validate deployment
         run: npm run validate
 ```
@@ -196,10 +198,11 @@ jobs:
 ### Validation Before Deployment
 
 Add to deployment workflow:
+
 ```yaml
 - name: Pre-deploy validation
   run: npm run validate -- --fail-on-warning
-  
+
 - name: Check component generation
   run: npx skill frontend-design list
 ```
@@ -379,6 +382,7 @@ Integrated Tool Ready
 ### Per-Workspace Configuration
 
 Create `apps/web/mcp.json`:
+
 ```json
 {
   "skills": {
@@ -397,14 +401,12 @@ Create `apps/web/mcp.json`:
 ### Shared Configuration
 
 Update `tools/mcp/config.json`:
+
 ```json
 {
   "monorepo": {
     "rootDir": "../../",
-    "workspaces": [
-      "apps/web",
-      "packages/ui"
-    ]
+    "workspaces": ["apps/web", "packages/ui"]
   }
 }
 ```
@@ -425,6 +427,7 @@ Update `tools/mcp/config.json`:
 ### Generated Component Dependencies
 
 Keep generated components lean:
+
 ```json
 {
   "peerDependencies": {
@@ -439,6 +442,7 @@ Keep generated components lean:
 ### Lazy Load MCP Skills
 
 Only enable needed skills in config:
+
 ```json
 {
   "skills": {

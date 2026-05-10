@@ -99,13 +99,7 @@ Create or update `.claude-settings.json` (or configure in Claude Code):
   },
   "skills": {
     "enabled": true,
-    "paths": [
-      "tools/validators",
-      "tools/builders",
-      "tools/creators",
-      "tools/monitors",
-      "tools/mcp"
-    ]
+    "paths": ["tools/validators", "tools/builders", "tools/creators", "tools/monitors", "tools/mcp"]
   }
 }
 ```
@@ -248,12 +242,12 @@ Create a deployment notifier:
 export const deploymentNotifier = {
   name: 'deployment-notifier',
   version: '1.0.0',
-  
+
   async notify(version: string, environment: string) {
     // Notify team of deployment
     console.log(`Deployed v${version} to ${environment}`);
     // Send webhook, Slack message, etc.
-  }
+  },
 };
 ```
 
@@ -360,9 +354,11 @@ Example PR entry:
 ## Contributed Improvements
 
 ### To trystpilot/skills
+
 - Enhanced pre-deploy-validator with custom rules for monorepos
 
-### To fused-gaming/fused-gaming-skill-mcp  
+### To fused-gaming/fused-gaming-skill-mcp
+
 - Added Docker containerization support for MCPs
 ```
 
