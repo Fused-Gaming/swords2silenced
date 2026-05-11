@@ -2,10 +2,10 @@
 
 ## Current Version
 
-**0.1.2** (MVP Development)
+**0.1.3** (MVP Stabilization)
 
-- Last Updated: 2026-04-13 (failed-testing continuation verification pass)
-- Notes: Local lint/test/type-check/build all pass after failed-testing continuation verification; remaining gap is remote PR/deployment visibility due to missing git remote + GitHub CLI context in this container.
+- Last Updated: 2026-05-10 (MVP stabilization release)
+- Notes: Stabilization release focusing on design system integration, skill-syncpulse orchestration support, reusable component library (PDFEmbed, CTASection), and ESLint hardening for production readiness.
 
 ## Versioning Strategy
 
