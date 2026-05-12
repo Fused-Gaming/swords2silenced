@@ -9,32 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added 2026-04-16 session-orientation handoff covering blockers, immediate next 3 steps, and top-priority agent directives for continuation.
-- Added root `package-lock.json` to source control so GitHub Actions `setup-node` npm caching can resolve lockfile metadata in CI.
-- Added contract tests for `/api/status` healthy/degraded permutations and unsupported method handling.
-- Initial project setup and monorepo structure
-- TypeScript configuration
-- ESLint and Prettier setup
-- CI/CD pipeline foundation
-- Added `docs/AGENT_HANDOFF.md` to track blockers, priorities, and next-agent continuity for test/deployment stabilization work
-- Added deterministic auth configuration validator diagnostics for GitHub, Telegram, and admin integrations in `/api/status`.
-- Added admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls.
-
 ### Changed
-
-- Documented stable `/api/status` schema keys (`status`, `checks`, `notes`, `version`) and hosting probe URL `/status` rewrite behavior.
-- Added `tools/*` to npm workspaces so MCP skills can be managed through root workspace scripts
-- Tailwind CSS integration scaffolding for `apps/web` with `tailwind.config.js` and `postcss.config.js`.
-- `AGENT_SESSION_HANDOFF.md` with blockers, immediate next steps, and agent directives for auth/status recovery.
-- Re-enabled Tailwind processing in `apps/web` by restoring PostCSS plugin wiring and Tailwind directives in global styles.
-- Expanded Tailwind theme color mappings to include semantic status + muted/info token aliases.
-- Synced workspace dependencies and refreshed `package-lock.json` to ensure Tailwind/PostCSS packages resolve consistently.
-
-### Changed
-
-- Updated web global stylesheet to temporarily disable Tailwind directives in install-constrained environments.
-- Updated PostCSS config to avoid unavailable plugins during CI build execution.
-- Updated documentation (`README.md`, `VERSION.md`, `CLAUDE.md`) with deployment/code-scanning recovery context.
 
 ### Deprecated
 
@@ -42,6 +17,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+### Security
+
+---
+
+## [0.1.3] - 2026-05-10
+
+### Added
+
+- Design tokens system with comprehensive color palette and semantic CSS variables for consistent theming
+- @h4shed/skill-syncpulse package for project status management and session history tracking across agent sessions
+- PDFEmbed and CTASection reusable components for content rendering and calls-to-action
+- Contract tests for `/api/status` healthy/degraded permutations and unsupported method handling
+- Deterministic auth configuration validator diagnostics for GitHub, Telegram, and admin integrations in `/api/status`
+- Admin secret migration guidance for hash-first configuration with temporary plaintext fallback flag controls
+- Root `package-lock.json` to source control for GitHub Actions `setup-node` npm caching in CI
+- Test file exclusion in `apps/web/tsconfig.json` to resolve Jest globals type-checking conflicts
+- Session-orientation handoff documentation covering blockers, immediate next 3 steps, and top-priority agent directives
+- MCP tools workspace (`tools/*`) to npm workspaces for centralized skill package management
+
+### Changed
+
+- Implemented design tokens system across advocacy components with purple-to-red gradient color palette
+- Skill-syncpulse integration for comprehensive project status reporting and continuity tracking
+- Updated TypeScript configuration for improved workspace compatibility and testing isolation
+- ESLint hardening with v9 flat config mode and workspace plugin resolution stabilization
+- Tailwind CSS integration refinement with semantic color token support and PostCSS pipeline optimization
+- Landing page sections (#about, #cases, #submit) with design token styling and thesis-led narrative
+- GitHub Actions workflows upgraded to Node.js 24 runtime with maintained action versions
+- `/api/status` endpoint with hardened auth diagnostics and explicit non-GET method handling (405 responses)
+
+### Fixed
+
+- Fixed Next.js build stability by resolving Turbopack workspace root detection in monorepo structure
+- Fixed merged-conflict regressions in `apps/web/next.config.js` and `apps/web/src/pages/api/status.ts`
+- Fixed ESLint configuration parsing by removing duplicate keys and restoring valid JSON manifests
+- Fixed homepage JSX structure regression and migration of navbar navigation to `next/link`
+- Fixed runtime dependency on Google font fetch by switching to CSS fallback font-family variables
+- Fixed Next.js 16 build failures by pinning Turbopack root configuration
+- Resolved npm install failures in CI workflows and stabilized dependency resolution
+- Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
+- Added missing `--color-info` and `--color-muted` design tokens for semantic state styling
+- Verified all local quality gates pass: lint, type-check, build after stabilization sweep
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- Fixed TypeScript type-checking failures in web app by excluding test files (`**/*.test.ts`, `**/*.test.tsx`) from `tsconfig.json` to resolve Jest globals conflicts.
+- Fixed TypeScript deprecation warnings by keeping `ignoreDeprecations: 5.0` for forward compatibility with TS 5.9.3 (baseUrl and moduleResolution node10 deprecations are non-critical).
+- Fixed Next.js build stability by confirming Turbopack root detection works correctly with monorepo structure.
+- Verified all local quality gates pass: lint (✅), type-check (✅), build (✅) after TypeScript configuration stabilization.
 - Upgraded GitHub Actions workflows to Node.js 24 runtime (`actions/checkout@v5`, `actions/setup-node@v5`) and pinned npm cache to `package-lock.json` to address Node 20 deprecation + cache lockfile errors.
 - Fixed Next.js production build regression by moving `status.contract.test.ts` out of `apps/web/src/pages/api` into `apps/web/src/tests/api`, preventing route type-validation from treating tests as API handlers.
 - Repaired malformed root and web workspace `package.json` manifests that were breaking npm parsing and pre-commit hooks.
@@ -57,7 +85,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Resolved merge-conflict regressions in `apps/web/next.config.js` and `/api/status` by removing duplicate `turbopack` config and unused validator imports causing lint failures.
 - Hardened `/api/status` auth diagnostics with explicit GitHub, Telegram, and admin readiness validation
 - Added auth contract helpers to enforce expiry checks and safer admin hash-only posture
-
 - Added missing `--color-info` design token for semantic informational states used by timeline category styling.
 - Added missing `--color-muted` token and aligned theme utilities to use the active tokenized palette.
 - Fixed Next.js 16 Turbopack workspace root detection by setting `turbopack.root` in `apps/web/next.config.js`.

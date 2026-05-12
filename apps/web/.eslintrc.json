@@ -16,6 +16,7 @@
     "browser": true,
     "es2021": true
   },
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-unused-vars": "off",
