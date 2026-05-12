@@ -66,6 +66,6 @@
     "@h4shed/skill-syncpulse": "^0.1.7",
     "@h4shed/skill-theme-factory": "^1.0.9",
     "false": "^0.0.4",
-    "next": "16.2.2"
+    "next": "16.2.6"
   }
 }
